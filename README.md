@@ -17,8 +17,8 @@ The site is built using **Next.js** and **TypeScript**, and uses **Bun** as the 
 
 ## Setup Instructions
 
-1. Clone the repository with `git clone https://github.com/YOUR-USERNAME/sen-conference-website.git`  
-2. Open the repository in your preferred code editor (for VSCode, use the command `code sen-conference-website`)  
+1. Clone the repository with `git clone https://github.com/ucsdds3/sen-conference.git`
+2. Open the repository in your preferred code editor (for VSCode, use the command `code sen-conference`)  
 3. Run `bun install` to install dependencies  
 4. Run `bun dev` to start the development server. The website will now be available at [http://localhost:3000](http://localhost:3000)
 
@@ -27,10 +27,17 @@ The site is built using **Next.js** and **TypeScript**, and uses **Bun** as the 
 ## Project Structure
 
 ```
-sen-conference-website/
-├── app/                  # Main Next.js app folder (App Router)
-│   ├── favicon.ico       # Favicon for the site
-│   ├── globals.css       # Global CSS styles
-│   ├── layout.tsx        # App layout component
-│   └── page.tsx          # Main landing page
+sen-conference/
+├── app/                      # Main Next.js App Router directory
+│   ├── assets/               # Static assets (e.g. logos)
+│   │   └── sen_logo.png
+│   ├── components/           # Reusable UI components
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   ├── favicon.ico           # Site favicon
+│   ├── globals.css           # Global styles
+│   ├── layout.tsx            # Root layout (fonts, global structure)
+│   └── page.tsx              # Landing page
+
+
 ```
