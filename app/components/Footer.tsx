@@ -4,7 +4,7 @@ import Logo from "@/app/assets/sen_logo.png";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#0D1626] text-white">
+    <footer className="w-full last:mt-auto bg-[#0D1626] text-white">
       {/* Main footer content */}
       <div className="flex w-full px-[5%] py-[80px] justify-between items-center">
         
