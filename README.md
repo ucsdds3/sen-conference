@@ -19,7 +19,8 @@ The site is built using **Next.js** and **TypeScript**, and uses **Bun** as the 
 
 1. Clone the repository with `git clone https://github.com/ucsdds3/sen-conference.git`
 2. Open the repository in your preferred code editor (for VSCode, use the command `code sen-conference`)  
-3. Run `bun install` to install dependencies  
+3. Run `curl -fsSL https://bun.sh/install | bash && \
+export PATH="$HOME/.bun/bin:$PATH"` and then `bun install` to install dependencies  
 4. Run `bun dev` to start the development server. The website will now be available at [http://localhost:3000](http://localhost:3000)
 
 ---
