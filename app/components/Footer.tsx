@@ -2,26 +2,24 @@ export default function Footer() {
   return (
     <footer className="w-full last:mt-auto bg-[#0D1626] text-white">
       {/* Main footer content */}
-      <div className="flex w-full px-[5%] py-[80px] justify-between items-center">
-        
+      <div className="flex w-full gap-8 px-[5%] py-[5%] justify-between items-center">
         {/* Left: Navigation */}
-        <div className="flex flex-col gap-2 uppercase tracking-widest text-sm">
-          <div>About</div>
-          <div>Partners</div>
-          <div>Venue</div>
-          <div>Speakers</div>
-          <div>Workshops</div>
-          <div>Schedule</div>
-          <div>Register</div>
+        <div className="flex flex-col gap-2 min-w-min">
+          <span className="footer-page">About</span>
+          <span className="footer-page">Partners</span>
+          <span className="footer-page">Venue</span>
+          <span className="footer-page">Speakers</span>
+          <span className="footer-page">Workshops</span>
+          <span className="footer-page">Schedule</span>
+          <span className="footer-page">Register</span>
         </div>
 
         {/* Center: Logo + Name */}
-        <div className="flex items-center gap-6">
-          <img
-            src="/sen-conference/assets/SEN_full_logo_light_text.png"
-            alt="SEN Logo"
-          />
-        </div>
+        <img
+          src="/sen-conference/assets/SEN_full_logo_light_text.png"
+          alt="SEN Logo"
+          className="w-full max-w-md min-w-xs"
+        />
 
         {/* Right: Social */}
         <div className="flex flex-col items-end gap-4">
@@ -41,4 +39,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-};
+}

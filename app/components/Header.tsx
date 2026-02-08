@@ -1,3 +1,7 @@
+'use client'
+
+import RegisterButton from './RegisterButton';
+
 export default function Header() {
   return (
     <section>
@@ -8,19 +12,17 @@ export default function Header() {
           className="h-full w-auto"
         />
         <div className="flex text-white gap-2 items-end">
-          <span className="font-medium text-4xl">Blueprint Summit 2026</span>
-          <span className="font-normal">
+          <span className="font-medium text-4xl min-w-max">Blueprint Summit 2026</span>
+          <span className="font-normal min-w-max">
             SEN’s Startup & Innovation Conference
           </span>
         </div>
-        <div className="flex flex-row ml-auto gap-4 bg-white px-8 py-3 rounded-full font-medium text-center text-lg">
+        <div className="flex flex-row ml-auto gap-4 bg-white px-8 py-3 rounded-full font-medium text-center text-lg min-w-max">
           <span>La Jolla, CA</span>
           <span>—</span>
           <span>May 1, 2026</span>
         </div>
-        <div className="bg-sen-yorange px-8 py-3 rounded-full text-xl font-semibold text-center">
-          Get Tickets ↗
-        </div>
+        <RegisterButton />
       </div>
     </section>
   );
