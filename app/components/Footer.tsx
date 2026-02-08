@@ -1,8 +1,4 @@
-import React from "react";
-import Image from "next/image";
-import Logo from "@/app/assets/sen_logo.png";
-
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="w-full last:mt-auto bg-[#0D1626] text-white">
       {/* Main footer content */}
@@ -21,20 +17,10 @@ const Footer = () => {
 
         {/* Center: Logo + Name */}
         <div className="flex items-center gap-6">
-          <Image
-            src={Logo}
-            width={120}
-            height={120}
+          <img
+            src="/assets/SEN_full_logo_light_text.png"
             alt="SEN Logo"
           />
-
-          <div className="w-[2px] h-[100px] bg-[#FAB854]" />
-
-          <div className="flex flex-col font-semibold tracking-wide">
-            <div>STUDENT</div>
-            <div>ENTREPRENEURS</div>
-            <div>NETWORK</div>
-          </div>
         </div>
 
         {/* Right: Social */}
@@ -56,5 +42,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

@@ -1,12 +1,10 @@
-import React from 'react'
 import Image from 'next/image'
-import Logo from '@/app/assets/sen_logo.png'
 
-const Header = () => {
+export default function Header() {
   return (
     <section>
-        <div className='flex w-full h-[160px] bg-[#0D1626]'>
-            <Image src={Logo} width={400} height={160} alt='SEN Logo' className='ml-[5%]'></Image>
+        <div className='flex w-full h-[160px] p-16 bg-[#0D1626]'>
+            <img src="/assets/SEN_full_logo_light_text.png" alt='SEN Logo' className='h-full w-auto' />
             <div className='flex w-[858px] h-[160px] justify-between items-center font-bold text-white mr-[50px]'>
                 <div>HOME</div>
                 <div>SCHEDULE</div>
@@ -19,5 +17,3 @@ const Header = () => {
     </section>
   )
 }
-
-export default Header

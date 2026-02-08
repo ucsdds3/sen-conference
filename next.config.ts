@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   basePath: "/sen-conference", // change this when launching to custom domain
   images: {
     unoptimized: true,
-  }
+  },
 };
 
 export default nextConfig;
