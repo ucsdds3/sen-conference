@@ -18,7 +18,7 @@ export default function Footer() {
         {/* Center: Logo + Name */}
         <div className="flex items-center gap-6">
           <img
-            src="/assets/SEN_full_logo_light_text.png"
+            src="/sen-conference/assets/SEN_full_logo_light_text.png"
             alt="SEN Logo"
           />
         </div>
