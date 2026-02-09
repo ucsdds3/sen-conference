@@ -1,8 +1,6 @@
 import RegisterButton from "./RegisterButton";
 
 export default function Landing() {
-  const router = useRouter();
-
   return (
     <div className="relative grid grid-cols-6 grid-rows-12 p-12 h-[90vh] justify-around">
       {/* background image */}

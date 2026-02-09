@@ -1,15 +1,20 @@
+"use client";
+
 import RegisterButton from "./RegisterButton";
 
 export default function Header() {
   return (
-    <div className="flex flex-row w-full h-[10vh] p-4 gap-4 bg-sen-blue items-center">
+    <div className="flex flex-row w-full h-[10vh] px-10 py-6 gap-4 bg-sen-blue items-center">
       <img
         src="/sen-conference/assets/SEN_small_logo.png"
         alt="SEN Badge"
         className="h-full w-auto"
       />
       <div className="flex text-white gap-2 items-end">
-        <span className="font-medium text-4xl min-w-max">
+        <span
+          onClick={() => (window.location.href = "/sen-conference")}
+          className="font-medium text-4xl min-w-max cursor-pointer"
+        >
           Blueprint Summit 2026
         </span>
         <span className="font-normal min-w-max">
