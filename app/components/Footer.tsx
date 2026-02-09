@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="w-full last:mt-auto bg-[#0D1626] text-white">
+    <footer className="w-full last:mt-auto bg-sen-blue text-white">
       {/* Main footer content */}
-      <div className="flex w-full gap-8 px-[5%] py-[5%] justify-between items-center">
+      <div className="flex w-full max-h-[50vh] gap-8 px-[5%] py-[5%] justify-between items-center">
         {/* Left: Navigation */}
         <div className="flex flex-col gap-2 min-w-min">
           <span className="footer-page">About</span>
