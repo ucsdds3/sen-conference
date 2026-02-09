@@ -1,19 +1,27 @@
-import Image from 'next/image'
+import RegisterButton from "./RegisterButton";
 
 export default function Header() {
   return (
-    <section>
-        <div className='flex w-full h-40 p-16 bg-[#0D1626]'>
-            <img src="/sen-conference/assets/SEN_full_logo_light_text.png" alt='SEN Logo' className='h-full w-auto' />
-            <div className='flex w-214.5 h-40 justify-between items-center font-bold text-white mr-12.5'>
-                <div>HOME</div>
-                <div>SCHEDULE</div>
-                <div>SPEAKERS</div>
-                <div>PARTNERS</div>
-                <div>FAQ</div>
-                <div>REGISTER</div>
-            </div>
-        </div>
-    </section>
-  )
+    <div className="flex flex-row w-full h-[10vh] p-4 gap-4 bg-sen-blue items-center">
+      <img
+        src="/sen-conference/assets/SEN_small_logo.png"
+        alt="SEN Badge"
+        className="h-full w-auto"
+      />
+      <div className="flex text-white gap-2 items-end">
+        <span className="font-medium text-4xl min-w-max">
+          Blueprint Summit 2026
+        </span>
+        <span className="font-normal min-w-max">
+          SEN’s Startup & Innovation Conference
+        </span>
+      </div>
+      <div className="flex flex-row ml-auto gap-4 bg-white px-8 py-3 rounded-full font-medium text-center text-lg min-w-max">
+        <span>La Jolla, CA</span>
+        <span>—</span>
+        <span>May 1, 2026</span>
+      </div>
+      <RegisterButton classes="text-xl min-w-max" />
+    </div>
+  );
 }
