@@ -1,7 +1,11 @@
 import RegisterButton from "./RegisterButton";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Landing() {
   return (
+    <>
+    <Header />
     <div className="relative grid grid-cols-6 grid-rows-12 p-12 h-[90vh] justify-around">
       {/* background image */}
       <div className="absolute inset-0 -z-1">
@@ -29,5 +33,7 @@ export default function Landing() {
         <RegisterButton classes="text-3xl" />
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
