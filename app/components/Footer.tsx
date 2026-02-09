@@ -25,9 +25,9 @@ export default function Footer() {
         <div className="flex flex-col items-end gap-4">
           <div className="font-medium">Stay Connected</div>
           <div className="flex gap-4">
-            <div className="w-[40px] h-[40px] border border-white rounded-md" />
-            <div className="w-[40px] h-[40px] border border-white rounded-md" />
-            <div className="w-[40px] h-[40px] border border-white rounded-md" />
+            <div className="w-104h-10der border-white rounded-md" />
+            <div className="w-10 h-10 border border-white rounded-md" />
+            <div className="w-10 h-10 border border-white rounded-md" />
           </div>
         </div>
       </div>
