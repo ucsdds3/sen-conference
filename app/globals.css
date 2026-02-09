@@ -2,11 +2,6 @@
 
 /* I commented out Dark mode/light mode settings... we could always change later.
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
-
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -14,14 +9,17 @@
   }
 } */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-instrument-sans);
+@theme {
+  --color-white: #F0F0F0;
+  --color-black: #1C1C1C;
+  --color-sen-blue: #0D1626;
+  --color-sen-yorange: #F6B654;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+:root {
   font-family: var(--font-instrument-sans), Arial, Helvetica, sans-serif;
+}
+
+.footer-page {
+  @apply uppercase text-2xl;
 }
