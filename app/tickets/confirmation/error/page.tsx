@@ -1,28 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import TicketsHeader from "../../components/TicketsHeader";
 
 export default function ErrorPage() {
   return (
     <main className="flex justify-center bg-[#F3F3F3] py-20 px-4">
       <div className="w-full max-w-2xl text-center">
 
-        {/* Header */}
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <Image
-            src="/sen-conference/assets/SEN_small_logo.png"
-            alt="SEN Logo"
-            width={60}
-            height={60}
-          />
-          <div className="text-left">
-            <h1 className="text-2xl font-bold text-black">
-              Blueprint Summit 2026
-            </h1>
-            <p className="text-sm text-gray-600">
-              SEN’s Startup & Innovation Conference
-            </p>
-          </div>
-        </div>
+        <TicketsHeader />
 
         <h2 className="text-5xl font-extrabold text-black mb-4">
           PAYMENT FAILED

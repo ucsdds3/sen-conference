@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import TicketsHeader from "./components/TicketsHeader";
 
 export default function TicketsPage() {
   const router = useRouter();
@@ -9,23 +9,8 @@ export default function TicketsPage() {
   return (
     <main className="flex justify-center bg-[#F3F3F3] py-20 px-4">
       <div className="w-full max-w-3xl bg-white rounded-xl shadow-md p-10">
-        {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <Image
-            src="/sen-conference/assets/SEN_small_logo.png"
-            alt="SEN Logo"
-            width={60}
-            height={60}
-          />
-          <div>
-            <h1 className="text-2xl font-bold text-black">
-              Blueprint Summit 2026
-            </h1>
-            <p className="text-sm text-gray-600">
-              SEN’s Startup & Innovation Conference
-            </p>
-          </div>
-        </div>
+        
+        <TicketsHeader />
 
         {/* Step Indicator */}
         <div className="flex justify-center mb-12">
