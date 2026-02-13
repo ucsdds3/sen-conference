@@ -12,7 +12,6 @@ export default function TicketsPage() {
         
         <TicketsHeader />
 
-        {/* Step Indicator */}
         <div className="flex justify-center mb-12">
           <div className="w-[420px]">
             <div className="relative flex items-center w-full">
@@ -32,7 +31,6 @@ export default function TicketsPage() {
           </div>
         </div>
 
-        {/* Form */}
         <div className="grid grid-cols-2 gap-6">
           <div className="flex flex-col">
             <label className="text-sm font-medium mb-1">
@@ -98,7 +96,6 @@ export default function TicketsPage() {
           </div>
         </div>
 
-        {/* Checkout Button */}
         <button
           onClick={() => router.push("/tickets/payment")}
           className="mt-12 w-full bg-[#0D1626] text-white py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition"
