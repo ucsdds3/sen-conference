@@ -27,7 +27,6 @@ export default function PaymentPage() {
           Secure checkout powered by Stripe
         </p>
 
-        {/* Stripe Embed Placeholder */}
         <div
           style={{
             height: "200px",
@@ -43,7 +42,6 @@ export default function PaymentPage() {
           Stripe Embedded Form
         </div>
 
-        {/* Temporary test buttons */}
         <button
           onClick={() => router.push("/tickets/confirmation/success")}
           style={{
