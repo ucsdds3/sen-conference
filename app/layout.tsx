@@ -27,9 +27,7 @@ export default function RootLayout({
       <body
         className={`flex flex-col min-h-screen ${instrumentSans.className} antialiased`}
       >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
