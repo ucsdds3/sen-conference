@@ -19,7 +19,3 @@
 :root {
   font-family: var(--font-instrument-sans), Arial, Helvetica, sans-serif;
 }
-
-.footer-page {
-  @apply uppercase text-2xl;
-}
