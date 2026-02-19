@@ -1,74 +1,39 @@
 "use client";
 import { useRouter } from "next/navigation";
+import TicketsHeader from "../components/TicketsHeader";
 
 export default function PaymentPage() {
   const router = useRouter();
 
   return (
-    <main
-      style={{
-        minHeight: "70vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          width: "420px",
-          padding: "2.5rem",
-          border: "1px solid #ddd",
-          borderRadius: "12px",
-          textAlign: "center",
-        }}
-      >
-        <h2>Payment</h2>
-        <p style={{ color: "#555", marginBottom: "1.5rem" }}>
-          Secure checkout powered by Stripe
-        </p>
+    <main className="flex justify-center py-[5vh] px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
+      <div className="h-[90vh] flex flex-col w-full max-w-3xl bg-white rounded-xl shadow-md p-10 justify-evenly">
+        <TicketsHeader />
 
-        <div
-          style={{
-            height: "200px",
-            border: "2px dashed #ccc",
-            borderRadius: "8px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: "2rem",
-            color: "#777",
-          }}
-        >
-          Stripe Embedded Form
+        <div className="flex justify-center mb-12">
+          <div className="w-[420px]">
+            <div className="relative flex items-center w-full">
+              <div className="absolute w-full h-[2px] bg-[#0D1626]" />
+
+              <div className="relative z-10 w-5 h-5 rounded-full bg-[#0D1626]" />
+
+              <div className="flex-1" />
+
+              <div className="relative z-10 w-5 h-5 rounded-full bg-[#0D1626] border-3 border-sen-yorange p-2.5" />
+            </div>
+
+            <div className="flex justify-between mt-3 text-base">
+              <span className="font-medium text-gray-500">Details</span>
+              <span className="font-medium text-black">Payment</span>
+            </div>
+          </div>
         </div>
 
-        <button
-          onClick={() => router.push("/tickets/confirmation/success")}
-          style={{
-            width: "100%",
-            backgroundColor: "#FAB854",
-            padding: "0.9rem",
-            fontWeight: 600,
-            border: "none",
-            borderRadius: "8px",
-            cursor: "pointer",
-            marginBottom: "0.75rem",
-          }}
-        >
-          Complete Payment
-        </button>
+        <div className='h-[60vh] bg-gray-500'>
 
-        <button
-          onClick={() => router.push("/tickets/confirmation/error")}
-          style={{
-            background: "none",
-            border: "none",
-            color: "#999",
-            cursor: "pointer",
-          }}
-        >
-          Simulate Error
-        </button>
+        </div>
+
+        {/* TODO: Stripe Checkout Integration */}
       </div>
     </main>
   );
