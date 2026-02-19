@@ -7,7 +7,7 @@ export default function TicketsPage() {
   const router = useRouter();
 
   return (
-    <main className="flex justify-center bg-[#F3F3F3] py-20 px-4">
+    <main className="flex justify-center py-20 px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
       <div className="w-full max-w-3xl bg-white rounded-xl shadow-md p-10">
         
         <TicketsHeader />
