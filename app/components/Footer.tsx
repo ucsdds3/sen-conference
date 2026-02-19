@@ -5,13 +5,13 @@ export default function Footer() {
       <div className="flex w-full max-h-[50vh] gap-8 px-[5%] py-[5%] justify-between items-center">
         {/* Left: Navigation */}
         <div className="flex flex-col gap-2 min-w-min">
-          <span className="footer-page">About</span>
-          <span className="footer-page">Partners</span>
-          <span className="footer-page">Venue</span>
-          <span className="footer-page">Speakers</span>
-          <span className="footer-page">Workshops</span>
-          <span className="footer-page">Schedule</span>
-          <span className="footer-page">Register</span>
+          <span className="uppercase text-2xl">About</span>
+          <span className="uppercase text-2xl">Partners</span>
+          <span className="uppercase text-2xl">Venue</span>
+          <span className="uppercase text-2xl">Speakers</span>
+          <span className="uppercase text-2xl">Workshops</span>
+          <span className="uppercase text-2xl">Schedule</span>
+          <span className="uppercase text-2xl">Register</span>
         </div>
 
         {/* Center: Logo + Name */}

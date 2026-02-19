@@ -1,8 +1,11 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function TicketsHeader() {
+  const router = useRouter();
+
   return (
-    <div className="flex items-center justify-center gap-4 mb-10">
+    <div onClick={() => router.push('/')} className="flex items-center justify-center gap-4 mb-10 cursor-pointer">
       <Image
         src="/sen-conference/assets/SEN_small_logo.png"
         alt="SEN Logo"
