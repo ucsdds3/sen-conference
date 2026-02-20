@@ -1,3 +1,5 @@
+"use server";
+
 import { redirect } from "next/navigation";
 
 export default async function handleCheckout(input: FormData) {
@@ -11,11 +13,10 @@ export default async function handleCheckout(input: FormData) {
 
   // Basic validation
   if (!firstName || !lastName || !email || !city || !state || !ticket) {
-    alert("Please fill in all required fields.");
-    return;
+    throw new Error("Please fill in all required fields.");
   }
 
-  const res = await fetch("/api/checkout", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -27,6 +28,6 @@ export default async function handleCheckout(input: FormData) {
   const data = await res.json();
 
   if (data.url) {
-    redirect(`${data.url}`);
+    redirect(data.url);
   }
 }
