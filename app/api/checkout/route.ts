@@ -47,9 +47,12 @@ export async function POST(req: Request) {
     metadata: {
       firstName: attendee.firstName,
       lastName: attendee.lastName,
+      email: attendee.email,
       city: attendee.city,
       state: attendee.state,
-      referralCode: attendee.referralCode || "",
+      ticket: attendee.ticket,
+      referralCode: attendee.referralCode || "n/a",
+      assignedReferralCode: assignedReferralCode,
     },
   });
 

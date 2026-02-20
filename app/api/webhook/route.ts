@@ -35,16 +35,17 @@ export async function POST(req: Request) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Sheet1!A:G",
+      range: "Sheet1!A:H",
       valueInputOption: "RAW",
       requestBody: {
         values: [[
           session.metadata?.firstName,
           session.metadata?.lastName,
-          session.customer_email,
+          session.metadata?.email,
           session.metadata?.city,
           session.metadata?.state,
-          session.metadata?.enteredReferralCode,
+          session.metadata?.ticket,
+          session.metadata?.referralCode,
           session.metadata?.assignedReferralCode,
         ]],
       },
