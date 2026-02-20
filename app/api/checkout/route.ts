@@ -3,6 +3,15 @@ import { NextResponse } from "next/server";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
+function generateReferralCode() {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let code = "";
+  for (let i = 0; i < 16; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return code;
+}
+
 export async function POST(req: Request) {
   const body = await req.json();
   const { ticket, attendee } = body;
@@ -12,6 +21,8 @@ export async function POST(req: Request) {
     "Student": 2500,
     "VIP": 15000,
   };
+
+  const assignedReferralCode = generateReferralCode();
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
@@ -31,7 +42,7 @@ export async function POST(req: Request) {
     mode: "payment",
     customer_email: attendee.email,
     allow_promotion_codes: true,
-    success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/success`,
+    success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/success?code=${assignedReferralCode}`,
     cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/tickets`,
     metadata: {
       firstName: attendee.firstName,

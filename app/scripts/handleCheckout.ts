@@ -1,13 +1,13 @@
 import { redirect } from "next/navigation";
 
-export default async function handleCheckout(input : FormData) {
-  const firstName = input.get('first-name');
-  const lastName = input.get('last-name');
-  const email = input.get('email');
-  const city = input.get('city');
-  const state = input.get('state');
-  const ticket = input.get('ticket');
-  const referralCode = input.get('referral-code');
+export default async function handleCheckout(input: FormData) {
+  const firstName = input.get("first-name");
+  const lastName = input.get("last-name");
+  const email = input.get("email");
+  const city = input.get("city");
+  const state = input.get("state");
+  const ticket = input.get("ticket");
+  const referralCode = input.get("referral-code");
 
   // Basic validation
   if (!firstName || !lastName || !email || !city || !state || !ticket) {
@@ -26,9 +26,7 @@ export default async function handleCheckout(input : FormData) {
 
   const data = await res.json();
 
-  // TODO: store metadata in a google sheet and generate referral code here
-
   if (data.url) {
-    redirect(data.url); // TODO: add referral code argument
+    redirect(`${data.url}`);
   }
 }
