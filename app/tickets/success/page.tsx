@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import TicketsHeader from "../components/TicketsHeader";
 
 export default function SuccessPage() {
-  const searchParams = new URLSearchParams(window.location.search);
+  const searchParams = useSearchParams();
   const referralCode = searchParams.get("code") || "";
   const [copied, setCopied] = useState(false);
 
