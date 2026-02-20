@@ -10,7 +10,7 @@ export default function Landing() {
       {/* background image */}
       <div className="absolute inset-0 -z-1">
         <img
-          src="/sen-conference/assets/speaker.png"
+          src="/assets/speaker.png"
           alt="Speaker Background"
           className="w-full h-full object-cover brightness-50"
         />

@@ -6,13 +6,13 @@ export default function Header() {
   return (
     <div className="flex flex-row w-full h-[10vh] px-10 py-6 gap-4 bg-sen-blue items-center">
       <img
-        src="/sen-conference/assets/SEN_small_logo.png"
+        src="/assets/SEN_small_logo.png"
         alt="SEN Badge"
         className="h-full w-auto"
       />
       <div className="flex text-white gap-2 items-end">
         <span
-          onClick={() => (window.location.href = "/sen-conference")}
+          onClick={() => (window.location.href = "/")}
           className="font-medium text-4xl min-w-max cursor-pointer"
         >
           Blueprint Summit 2026

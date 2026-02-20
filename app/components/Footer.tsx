@@ -16,7 +16,7 @@ export default function Footer() {
 
         {/* Center: Logo + Name */}
         <img
-          src="/sen-conference/assets/SEN_full_logo_light_text.png"
+          src="/assets/SEN_full_logo_light_text.png"
           alt="SEN Logo"
           className="w-full max-w-md min-w-xs"
         />
