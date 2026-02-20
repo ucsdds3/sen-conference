@@ -31,9 +31,6 @@ jobs:
 
       - name: Build
         run: bun run build
-        env:
-          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
 
       - name: Deploy to Vercel
         run: bunx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
