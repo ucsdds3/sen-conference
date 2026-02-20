@@ -42,5 +42,5 @@ export async function POST(req: Request) {
     },
   });
 
-  return NextResponse.json({ url: session.url });
+  return NextResponse.json({ url: session.url, metadata: session.metadata });
 }
