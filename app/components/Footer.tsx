@@ -1,39 +1,41 @@
+"use client";
+
 export default function Footer() {
   return (
-    <footer className="w-full last:mt-auto bg-sen-blue text-white">
-      {/* Main footer content */}
-      <div className="flex w-full max-h-[50vh] gap-8 px-[5%] py-[5%] justify-between items-center">
-        {/* Left: Navigation */}
-        <div className="flex flex-col gap-2 min-w-min">
-          <span className="uppercase text-2xl">About</span>
-          <span className="uppercase text-2xl">Partners</span>
-          <span className="uppercase text-2xl">Venue</span>
-          <span className="uppercase text-2xl">Speakers</span>
-          <span className="uppercase text-2xl">Workshops</span>
-          <span className="uppercase text-2xl">Schedule</span>
-          <span className="uppercase text-2xl">Register</span>
+    <footer className="w-full bg-sen-blue text-white mt-auto">
+      {/* Top Section */}
+      <div className="flex flex-wrap justify-between items-start gap-6 px-5 py-6 md:px-10 md:py-8">
+        {/* Links */}
+        <div className="flex flex-col gap-2 min-w-max">
+          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">About</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Partners</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Venue</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Speakers</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Workshops</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Schedule</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Register</span>
         </div>
 
-        {/* Center: Logo + Name */}
+        {/* Logo */}
         <img
           src="/sen-conference/assets/SEN_full_logo_light_text.png"
           alt="SEN Logo"
-          className="w-full max-w-md min-w-xs"
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md object-contain"
         />
 
-        {/* Right: Social */}
-        <div className="flex flex-col items-end gap-4">
-          <div className="font-medium">Stay Connected</div>
-          <div className="flex gap-4">
-            <div className="w-104h-10der border-white rounded-md" />
+        {/* Social / Stay Connected */}
+        <div className="flex flex-col items-start sm:items-end gap-4 min-w-[120px]">
+          <div className="font-medium text-sm sm:text-base">Stay Connected</div>
+          <div className="flex gap-3">
+            <div className="w-10 h-10 border border-white rounded-md" />
             <div className="w-10 h-10 border border-white rounded-md" />
             <div className="w-10 h-10 border border-white rounded-md" />
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="flex w-full px-[5%] py-6 border-t border-white/30 justify-between text-sm text-white/80">
+      {/* Bottom Section */}
+      <div className="flex flex-col sm:flex-row w-full px-5 py-4 md:px-10 md:py-6 border-t border-white/30 justify-between text-xs sm:text-sm text-white/80 gap-2 sm:gap-0">
         <div>© 2026 SEN Conference</div>
         <div>Designed by DS3 Software Team</div>
       </div>
