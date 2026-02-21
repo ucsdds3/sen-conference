@@ -18,8 +18,8 @@ export async function POST(req: Request) {
 
   const priceMap: Record<string, number> = {
     "General Admission": 5000, // in cents = $50
-    "Student": 2500,
-    "VIP": 15000,
+    "Premium": 7500,
+    "VIP": 10000,
   };
 
   const assignedReferralCode = generateReferralCode();

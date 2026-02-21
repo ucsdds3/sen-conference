@@ -44,7 +44,8 @@ export async function POST(req: Request) {
           session.metadata?.email,
           session.metadata?.city,
           session.metadata?.state,
-          session.metadata?.ticket,
+          session.metadata?.ticket, // TODO: fix ticket not showing on sheets
+          session.metadata?.student, // TODO: add student discount field (boolean value)
           session.metadata?.referralCode,
           session.metadata?.assignedReferralCode,
         ]],
