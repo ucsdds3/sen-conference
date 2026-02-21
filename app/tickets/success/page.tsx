@@ -1,18 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import TicketsHeader from "../components/TicketsHeader";
 
-export default function SuccessPage() {
-  const [referralCode] = useState(() => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let code = "";
-    for (let i = 0; i < 16; i++) {
-      code += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return code;
-  });
 
+function SuccessContent() {
+  const searchParams = useSearchParams();
+  const referralCode = searchParams.get("code") || "";
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {
@@ -98,4 +93,12 @@ export default function SuccessPage() {
       </div>
     </main>
   );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
+  )
 }

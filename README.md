@@ -21,7 +21,7 @@ The site is built using **Next.js** and **TypeScript**, and uses **Bun** as the 
 2. Open the repository in your preferred code editor (for VSCode, use the command `code sen-conference`)  
 3. Run `curl -fsSL https://bun.sh/install | bash && \
 export PATH="$HOME/.bun/bin:$PATH"` and then `bun install` to install dependencies  
-4. Run `bun dev` to start the development server. The website will now be available at [http://localhost:3000/sen-conference](http://localhost:3000/sen-conference)
+4. Run `bun dev` to start the development server. The website will now be available at [http://localhost:3000](http://localhost:3000)
 
 ---
 

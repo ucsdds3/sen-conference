@@ -7,7 +7,7 @@ export default function Header() {
     <header className="flex items-center w-full min-h-[60px] px-6 md:px-10 gap-3 bg-sen-blue">
       {/* Logo */}
       <img
-        src="/sen-conference/assets/SEN_small_logo.png"
+        src="/assets/SEN_small_logo.png"
         alt="SEN Badge"
         className="h-10 md:h-12 w-auto flex-shrink-0"
       />

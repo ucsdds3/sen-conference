@@ -7,7 +7,7 @@ export default function TicketsHeader() {
   return (
     <div onClick={() => router.push('/')} className="flex items-center justify-center gap-4 mb-10 cursor-pointer">
       <Image
-        src="/sen-conference/assets/SEN_small_logo.png"
+        src="/assets/SEN_small_logo.png"
         alt="SEN Logo"
         width={60}
         height={60}

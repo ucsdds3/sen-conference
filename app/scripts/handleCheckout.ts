@@ -1,21 +1,21 @@
+"use server";
+
 import { redirect } from "next/navigation";
 
-export default async function handleCheckout(input : FormData) {
-  const firstName = input.get('first-name');
-  const lastName = input.get('last-name');
-  const email = input.get('email');
-  const city = input.get('city');
-  const state = input.get('state');
-  const ticket = input.get('ticket');
-  const referralCode = input.get('referral-code');
+export default async function handleCheckout(input: FormData) {
+  const firstName = input.get("first-name");
+  const lastName = input.get("last-name");
+  const email = input.get("email");
+  const city = input.get("city");
+  const state = input.get("state");
+  const ticket = input.get("ticket");
+  const referralCode = input.get("referral-code");
 
   // Basic validation
   if (!firstName || !lastName || !email || !city || !state || !ticket) {
-    alert("Please fill in all required fields.");
-    return;
+    throw new Error("Please fill in all required fields.");
   }
 
-  console.log(process.env.NEXT_PUBLIC_BASE_URL)
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -28,6 +28,6 @@ export default async function handleCheckout(input : FormData) {
   const data = await res.json();
 
   if (data.url) {
-    redirect(data.url); // Redirect to Stripe hosted checkout
+    redirect(data.url);
   }
 }

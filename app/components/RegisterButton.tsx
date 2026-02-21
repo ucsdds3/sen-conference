@@ -3,7 +3,7 @@
 export default function RegisterButton({ classes }: { classes: string }) {
   return (
     <div
-      onClick={() => (window.location.href = "/sen-conference/tickets")}
+      onClick={() => (window.location.href = "/tickets")}
       className="bg-sen-yorange px-10 py-3 rounded-full max-w-min cursor-pointer"
     >
       <span
