@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative w-full h-screen overflow-hidden">
       {/* Background image */}
       <img
-        src="assets/speaker.png"
+        src="/assets/speaker.png"
         alt="Speaker Background"
         className="absolute inset-0 w-full h-full object-cover brightness-50 -z-10"
       />
