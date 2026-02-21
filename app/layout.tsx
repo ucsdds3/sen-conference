@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
