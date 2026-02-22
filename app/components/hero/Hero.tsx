@@ -19,13 +19,13 @@ export default function Hero() {
       </div>
 
       {/* Hero content */}
-      <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 md:px-12 gap-4 md:gap-6">
-        {/* Headline — fluid font, max 2 lines */}
+      <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 gap-6 md:gap-8">
+        {/* Title */}
         <h1
-          className="text-white font-bold leading-snug"
+          className="text-white font-bold leading-tight mb-3 md:mb-4"
           style={{
-            fontSize: "clamp(2rem, 5vw, 3.2rem)",
-            maxWidth: "36ch", // ensures exactly 2 lines
+            fontSize: "clamp(2.8rem, 7vw, 4.4rem)",
+            maxWidth: "36ch",
           }}
         >
           Build What Actually Works.
@@ -33,20 +33,20 @@ export default function Hero() {
           Learn From People Who’ve Done It.
         </h1>
 
-        {/* Description */}
-        <p className="text-white font-semibold text-[clamp(0.9rem,2vw,1.5rem)] max-w-3xl leading-relaxed">
+        {/* Subtitle */}
+        <p className="text-white font-semibold text-[clamp(1rem,2vw,1.6rem)] max-w-3xl leading-relaxed mb-3 md:mb-4">
           A one-day, in-person conference bringing together founders, operators,
           and builders to share practical frameworks, real lessons, and actionable
           next steps you can actually use.
         </p>
 
-        {/* Tagline */}
-        <p className="text-sen-yorange font-medium text-[clamp(0.9rem,1.5vw,1.25rem)] max-w-2xl">
+        {/* Supporting line */}
+        <p className="text-sen-yorange font-medium text-[clamp(1rem,1.5vw,1.3rem)] max-w-2xl mb-5 md:mb-6">
           Workshops. Panels. Real conversations. No fluff.
         </p>
 
-        {/* Register Button */}
-        <RegisterButton classes="text-[clamp(0.9rem,2vw,1.5rem)] mt-2" />
+        {/* CTA */}
+        <RegisterButton classes="text-[clamp(1rem,2vw,1.6rem)]" />
       </div>
     </section>
   );

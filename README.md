@@ -28,13 +28,14 @@ export PATH="$HOME/.bun/bin:$PATH"` and then `bun install` to install dependenci
 ## Project Structure
 
 ```
+
 sen-conference-website/
 ├── app/                        # All pages, layouts, and components (Next.js App Router)
 │   ├── layout.tsx              # Root layout
 │   ├── page.tsx                # Homepage
-│   ├── Landing.tsx             # Landing page/section
 │   ├── tickets/                # Ticketing/payment pages
 │   └── components/             # Reusable UI components
+│       └── Landing.tsx         # Landing page
 ├── public/                     # Public assets
 │   └── assets/                 # Image and other static assets
 ├── globals.css
@@ -42,6 +43,5 @@ sen-conference-website/
 ├── tsconfig.json
 ├── package.json
 └── bun.lock
-
 
 ```
