@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AboutConferenceSection() {
   return (
-    <section className="relative h-screen w-full flex flex-col overflow-hidden">
+    <section className="h-screen w-full flex flex-col overflow-hidden">
       <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-evenly px-[10vw]">
         {/* Title */}
         <div className="flex flex-col max-w-min mx-auto my-4">
