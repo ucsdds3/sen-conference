@@ -5,7 +5,7 @@ interface PricingCardProps {
   features: string[];
   price: string;
   bgColor: string;
-  minHeight: string;
+  height: string;
   glowColor: string;
 }
 
@@ -14,14 +14,14 @@ export default function PricingCard({
   features,
   price,
   bgColor,
-  minHeight,
+  height,
   glowColor,
 }: PricingCardProps) {
   return (
     <div
       className={`
         ${bgColor}
-        ${minHeight}
+        ${height}
         w-full
         p-12
         flex flex-col justify-between
