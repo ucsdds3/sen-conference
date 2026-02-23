@@ -16,13 +16,13 @@ export default function TicketsPage() {
         <div className="flex justify-center mb-12">
           <div className="w-[420px]">
             <div className="relative flex items-center w-full">
-              <div className="absolute w-full h-[2px] bg-sen-yorange" />
+              <div className="absolute w-full h-[2px] bg-sen-blue" />
 
-              <div className="relative z-10 w-5 h-5 rounded-full bg-sen-yorange border-3 border-sen-yorange p-2.5" />
+              <div className="relative z-10 w-5 h-5 rounded-full bg-sen-blue border-3 border-sen-yorange p-2.5" />
 
               <div className="flex-1" />
 
-              <div className="relative z-10 w-5 h-5 rounded-full bg-sen-yorange" />
+              <div className="relative z-10 w-5 h-5 rounded-full bg-sen-blue" />
             </div>
 
             <div className="flex justify-between mt-3 text-base">
@@ -89,10 +89,11 @@ export default function TicketsPage() {
               <label className="text-sm font-medium mb-1">
                 Choose Ticket *
               </label>
-              <select name="ticket" className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange">
-                <option>General Admission</option>
-                <option>Student</option>
-                <option>VIP</option>
+              <select defaultValue="" name="ticket" className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange">
+                <option value="" disabled hidden>Click for dropdown</option>
+                <option value="General Admission">General Admission</option>
+                <option value="Premium">Premium</option>
+                <option value="VIP">VIP</option>
               </select>
             </div>
 

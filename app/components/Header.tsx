@@ -4,29 +4,28 @@ import RegisterButton from "./RegisterButton";
 
 export default function Header() {
   return (
-    <div className="flex flex-row w-full h-[10vh] px-10 py-6 gap-4 bg-sen-blue items-center">
+    <header className="flex items-center w-full h-[10vh] min-h-[70px] px-6 md:px-10 gap-4 bg-sen-blue overflow-x-hidden">
+      {/* Logo */}
       <img
         src="/assets/SEN_small_logo.png"
         alt="SEN Badge"
-        className="h-full w-auto"
+        className="h-10 md:h-12 w-auto flexshrink-0"
       />
-      <div className="flex text-white gap-2 items-end">
+
+      {/* Title */}
+      <div className="flex flex-col text-white gap-1 items-start md:items-end">
         <span
           onClick={() => (window.location.href = "/")}
-          className="font-medium text-4xl min-w-max cursor-pointer"
+          className="font-medium text-xl sm:text-2xl md:text-3xl cursor-pointer min-w-max"
         >
           Blueprint Summit 2026
         </span>
-        <span className="font-normal min-w-max">
-          SEN’s Startup & Innovation Conference
-        </span>
       </div>
-      <div className="flex flex-row ml-auto gap-4 bg-white px-8 py-3 rounded-full font-medium text-center text-lg min-w-max">
-        <span>La Jolla, CA</span>
-        <span>—</span>
-        <span>May 1, 2026</span>
+
+      {/* Register Button */}
+      <div className="ml-auto hidden sm:block shrink-0">
+        <RegisterButton classes="text-sm xs:text-base md:text-lg" />
       </div>
-      <RegisterButton classes="text-xl min-w-max" />
-    </div>
+    </header>
   );
 }
