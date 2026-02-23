@@ -21,7 +21,7 @@ export default async function handleCheckout(input: FormData) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ticket,
-      attendee: { firstName, lastName, email, city, state, referralCode },
+      attendee: { firstName, lastName, email, city, state, ticket, referralCode },
     }),
   });
 
