@@ -18,4 +18,5 @@
 
 :root {
   font-family: var(--font-instrument-sans), Arial, Helvetica, sans-serif;
+  background-color: var(--color-sen-blue);
 }

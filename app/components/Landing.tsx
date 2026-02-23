@@ -5,7 +5,9 @@ import Hero from "./hero/Hero";
 import AboutConferenceSection from "./about_conference/AboutConferenceSection";
 import BenefitsSection from "./benefits/BenefitsSection";
 import PricingSection from "./pricing/PricingSection";
-import RegisterButton from "./RegisterButton";
+import SocialProof from "./social_proof/SocialProof";
+import Questions from "./questions/questions";
+import FinalCountdown from "./final_countdown/FinalCountdown";
 
 export default function Landing() {
   return (
@@ -13,14 +15,12 @@ export default function Landing() {
       <Header />
       <Countdown />
       <Hero />
-      <AboutConferenceSection />
+      <SocialProof />
       <BenefitsSection />
-
-      <div className="self-center my-8">
-        <RegisterButton classes="text-[clamp(1rem,2vw,1.6rem)]"/>
-      </div>
-
+      <AboutConferenceSection />
       <PricingSection />
+      <Questions />
+      <FinalCountdown />
       <Footer />
     </>
   );

@@ -4,7 +4,7 @@ import PricingCard from "./PricingCard";
 
 export default function PricingSection() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col p-8 md:p-20">
+    <section className="relative w-full min-h-screen flex flex-col p-8 md:p-20 bg-white -z-20">
       {/* background */}
       <svg
         viewBox="-400 0 3000 1200"
