@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Countdown() {
   const targetDate = new Date("2026-05-01T00:00:00").getTime();
-  const [timeLeft, setTimeLeft] = useState(targetDate - Date.now());
+  const [timeLeft, setTimeLeft] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -13,6 +13,10 @@ export default function Countdown() {
     return () => clearInterval(timer);
   }, [targetDate]);
 
+  if (timeLeft === null) {
+    return null;
+  }
+  
   const ms = Math.max(timeLeft, 0);
   const seconds = Math.floor((ms / 1000) % 60);
   const minutes = Math.floor((ms / 1000 / 60) % 60);
