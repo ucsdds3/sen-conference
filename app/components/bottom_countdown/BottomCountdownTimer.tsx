@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const TARGET_DATE = new Date("2026-11-17T00:00:00").getTime();
 
-export function bottomCountdownTimer() {
+export function usebottomCountdownTimer() {
   const [timeLeft, setTimeLeft] = useState(TARGET_DATE - Date.now());
 
   useEffect(() => {
