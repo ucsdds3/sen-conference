@@ -10,7 +10,7 @@ export default function FlipDigit({ value }: { value: string }) {
   useEffect(() => {
     if (value !== current) {
       // Start flip
-      setRotation(-180);
+      setRotation(-90);
 
       const timeout = setTimeout(() => {
         setCurrent(value);
@@ -28,7 +28,7 @@ export default function FlipDigit({ value }: { value: string }) {
         style={{
           transformStyle: "preserve-3d",
           transform: `rotateX(${rotation}deg)`,
-          transition: "transform 0.6s cubic-bezier(.4,0,.2,1)",
+          transition: "transform 0.45s cubic-bezier(.4,0,.2,1)",
         }}
       >
         {/* Front face showing current digit */}
