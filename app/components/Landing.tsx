@@ -1,13 +1,13 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import Countdown from "./hero/Countdown";
+import Countdown from "./countdowns/top_countdown/TopCountdown";
 import Hero from "./hero/Hero";
 import AboutConferenceSection from "./about_conference/AboutConferenceSection";
 import BenefitsSection from "./benefits/BenefitsSection";
 import PricingSection from "./pricing/PricingSection";
 import SocialProof from "./social_proof/SocialProof";
 import Questions from "./questions/questions";
-import FinalCountdown from "./bottom_countdown/BottomCountdownSection";
+import BottomCountdownSection from "./countdowns/bottom_countdown/BottomCountdownSection";
 
 export default function Landing() {
   return (
@@ -20,7 +20,7 @@ export default function Landing() {
       <AboutConferenceSection />
       <PricingSection />
       <Questions />
-      <FinalCountdown />
+      <BottomCountdownSection />
       <Footer />
     </div>
   );
