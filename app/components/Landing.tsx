@@ -7,7 +7,7 @@ import BenefitsSection from "./benefits/BenefitsSection";
 import PricingSection from "./pricing/PricingSection";
 import SocialProof from "./social_proof/SocialProof";
 import Questions from "./questions/questions";
-import FinalCountdown from "./final_countdown/FinalCountdown";
+import FinalCountdown from "./bottom_countdown/BottomCountdownSection";
 
 export default function Landing() {
   return (

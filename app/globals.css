@@ -1,14 +1,5 @@
 @import "tailwindcss";
 
-/* I commented out Dark mode/light mode settings... we could always change later.
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 @theme {
   --color-white: #F0F0F0;
   --color-black: #1C1C1C;
@@ -19,4 +10,33 @@
 :root {
   font-family: var(--font-instrument-sans), Arial, Helvetica, sans-serif;
   background-color: var(--color-sen-blue);
+}
+
+/* Bottom Countdown Flip Animation */
+
+@keyframes flip-top {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-90deg); }
+}
+
+@keyframes flip-bottom {
+  0% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+.animate-flip-top {
+  animation: flip-top 0.3s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+.animate-flip-bottom {
+  animation: flip-bottom 0.3s cubic-bezier(.4,0,.2,1) forwards;
+  animation-delay: 0.3s;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
 }
