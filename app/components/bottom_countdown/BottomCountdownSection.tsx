@@ -1,11 +1,11 @@
 "use client";
 
-import { bottomCountdownTimer } from "./BottomCountdownTimer";
+import { usebottomCountdownTimer } from "./BottomCountdownTimer";
 import DigitGroup from "./DigitGroup";
 import RegisterButton from "../RegisterButton";
 
 export default function BottomCountdownSection() {
-  const { days, hours, minutes } = bottomCountdownTimer();
+  const { days, hours, minutes } = usebottomCountdownTimer();
 
   return (
     <section className="min-h-screen bg-sen-blue flex items-center justify-center px-6">
