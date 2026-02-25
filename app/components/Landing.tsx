@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import Countdown from "./countdowns/top_countdown/TopCountdown";
+import Countdown from "./countdowns/top_countdown/TopCountdownSection";
 import Hero from "./hero/Hero";
 import AboutConferenceSection from "./about_conference/AboutConferenceSection";
 import BenefitsSection from "./benefits/BenefitsSection";

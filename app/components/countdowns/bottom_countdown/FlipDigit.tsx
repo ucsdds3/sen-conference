@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-/* ---------------- RETRO FLIP DIGIT ---------------- */
 export default function FlipDigit({ value }: { value: string }) {
   const [current, setCurrent] = useState(value);
   const [rotation, setRotation] = useState(0);
