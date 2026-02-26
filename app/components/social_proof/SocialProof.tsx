@@ -1,10 +1,10 @@
 export default function SocialProof() {
   return (
-    <div className="-z-20">
+    <section className="bg-white p-8 md:p-20">
       <img
         src="/assets/social-proof-placeholder.png"
         className="h-auto w-full"
       />
-    </div>
+    </section>
   );
 }

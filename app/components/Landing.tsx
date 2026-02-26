@@ -11,7 +11,7 @@ import FinalCountdown from "./final_countdown/FinalCountdown";
 
 export default function Landing() {
   return (
-    <>
+    <div className="overflow-x-clip">
       <Header />
       <Countdown />
       <Hero />
@@ -22,6 +22,6 @@ export default function Landing() {
       <Questions />
       <FinalCountdown />
       <Footer />
-    </>
+    </div>
   );
 }
