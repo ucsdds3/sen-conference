@@ -12,7 +12,7 @@ export default function BottomCountdownSection() {
   return (
     <section className="min-h-screen bg-sen-blue flex items-center justify-center px-6">
       {/* Container */}
-      <div className="w-full max-w-[1400px] flex flex-col items-center text-center">
+      <div className="w-screen max-w-[1400px] flex flex-col items-center text-center">
         {/* Heading */}
         <h2 className="text-white font-bold tracking-[0.25em] text-[clamp(1.75rem,3.5vw,2.5rem)] mb-[clamp(3rem,6vw,5rem)]">
           TIME LEFT TO REGISTER
