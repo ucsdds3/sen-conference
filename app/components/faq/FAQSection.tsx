@@ -18,7 +18,7 @@ export default function FAQSection() {
           <strong>how real companies are built, scaled, and operated.</strong>
           <br />
           <br />
-          You’ll rotate through workshops, panels, and small-group sessions led
+          You'll rotate through workshops, panels, and small-group sessions led
           by founders, operators, and builders who are actively doing the work.
           <br />
           <br />
@@ -48,8 +48,8 @@ export default function FAQSection() {
           </ul>
           <br />
           The goal is simple: you should be able to point to specific insights,
-          decisions, or connections and say, “
-          <em>This changed how I think or act.</em>”
+          decisions, or connections and say, "
+          <em>This changed how I think or act.</em>"
         </>
       ),
     },
