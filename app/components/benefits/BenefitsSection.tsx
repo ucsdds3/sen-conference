@@ -20,7 +20,7 @@ export default function BenefitsSection() {
       </svg>
 
       {/* Title */}
-      <h2 className="relative text-white text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight text-center md:text-left my-8 z-10">
+      <h2 className="relative text-white text-7xl font-bold tracking-tight text-center md:text-left my-8 z-10">
         What You'll Get
       </h2>
 
