@@ -11,7 +11,7 @@ export default function FAQItem({ question, answer = "Put answers here" }: FAQIt
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full max-w-[clamp(300px,90%,900px)] mb-[clamp(0.3rem,0.5vw,0.5rem)]">
+    <div className="w-screen max-w-[clamp(300px,90%,900px)] mb-[clamp(0.3rem,0.5vw,0.5rem)]">
       {/* Question Button */}
       <button
         onClick={() => setOpen(!open)}
@@ -58,7 +58,6 @@ export default function FAQItem({ question, answer = "Put answers here" }: FAQIt
       >
         <div
           className="
-            bg-[#F0F0F0]
             border
             border-t-0
             border-gray-300
