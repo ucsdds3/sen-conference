@@ -4,7 +4,6 @@ import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import TicketsHeader from "../components/TicketsHeader";
 
-
 function SuccessContent() {
   const searchParams = useSearchParams();
   const referralCode = searchParams.get("code") || "";
@@ -26,10 +25,12 @@ function SuccessContent() {
   return (
     <main className="flex justify-center py-[5vh] px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
       <div className="h-[90vh] w-full max-w-3xl bg-white rounded-xl shadow-[0px_0px_20px_white] py-10">
-        <TicketsHeader />
-        <div className='flex flex-col h-[75vh] justify-between pb-8'>
+        <div className="mb-8">
+          <TicketsHeader />
+        </div>
+        <div className="flex flex-col h-[75vh] justify-between pb-8">
           <div
-            className="relative bg-[#0D1626] text-white text-center pt-20 pb-24"
+            className="relative bg-sen-blue text-white text-center pt-20 pb-24"
             style={{
               clipPath: "polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)",
             }}
@@ -64,7 +65,9 @@ function SuccessContent() {
                   copied ? "text-green-600" : "text-gray-600"
                 }`}
               >
-                {copied ? "Copied!" : "Copy and save your referral code below (once you leave, it won't ever come back!)"}
+                {copied
+                  ? "Copied!"
+                  : "Copy and save your referral code below (once you leave, it won't ever come back!)"}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -100,5 +103,5 @@ export default function SuccessPage() {
     <Suspense fallback={<div>Loading...</div>}>
       <SuccessContent />
     </Suspense>
-  )
+  );
 }
