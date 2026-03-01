@@ -3,17 +3,29 @@
 import { useEffect, useState } from "react";
 
 export function useCountdown(targetDate: number) {
-  const [timeLeft, setTimeLeft] = useState<number>(
-    targetDate - Date.now()
-  );
+  const [timeLeft, setTimeLeft] = useState<number | null>(null);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const update = () => {
       setTimeLeft(targetDate - Date.now());
-    }, 1000);
+    };
+
+    update();
+
+    const timer = setInterval(update, 1000);
 
     return () => clearInterval(timer);
   }, [targetDate]);
+
+  // Prevent hydration mismatch
+  if (timeLeft === null) {
+    return {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+  }
 
   const ms = Math.max(timeLeft, 0);
 
