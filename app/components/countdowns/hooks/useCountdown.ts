@@ -17,7 +17,6 @@ export function useCountdown(targetDate: number) {
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  // Prevent hydration mismatch
   if (timeLeft === null) {
     return {
       days: 0,
