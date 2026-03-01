@@ -53,7 +53,7 @@ export async function POST(req: Request) {
       reach: attendee.reach,
       company: attendee.company,
       jobTitle: attendee.jobTitle,
-      ticket: attendee.ticket,
+      ticket: ticket,
       referralCode: attendee.referralCode || "n/a",
       assignedReferralCode: assignedReferralCode,
     },
