@@ -5,7 +5,7 @@ export default function TicketsHeader() {
   const router = useRouter();
 
   return (
-    <div onClick={() => router.push('/')} className="flex items-center justify-center gap-4 mb-10 cursor-pointer">
+    <div onClick={() => router.push('/')} className="flex items-center justify-center gap-4 cursor-pointer">
       <Image
         src="/assets/SEN_small_logo.png"
         alt="SEN Logo"
