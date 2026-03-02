@@ -10,8 +10,8 @@ interface FAQItemProps {
 
 export default function FAQItem({
   question,
-  answer = "Put answers here",
-  glowColor = "rgba(13, 22, 38, 0.25)", // soft blue glow
+  answer,
+  glowColor = "rgba(13, 22, 38, 0.25)",
 }: FAQItemProps) {
   const [open, setOpen] = useState(false);
 
@@ -65,7 +65,7 @@ export default function FAQItem({
             right-[clamp(1rem,2vw,1.5rem)]
             top-1/2
             -translate-y-1/2
-            text-2xl  /* Bigger arrow */
+            text-2xl
             transition-transform
             duration-300
             ${open ? "rotate-180" : ""}
