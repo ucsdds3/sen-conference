@@ -20,26 +20,21 @@ export default function BenefitsSection() {
       </svg>
 
       {/* Title */}
-      <h2 className="relative text-white text-7xl font-bold tracking-tight text-center md:text-left my-8 z-10">
+      <h2 className="relative text-white text-[clamp(2.5rem,7vw,5rem)] font-bold tracking-tight text-center md:text-left my-8 z-10">
         What You'll Get
       </h2>
 
       {/* Cards Wrapper */}
       <div className="relative w-full bg-transparent py-4 z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto bg-transparent">
-          {/* Card 1 */}
           <BenefitsCard
             title="Practical Frameworks"
             benefits="Learn how founders and operators actually think about growth, execution, and decision-making…not theory, not motivation"
           />
-
-          {/* Card 2 */}
           <BenefitsCard
             title="Real Conversations"
             benefits="Panels, workshops, and small-group moments designed for interaction, not passive listening."
           />
-
-          {/* Card 3 */}
           <BenefitsCard
             title="Actionable Insights"
             benefits="Leave with concrete ideas, tools, and mental models you can apply immediately to your startup, career, or next project."
