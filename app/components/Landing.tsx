@@ -6,7 +6,6 @@ import AboutConferenceSection from "./about_conference/AboutConferenceSection";
 import BenefitsSection from "./benefits/BenefitsSection";
 import PricingSection from "./pricing/PricingSection";
 import SocialProof from "./social_proof/SocialProof";
-import Questions from "./questions/questions";
 import FAQSection from "./faq/FAQSection";
 import BottomCountdownSection from "./countdowns/bottom_countdown/BottomCountdownSection";
 
