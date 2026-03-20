@@ -184,7 +184,7 @@ export default function TicketsPage() {
 
           <button
             type="submit"
-            className="mt-auto w-full bg-sen-blue text-white py-3 rounded-lg font-semibold hover:opacity-90 transition text-md"
+            className="mt-auto w-full bg-sen-blue text-white py-3 rounded-lg cursor-pointer font-semibold hover:opacity-90 transition text-md"
           >
             Check Out
           </button>

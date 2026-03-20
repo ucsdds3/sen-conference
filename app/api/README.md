@@ -29,6 +29,8 @@ Student verification is handled before checkout when a user selects student stat
 5. `POST /api/verify-code` validates the code, restores the saved form data, and removes the Redis entry.
 6. After successful verification, the normal checkout flow continues.
 
+On `/tickets/verification`, students can use **Resend code**: `POST /api/resend-verification` with `{ "email": "<same as query>" }` deletes the current Redis entry, stores a new code with the same saved form data (new 2‑minute expiry), and sends a fresh email.
+
 Required environment variables for student verification:
 ```
 UPSTASH_REDIS_REST_URL        # Upstash database 
