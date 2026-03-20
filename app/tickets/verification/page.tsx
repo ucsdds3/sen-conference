@@ -8,6 +8,8 @@ function VerificationContent() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
   const [error, setError] = useState("");
+  const [resendMessage, setResendMessage] = useState("");
+  const [resendLoading, setResendLoading] = useState(false);
 
   const handleVerify = async () => {
     const codeInput = document.getElementById("code-input") as HTMLInputElement;
@@ -28,6 +30,8 @@ function VerificationContent() {
       setError("Invalid or expired code. Please try again.");
       return;
     }
+
+    setError("");
 
     // proceed to checkout with stored form data
     const checkoutRes = await fetch("/api/checkout", {
@@ -56,6 +60,37 @@ function VerificationContent() {
     }
   };
 
+  const handleResend = async () => {
+    setResendMessage("");
+    setError("");
+
+    if (!email.trim()) {
+      setResendMessage("Missing email. Return to tickets and submit the form again.");
+      return;
+    }
+
+    setResendLoading(true);
+    try {
+      const res = await fetch("/api/resend-verification", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.ok) {
+        setResendMessage(data.error || "Could not resend code. Please try again.");
+        return;
+      }
+
+      setResendMessage("A new code was sent to your email.");
+    } catch {
+      setResendMessage("Something went wrong. Please try again.");
+    } finally {
+      setResendLoading(false);
+    }
+  };
+
   return (
     <main className="flex justify-center items-center min-h-screen">
       <div className="flex flex-col bg-white p-8 rounded-xl shadow max-w-md w-full text-center gap-10">
@@ -73,11 +108,30 @@ function VerificationContent() {
             type="text"
           />
           {error && <p className="text-red-500 mb-4">{error}</p>}
+          {resendMessage && (
+            <p
+              className={
+                resendMessage === "A new code was sent to your email."
+                  ? "text-green-600 mb-4 text-sm"
+                  : "text-amber-700 mb-4 text-sm"
+              }
+            >
+              {resendMessage}
+            </p>
+          )}
           <button
             onClick={handleVerify}
-            className="w-full bg-sen-blue text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
+            className="w-full bg-sen-blue text-white py-3 rounded-lg font-semibold hover:opacity-90 transition cursor-pointer"
           >
             Verify
+          </button>
+          <button
+            type="button"
+            onClick={handleResend}
+            disabled={resendLoading || !email.trim()}
+            className="w-full mt-3 border border-sen-blue text-sen-blue py-3 rounded-lg font-semibold hover:bg-sen-blue/5 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          >
+            {resendLoading ? "Sending…" : "Resend code"}
           </button>
         </div>
       </div>
