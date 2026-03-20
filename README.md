@@ -35,18 +35,15 @@ The site is built using **Next.js** and **TypeScript**, and uses **Node** as the
 ```
 
 sen-conference-website/
-├── app/                        # All pages, layouts, and components (Next.js App Router)
-│   ├── layout.tsx              # Root layout
-│   ├── page.tsx                # Homepage
-│   ├── tickets/                # Ticketing/payment pages
-│   └── components/             # Reusable UI components
-│       └── Landing.tsx         # Landing page
+├── node_modules/               # Installed dependencies
 ├── public/                     # Public assets
-│   └── assets/                 # Image and other static assets
-├── globals.css
-├── next.config.ts
-├── tsconfig.json
-├── package.json
-└── bun.lock
+│   └── assets/                 # Images and other static assets
+├── app/                        # All pages, layouts, and components (Next.js App Router)
+│   ├── api/                    # API POST scripts
+│   ├── tickets/                # Ticketing/payment pages
+│   ├── components/             # Home page components
+│   ├── globals.css             # CSS Stylesheet
+│   ├── page.tsx                # Home page
+│   └── layout.tsx              # Root layout
 
 ```
