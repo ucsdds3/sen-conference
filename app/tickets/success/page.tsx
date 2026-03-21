@@ -80,7 +80,7 @@ function SuccessContent() {
 
                   <button
                     onClick={copyToClipboard}
-                    className={`absolute right-2 top-1/2 -translate-y-1/2 transition ${
+                    className={`absolute right-2 top-1/2 -translate-y-1/2 transition cursor-pointer ${
                       copied
                         ? "text-green-600 scale-110"
                         : "text-gray-500 hover:text-black"
