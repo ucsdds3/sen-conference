@@ -10,7 +10,7 @@ export default function TicketsPage() {
 
   return (
     <main className="flex justify-center py-[5vh] px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
-      <div className="h-[90vh] w-full max-w-3xl bg-white rounded-xl shadow-[0px_0px_20px_white] p-10">
+      <div className="w-full max-w-3xl min-h-[90vh] max-h-fit bg-white rounded-xl shadow-[0px_0px_20px_white] p-10">
         <div className="flex flex-col gap-8">
           <TicketsHeader />
 
@@ -38,8 +38,8 @@ export default function TicketsPage() {
 
         <Form action={handleSubmit} className="flex flex-col h-[60vh]">
           <div className="grid grid-cols-2 gap-6">
-            <div className="flex flex-col">
-              <label className="text-xs font-medium mb-1">First Name *</label>
+            <div className="flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">First Name *</label>
               <input
                 required
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
@@ -48,8 +48,8 @@ export default function TicketsPage() {
               />
             </div>
 
-            <div className="flex flex-col">
-              <label className="text-xs font-medium mb-1">Last Name *</label>
+            <div className="flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">Last Name *</label>
               <input
                 required
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
@@ -58,8 +58,8 @@ export default function TicketsPage() {
               />
             </div>
 
-            <div className="flex flex-col">
-              <label className="text-xs font-medium mb-1">Status *</label>
+            <div className="flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">Status *</label>
               <select
                 required
                 defaultValue=""
@@ -78,8 +78,8 @@ export default function TicketsPage() {
               </select>
             </div>
 
-            <div className="flex flex-col">
-              <label className="text-xs font-medium mb-1">
+            <div className="flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">
                 How did you hear about us? *
               </label>
               <select
@@ -97,8 +97,8 @@ export default function TicketsPage() {
               </select>
             </div>
 
-            <div className="flex flex-col">
-              <label className="text-xs font-medium mb-1">Email *</label>
+            <div className="flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">Email *</label>
               <input
                 required
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
@@ -111,8 +111,8 @@ export default function TicketsPage() {
               />
             </div>
 
-            <div className="flex flex-col">
-              <label className="text-xs font-medium mb-1">Phone Number *</label>
+            <div className="flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">Phone Number *</label>
               <input
                 required
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
@@ -122,10 +122,10 @@ export default function TicketsPage() {
             </div>
 
             <div
-              className={status === "professional" ? "flex flex-col" : "hidden"}
+              className={status === "professional" ? "flex flex-col gap-1 justify-end" : "hidden"}
               id="company-container"
             >
-              <label className="text-xs font-medium mb-1">
+              <label className="text-xs font-medium">
                 Company/Organization *
               </label>
               <input
@@ -137,10 +137,10 @@ export default function TicketsPage() {
             </div>
 
             <div
-              className={status === "professional" ? "flex flex-col" : "hidden"}
+              className={status === "professional" ? "flex flex-col gap-1 justify-end" : "hidden"}
               id="job-title-container"
             >
-              <label className="text-xs font-medium mb-1">Job Title *</label>
+              <label className="text-xs font-medium">Job Title *</label>
               <input
                 required={status === "professional"}
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
@@ -151,8 +151,8 @@ export default function TicketsPage() {
 
             <hr className="col-span-2" />
 
-            <div className="col-span-2 flex flex-col">
-              <label className="text-xs font-medium mb-1">
+            <div className="col-span-2 flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">
                 Choose Ticket *
               </label>
               <select
@@ -170,8 +170,8 @@ export default function TicketsPage() {
               </select>
             </div>
 
-            <div className="col-span-2 flex flex-col">
-              <label className="text-xs font-medium mb-1">
+            <div className="col-span-2 flex flex-col gap-1 justify-end">
+              <label className="text-xs font-medium">
                 Have a referral code from a friend?
               </label>
               <input

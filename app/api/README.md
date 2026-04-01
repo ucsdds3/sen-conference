@@ -1,16 +1,22 @@
 # API Documentation
 
+All APIs used for this website use RESTful APIs.
+
 ## Stripe Checkout
 
 The checkout flow is handled by the `POST /api/checkout` route.
 
-- Ticket tier prices are currently hardcoded in `app/api/checkout/route.ts`:
-  - General Admission: `$50`
-  - Premium: `$75`
-  - VIP: `$100`
-- A Stripe Checkout Session is created with attendee information and ticket metadata.
-- Student attendees (`status === "student"`) can apply promo codes in Stripe.
-- On successful payment, users are redirected to `/tickets/success` with an assigned referral code in the query string.
+A Stripe object is initialized with your Stripe Secret Key (which should be an environment variable). When the API receives a request, it uses the Stripe object to create a Checkout Session object. 
+
+The following includes the information used by the Stripe Checkout Session in this project:
+- Payment method types
+- Item(s) being purchased
+- Stripe Checkout mode
+- Customer email
+- Whether to allow promo codes (if they are a student)
+- A URL to redirect the user on successful checkout
+- A URL to redirect the user on canceled checkout
+- Transaction metadata (required for the webhook later)
 
 Required environment variables for checkout:
 ```
@@ -18,16 +24,13 @@ STRIPE_SECRET_KEY        # Stripe secret key
 NEXT_PUBLIC_BASE_URL     # development base URL for .env, deployment base URL for Vercel (or other hosting)
 ```
 
+To set up Stripe Checkout, simply make a Stripe account <a href="https://stripe.com/">here</a>, and put your secret key as an environment variable.
+
 ## Student Email Verification
 
-Student verification is handled before checkout when a user selects student status and enters an `.edu` email.
+The student checkout flow is handled by the `POST /api/verify-code` route.
 
-1. `handleSubmit` generates a short verification code.
-2. The code and submitted form data are stored in Upstash Redis for 2 minutes.
-3. A verification email is sent through Gmail (`nodemailer`).
-4. The student is redirected to `/tickets/verification`.
-5. `POST /api/verify-code` validates the code, restores the saved form data, and removes the Redis entry.
-6. After successful verification, the normal checkout flow continues.
+Prior to paying, if the user claims they are a student and enters a `.edu` email, they must go through verification. This is handled prior to using the Stripe CLI.
 
 On `/tickets/verification`, students can use **Resend code**: `POST /api/resend-verification` with `{ "email": "<same as query>" }` deletes the current Redis entry, stores a new code with the same saved form data (new 2‑minute expiry), and sends a fresh email.
 
@@ -39,14 +42,18 @@ GMAIL_USER                    # Gmail to send verification
 GMAIL_APP_PASSWORD            # Gmail App password (different than actual password!)
 ```
 
+To set up the Upstash database, create an Upstash account, create a Redis database and input the `REST_TOKEN` and `REST_URL` into your environment variables.
+
+To set up the email that sends the verification code:
+- Go to <a href="https://myaccount.google.com/">your Google Account</a> of the account you wish to use
+- Security & Sign-in > 2-Step Verification > App Passwords
+- You should be able to get a 16 character password for your Google account that you can store in the GMAIL_APP_PASSWORD environment variable. 
+
 ## Google Sheet Webhook
 
-The Stripe webhook endpoint is implemented at `POST /api/webhook` and is used to log completed ticket purchases to Google Sheets.
+The Stripe webhook is handled by the `POST /api/webhook` route.
 
-- The route verifies incoming webhook signatures using `STRIPE_WEBHOOK_SECRET`.
-- Only `checkout.session.completed` events are processed.
-- Attendee and ticket metadata from the Stripe session is appended to the configured sheet.
-- This creates a lightweight registration log for organizers without requiring a technical database (sorta like a dashboard).
+The route verifies incoming webhook signatures using `STRIPE_WEBHOOK_SECRET`. Only `checkout.session.completed` events are processed. Using an authorized Google service account, attendee and ticket metadata from the Stripe session is appended to the configured sheet, which creates a log for the event organizers that is easy to access.
 
 Required environment variables for the webhook:
 ```
@@ -56,3 +63,21 @@ GOOGLE_CLIENT_EMAIL       # Google Services Bot Email
 GOOGLE_PRIVATE_KEY        # Google Services Bot Key
 GOOGLE_SHEET_ID           # Spreadsheet ID
 ```
+
+To set up the authorized Google service account:
+- Go to <a href="https://console.cloud.google.com/">Google Cloud Console</a> and login into your desired Google account.
+- Optionally, create a new project. 
+- Go to the navigation bar, click on IAM & Admin > Service Accounts, and click "Create Service Account". 
+- Once you give your service account a name and description, your service account has been made! 
+- To use the service account, go to Actions > Manage Keys > Add Key > Create New Key, and download it as a JSON. 
+- Copy the values of "private_key" and "client_email" and set those to your `GOOGLE_PRIVATE_KEY` and `GOOGLE_CLIENT_EMAIL` environment variables, respectively.
+
+The `GOOGLE_SHEET_ID` environment variable can be copied from the spreadsheet link. For example, a spreadsheet with a link of `https://docs.google.com/spreadsheets/d/abcde12345/edit#gid=0` has the ID of `abcde12345`.
+
+To set up the Stripe webhook:
+- Go to your Stripe account's webhook page. 
+- Add a destination.
+- Set the event to `checkout.session.completed` and continue.
+- Set destination type to webhook endpoint and continue.
+- Set the endpoint URL to the directory of your webhook API (in the case of this project, the URL is `https://sen-conference.vercel.app/api/webhook`) and continue.
+- Copy the signing secret and set it as the `STRIPE_WEBHOOK_SECRET` environment variable.
