@@ -4,6 +4,7 @@ import { useState } from "react";
 import Form from "next/form";
 import TicketsHeader from "./components/TicketsHeader";
 import handleSubmit from "./scripts/handleSubmit";
+import { HEAR_ABOUT_OPTIONS } from "./constants";
 
 export default function TicketsPage() {
   const [status, setStatus] = useState("");
@@ -91,9 +92,11 @@ export default function TicketsPage() {
                 <option value="" disabled hidden>
                   Click for dropdown
                 </option>
-                <option value="social media">Social media</option>
-                <option value="website">Website</option>
-                <option value="mouth">Word of mouth</option>
+                {HEAR_ABOUT_OPTIONS.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
               </select>
             </div>
 
