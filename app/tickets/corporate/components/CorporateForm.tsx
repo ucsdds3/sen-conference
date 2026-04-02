@@ -5,7 +5,7 @@ import AttendeeFields from "./AttendeeFields";
 import { HEAR_ABOUT_OPTIONS } from "../../constants";
 
 type CorporateFormState = {
-  companyName: string;
+  company: string;
   industry: string;
   firstName: string;
   lastName: string;
@@ -16,12 +16,14 @@ type CorporateFormState = {
   reach: string;
 };
 
-type FieldErrors = Partial<Record<keyof CorporateFormState | "attendeeNames", string>>;
+type FieldErrors = Partial<
+  Record<keyof CorporateFormState | "attendeeNames", string>
+>;
 
 const TICKET_OPTIONS = ["General Admission", "Premium", "VIP"] as const;
 
 const emptyState: CorporateFormState = {
-  companyName: "",
+  company: "",
   industry: "",
   firstName: "",
   lastName: "",
@@ -38,18 +40,31 @@ export default function CorporateForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [loading, setLoading] = useState(false);
 
-  const quantityNumber = useMemo(() => Math.max(1, Number(form.quantity) || 1), [form.quantity]);
+  const quantityNumber = useMemo(
+    () => Math.max(1, Number(form.quantity) || 1),
+    [form.quantity],
+  );
 
-  function validateField(name: keyof CorporateFormState, value: string): string {
+  function validateField(
+    name: keyof CorporateFormState,
+    value: string,
+  ): string {
     if (!value.trim()) return "This field is required.";
-    if (name === "email" && !/^\S+@\S+\.\S+$/.test(value)) return "Enter a valid email address.";
-    if (name === "quantity" && (Number(value) < 1 || !Number.isInteger(Number(value)))) {
+    if (name === "email" && !/^\S+@\S+\.\S+$/.test(value))
+      return "Enter a valid email address.";
+    if (
+      name === "quantity" &&
+      (Number(value) < 1 || !Number.isInteger(Number(value)))
+    ) {
       return "Quantity must be a whole number of at least 1.";
     }
     return "";
   }
 
-  function validateForm(values: CorporateFormState, names: string[]): FieldErrors {
+  function validateForm(
+    values: CorporateFormState,
+    names: string[],
+  ): FieldErrors {
     const nextErrors: FieldErrors = {};
 
     (Object.keys(values) as (keyof CorporateFormState)[]).forEach((key) => {
@@ -96,7 +111,7 @@ export default function CorporateForm() {
           purchaseType: "corporate",
           firstName: form.firstName,
           lastName: form.lastName,
-          companyName: form.companyName,
+          company: form.company,
           industry: form.industry,
           email: form.email,
           phone: form.phone,
@@ -130,17 +145,21 @@ export default function CorporateForm() {
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-6">
       <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">Company Info</h2>
+        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+          Company Info
+        </h2>
 
         <div className="flex flex-col gap-1">
           <label className="text-xs font-medium">Company Name *</label>
           <input
-            value={form.companyName}
-            onChange={(e) => updateField("companyName", e.target.value)}
+            value={form.company}
+            onChange={(e) => updateField("company", e.target.value)}
             className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
             type="text"
           />
-          {errors.companyName ? <p className="text-xs text-red-500">{errors.companyName}</p> : null}
+          {errors.company ? (
+            <p className="text-xs text-red-500">{errors.company}</p>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -151,12 +170,16 @@ export default function CorporateForm() {
             className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
             type="text"
           />
-          {errors.industry ? <p className="text-xs text-red-500">{errors.industry}</p> : null}
+          {errors.industry ? (
+            <p className="text-xs text-red-500">{errors.industry}</p>
+          ) : null}
         </div>
       </section>
 
       <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">Contact Info</h2>
+        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+          Contact Info
+        </h2>
 
         <div className="flex flex-col gap-1 justify-end">
           <label className="text-xs font-medium">First Name *</label>
@@ -166,7 +189,9 @@ export default function CorporateForm() {
             className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
             type="text"
           />
-          {errors.firstName ? <p className="text-xs text-red-500">{errors.firstName}</p> : null}
+          {errors.firstName ? (
+            <p className="text-xs text-red-500">{errors.firstName}</p>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-1 justify-end">
@@ -177,7 +202,9 @@ export default function CorporateForm() {
             className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
             type="text"
           />
-          {errors.lastName ? <p className="text-xs text-red-500">{errors.lastName}</p> : null}
+          {errors.lastName ? (
+            <p className="text-xs text-red-500">{errors.lastName}</p>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-1 justify-end">
@@ -188,7 +215,9 @@ export default function CorporateForm() {
             className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
             type="email"
           />
-          {errors.email ? <p className="text-xs text-red-500">{errors.email}</p> : null}
+          {errors.email ? (
+            <p className="text-xs text-red-500">{errors.email}</p>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-1 justify-end">
@@ -199,12 +228,16 @@ export default function CorporateForm() {
             className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
             type="tel"
           />
-          {errors.phone ? <p className="text-xs text-red-500">{errors.phone}</p> : null}
+          {errors.phone ? (
+            <p className="text-xs text-red-500">{errors.phone}</p>
+          ) : null}
         </div>
       </section>
 
       <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">Ticket Details</h2>
+        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+          Ticket Details
+        </h2>
 
         <div className="flex flex-col gap-1">
           <label className="text-xs font-medium">Ticket Type *</label>
@@ -222,7 +255,9 @@ export default function CorporateForm() {
               </option>
             ))}
           </select>
-          {errors.ticketType ? <p className="text-xs text-red-500">{errors.ticketType}</p> : null}
+          {errors.ticketType ? (
+            <p className="text-xs text-red-500">{errors.ticketType}</p>
+          ) : null}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -238,11 +273,15 @@ export default function CorporateForm() {
             className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
             type="number"
           />
-          {errors.quantity ? <p className="text-xs text-red-500">{errors.quantity}</p> : null}
+          {errors.quantity ? (
+            <p className="text-xs text-red-500">{errors.quantity}</p>
+          ) : null}
         </div>
 
         <div className="col-span-2 flex flex-col gap-1">
-          <label className="text-xs font-medium">How did you hear about the event? *</label>
+          <label className="text-xs font-medium">
+            How did you hear about the event? *
+          </label>
           <select
             value={form.reach}
             onChange={(e) => updateField("reach", e.target.value)}
@@ -257,7 +296,9 @@ export default function CorporateForm() {
               </option>
             ))}
           </select>
-          {errors.reach ? <p className="text-xs text-red-500">{errors.reach}</p> : null}
+          {errors.reach ? (
+            <p className="text-xs text-red-500">{errors.reach}</p>
+          ) : null}
         </div>
 
         <AttendeeFields
@@ -270,9 +311,15 @@ export default function CorporateForm() {
               return next;
             });
           }}
-          onAdd={() => setAttendeeNames((prev) => (prev.length < quantityNumber ? [...prev, ""] : prev))}
+          onAdd={() =>
+            setAttendeeNames((prev) =>
+              prev.length < quantityNumber ? [...prev, ""] : prev,
+            )
+          }
           onRemove={(index) =>
-            setAttendeeNames((prev) => prev.filter((_, currentIndex) => currentIndex !== index))
+            setAttendeeNames((prev) =>
+              prev.filter((_, currentIndex) => currentIndex !== index),
+            )
           }
           error={errors.attendeeNames}
         />

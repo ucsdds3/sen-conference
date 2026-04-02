@@ -8,7 +8,7 @@ function CorporateSuccessContent() {
   const searchParams = useSearchParams();
   const company = searchParams.get("company") || "your organization";
   const quantity = searchParams.get("quantity") || "1";
-  const ticketType = searchParams.get("ticketType") || "General Admission";
+  const ticket = searchParams.get("ticket") || "General Admission";
 
   return (
     <main className="flex justify-center py-[5vh] px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
@@ -27,10 +27,14 @@ function CorporateSuccessContent() {
 
           <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6 text-left">
             <p className="text-sm text-slate-500">Company</p>
-            <p className="mb-4 text-base font-semibold text-slate-900">{company}</p>
+            <p className="mb-4 text-base font-semibold text-slate-900">
+              {company}
+            </p>
 
             <p className="text-sm text-slate-500">Ticket Type</p>
-            <p className="mb-4 text-base font-semibold text-slate-900">{ticketType}</p>
+            <p className="mb-4 text-base font-semibold text-slate-900">
+              {ticket}
+            </p>
 
             <p className="text-sm text-slate-500">Number of Tickets</p>
             <p className="text-base font-semibold text-slate-900">{quantity}</p>

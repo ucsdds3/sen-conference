@@ -18,8 +18,8 @@ export async function POST(req: Request) {
 
   const priceMap: Record<string, number> = {
     "General Admission": 5000,
-    "Premium": 7500,
-    "VIP": 10000,
+    Premium: 7500,
+    VIP: 10000,
   };
 
   const toMetadataString = (value: unknown) => {
@@ -33,7 +33,8 @@ export async function POST(req: Request) {
   let lastName: string;
   let email: string;
   let phone: string;
-  let companyName: string;
+  let company: string;
+  let jobTitle: string;
   let industry: string;
   let ticketType: string;
   let reach: string;
@@ -53,7 +54,8 @@ export async function POST(req: Request) {
     lastName = body.lastName;
     email = body.email;
     phone = body.phone;
-    companyName = body.companyName;
+    company = body.company;
+    jobTitle = '';
     industry = body.industry;
     ticketType = body.ticketType;
     reach = body.reach;
@@ -67,12 +69,12 @@ export async function POST(req: Request) {
     quantity = Math.max(1, Number(body.quantity) || 1);
     customerEmail = email;
     productName = `${ticketType} Ticket`;
-    productDescription = `Corporate purchase for ${companyName}`;
+    productDescription = `Corporate purchase for ${company}`;
     successUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/corporate/success?${new URLSearchParams(
       {
         quantity: String(quantity),
         ticketType: String(ticketType || ""),
-        company: String(companyName || ""),
+        company: String(company || ""),
       },
     ).toString()}`;
     cancelUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/corporate`;
@@ -82,7 +84,8 @@ export async function POST(req: Request) {
     lastName = attendee.lastName;
     email = attendee.email;
     phone = attendee.phone;
-    companyName = attendee.companyName || "";
+    company = attendee.company || "";
+    jobTitle = attendee.jobTitle || "";
     industry = "";
     ticketType = ticket;
     reach = attendee.reach || "";
@@ -127,7 +130,8 @@ export async function POST(req: Request) {
       lastName: toMetadataString(lastName),
       email: toMetadataString(email),
       phone: toMetadataString(phone),
-      companyName: toMetadataString(companyName),
+      company: toMetadataString(company),
+      jobTitle: toMetadataString(jobTitle),
       industry: toMetadataString(industry),
       ticketType: toMetadataString(ticketType),
       reach: toMetadataString(reach),
