@@ -33,41 +33,31 @@ export async function POST(req: Request) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
     const metadata = session.metadata || {};
-    const {
-      purchaseType = "individual",
-      quantity = "1",
-      firstName = "",
-      lastName = "",
-      email = "",
-      phone = "",
-      companyName = "",
-      industry = "",
-      ticketType = "",
-      howHeard = "",
-      attendeeNames = "",
-      referralCode = "",
-      assignedReferralCode = "",
-    } = metadata;
+    const now = new Date()
+    const date = now.toLocaleDateString()
+    const time = now.toLocaleTimeString()
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Sheet1!A:M",
+      range: "Sheet1!A:O",
       valueInputOption: "RAW",
       requestBody: {
         values: [[
-          firstName,
-          lastName,
-          email,
-          phone,
-          purchaseType,
-          ticketType,
-          quantity,
-          companyName,
-          industry,
-          howHeard,
-          attendeeNames,
-          referralCode,
-          assignedReferralCode,
+          date,
+          time,
+          metadata.firstName,
+          metadata.lastName,
+          metadata.email,
+          metadata.number,
+          metadata.purchaseType,
+          metadata.ticket,
+          metadata.quantity,
+          metadata.company,
+          metadata.industry,
+          "wowowow" || metadata.reach,
+          metadata.attendeeNames,
+          metadata.referralCode,
+          metadata.assignedReferralCode,
         ]],
       },
     });

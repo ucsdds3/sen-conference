@@ -13,7 +13,7 @@ type CorporateFormState = {
   phone: string;
   ticketType: string;
   quantity: string;
-  howHeard: string;
+  reach: string;
 };
 
 type FieldErrors = Partial<Record<keyof CorporateFormState | "attendeeNames", string>>;
@@ -29,7 +29,7 @@ const emptyState: CorporateFormState = {
   phone: "",
   ticketType: "",
   quantity: "1",
-  howHeard: "",
+  reach: "",
 };
 
 export default function CorporateForm() {
@@ -102,7 +102,7 @@ export default function CorporateForm() {
           phone: form.phone,
           ticketType: form.ticketType,
           quantity: Number(form.quantity),
-          howHeard: form.howHeard,
+          reach: form.reach,
           attendeeNames: attendeeNames.filter((name) => name.trim()),
         }),
       });
@@ -244,8 +244,8 @@ export default function CorporateForm() {
         <div className="col-span-2 flex flex-col gap-1">
           <label className="text-xs font-medium">How did you hear about the event? *</label>
           <select
-            value={form.howHeard}
-            onChange={(e) => updateField("howHeard", e.target.value)}
+            value={form.reach}
+            onChange={(e) => updateField("reach", e.target.value)}
             className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
           >
             <option value="" disabled>
@@ -257,7 +257,7 @@ export default function CorporateForm() {
               </option>
             ))}
           </select>
-          {errors.howHeard ? <p className="text-xs text-red-500">{errors.howHeard}</p> : null}
+          {errors.reach ? <p className="text-xs text-red-500">{errors.reach}</p> : null}
         </div>
 
         <AttendeeFields
