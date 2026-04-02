@@ -35,24 +35,24 @@ function VerificationContent() {
 
     // proceed to checkout with stored form data
     const checkoutRes = await fetch("/api/checkout", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    ticket: data.formData.ticket,
-    attendee: {
-      firstName: data.formData["first-name"],
-      lastName: data.formData["last-name"],
-      email: data.formData.email,
-      number: data.formData.number,
-      status: data.formData.status,
-      reach: data.formData.reach,
-      company: data.formData.company,
-      jobTitle: data.formData["job-title"],
-      ticket: data.formData.ticket,
-      referralCode: data.formData["referral-code"],
-    },
-  }),
-});
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ticket: data.formData.ticket,
+        attendee: {
+          firstName: data.formData["firstName"],
+          lastName: data.formData["lastName"],
+          email: data.formData.email,
+          phone: data.formData.phone,
+          status: data.formData.status,
+          reach: data.formData.reach,
+          company: data.formData.company,
+          jobTitle: data.formData["jobTitle"],
+          ticket: data.formData.ticket,
+          referralCode: data.formData["referralCode"],
+        },
+      }),
+    });
 
     const checkoutData = await checkoutRes.json();
     if (checkoutData.url) {
@@ -65,7 +65,9 @@ function VerificationContent() {
     setError("");
 
     if (!email.trim()) {
-      setResendMessage("Missing email. Return to tickets and submit the form again.");
+      setResendMessage(
+        "Missing email. Return to tickets and submit the form again.",
+      );
       return;
     }
 
@@ -79,7 +81,9 @@ function VerificationContent() {
       const data = await res.json();
 
       if (!res.ok || !data.ok) {
-        setResendMessage(data.error || "Could not resend code. Please try again.");
+        setResendMessage(
+          data.error || "Could not resend code. Please try again.",
+        );
         return;
       }
 

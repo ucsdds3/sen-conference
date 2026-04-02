@@ -49,7 +49,7 @@ export async function POST(req: Request) {
           metadata.lastName,
           metadata.email,
           metadata.phone,
-          metadata.purchaseType,
+          metadata.status || metadata.purchaseType, // professional, student, professor, investor, corporate
           metadata.ticketType,
           metadata.quantity,
           metadata.company,

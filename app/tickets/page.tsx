@@ -44,7 +44,7 @@ export default function TicketsPage() {
               <input
                 required
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                name="first-name"
+                name="firstName"
                 type="text"
               />
             </div>
@@ -54,7 +54,7 @@ export default function TicketsPage() {
               <input
                 required
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                name="last-name"
+                name="lastName"
                 type="text"
               />
             </div>
@@ -125,7 +125,11 @@ export default function TicketsPage() {
             </div>
 
             <div
-              className={status === "professional" ? "flex flex-col gap-1 justify-end" : "hidden"}
+              className={
+                status === "professional"
+                  ? "flex flex-col gap-1 justify-end"
+                  : "hidden"
+              }
               id="company-container"
             >
               <label className="text-xs font-medium">
@@ -140,7 +144,11 @@ export default function TicketsPage() {
             </div>
 
             <div
-              className={status === "professional" ? "flex flex-col gap-1 justify-end" : "hidden"}
+              className={
+                status === "professional"
+                  ? "flex flex-col gap-1 justify-end"
+                  : "hidden"
+              }
               id="job-title-container"
             >
               <label className="text-xs font-medium">Job Title *</label>
@@ -155,9 +163,7 @@ export default function TicketsPage() {
             <hr className="col-span-2" />
 
             <div className="col-span-2 flex flex-col gap-1 justify-end">
-              <label className="text-xs font-medium">
-                Choose Ticket *
-              </label>
+              <label className="text-xs font-medium">Choose Ticket *</label>
               <select
                 required
                 defaultValue=""
@@ -179,7 +185,7 @@ export default function TicketsPage() {
               </label>
               <input
                 className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                name="referral-code"
+                name="referralCode"
                 type="text"
               />
             </div>

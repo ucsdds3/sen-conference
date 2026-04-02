@@ -33,6 +33,7 @@ export async function POST(req: Request) {
   let lastName: string;
   let email: string;
   let phone: string;
+  let status: string;
   let company: string;
   let jobTitle: string;
   let industry: string;
@@ -54,6 +55,7 @@ export async function POST(req: Request) {
     lastName = body.lastName;
     email = body.email;
     phone = body.phone;
+    status = '';
     company = body.company;
     jobTitle = '';
     industry = body.industry;
@@ -85,6 +87,7 @@ export async function POST(req: Request) {
     email = attendee.email;
     phone = attendee.phone;
     company = attendee.company || "";
+    status = attendee.status;
     jobTitle = attendee.jobTitle || "";
     industry = "";
     ticketType = ticket;
@@ -130,6 +133,7 @@ export async function POST(req: Request) {
       lastName: toMetadataString(lastName),
       email: toMetadataString(email),
       phone: toMetadataString(phone),
+      status: toMetadataString(status),
       company: toMetadataString(company),
       jobTitle: toMetadataString(jobTitle),
       industry: toMetadataString(industry),
