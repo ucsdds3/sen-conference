@@ -14,15 +14,101 @@ function generateReferralCode() {
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { ticket, attendee } = body;
+  const { purchaseType, ticket, attendee } = body;
 
   const priceMap: Record<string, number> = {
-    "General Admission": 5000, // in cents = $50
-    "Premium": 7500,
-    "VIP": 10000,
+    "General Admission": 5000,
+    Premium: 7500,
+    VIP: 10000,
   };
 
-  const assignedReferralCode = generateReferralCode();
+  const toMetadataString = (value: unknown) => {
+    if (value === null || value === undefined) return "";
+    return String(value);
+  };
+
+  const type = purchaseType === "corporate" ? "corporate" : "individual";
+
+  let firstName: string;
+  let lastName: string;
+  let email: string;
+  let phone: string;
+  let status: string;
+  let company: string;
+  let school: string;
+  let major: string;
+  let jobTitle: string;
+  let industry: string;
+  let ticketType: string;
+  let reach: string;
+  let attendeeNames: string;
+  let referralCode: string;
+  let assignedReferralCode: string;
+  let quantity: number;
+  let customerEmail: string;
+  let productName: string;
+  let productDescription: string;
+  let successUrl: string;
+  let cancelUrl: string;
+  let allowPromotionCodes: boolean | undefined;
+
+  if (type === "corporate") {
+    firstName = body.firstName;
+    lastName = body.lastName;
+    email = body.email;
+    phone = body.phone;
+    status = '';
+    school = '';
+    major = '';
+    company = body.company;
+    jobTitle = '';
+    industry = body.industry;
+    ticketType = body.ticketType;
+    reach = body.reach;
+    attendeeNames = toMetadataString(
+      JSON.stringify(
+        Array.isArray(body.attendeeNames) ? body.attendeeNames : [],
+      ),
+    );
+    referralCode = body.referralCode || "";
+    assignedReferralCode = "";
+    quantity = Math.max(1, Number(body.quantity) || 1);
+    customerEmail = email;
+    productName = `${ticketType} Ticket`;
+    productDescription = `Corporate purchase for ${company}`;
+    successUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/corporate/success?${new URLSearchParams(
+      {
+        quantity: String(quantity),
+        ticketType: String(ticketType || ""),
+        company: String(company || ""),
+      },
+    ).toString()}`;
+    cancelUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/corporate`;
+    allowPromotionCodes = undefined;
+  } else {
+    firstName = attendee.firstName;
+    lastName = attendee.lastName;
+    email = attendee.email;
+    phone = attendee.phone;
+    company = attendee.company || "";
+    school = attendee.school || "";
+    major = attendee.major || "";
+    status = attendee.status;
+    jobTitle = attendee.jobTitle || "";
+    industry = "";
+    ticketType = ticket;
+    reach = attendee.reach || "";
+    attendeeNames = "";
+    referralCode = attendee.referralCode || "";
+    assignedReferralCode = generateReferralCode();
+    quantity = Math.max(1, Number(body.quantity) || 1);
+    customerEmail = attendee.email;
+    productName = `${ticket} Ticket`;
+    productDescription = `For ${attendee.firstName} ${attendee.lastName}`;
+    successUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/success?code=${assignedReferralCode}`;
+    cancelUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/tickets`;
+    allowPromotionCodes = attendee.status === "student";
+  }
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
@@ -31,31 +117,39 @@ export async function POST(req: Request) {
         price_data: {
           currency: "usd",
           product_data: {
-            name: `${ticket} Ticket`,
-            description: `For ${attendee.firstName} ${attendee.lastName}`,
+            name: productName,
+            description: productDescription,
           },
-          unit_amount: priceMap[ticket],
+          unit_amount: priceMap[ticketType] ?? priceMap["General Admission"],
         },
-        quantity: 1,
+        quantity,
       },
     ],
     mode: "payment",
-    customer_email: attendee.email,
-    allow_promotion_codes: attendee.status === "student",
-    success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/tickets/success?code=${assignedReferralCode}`,
-    cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/tickets`,
+    customer_email: customerEmail,
+    success_url: successUrl,
+    cancel_url: cancelUrl,
+    ...(allowPromotionCodes !== undefined && {
+      allow_promotion_codes: allowPromotionCodes,
+    }),
     metadata: {
-      firstName: attendee.firstName,
-      lastName: attendee.lastName,
-      email: attendee.email,
-      number: attendee.number,
-      status: attendee.status,
-      reach: attendee.reach,
-      company: attendee.company,
-      jobTitle: attendee.jobTitle,
-      ticket: ticket,
-      referralCode: attendee.referralCode || "n/a",
-      assignedReferralCode: assignedReferralCode,
+      purchaseType: toMetadataString(type),
+      quantity: toMetadataString(quantity),
+      firstName: toMetadataString(firstName),
+      lastName: toMetadataString(lastName),
+      email: toMetadataString(email),
+      phone: toMetadataString(phone),
+      status: toMetadataString(status),
+      school: toMetadataString(school),
+      major: toMetadataString(major),
+      company: toMetadataString(company),
+      jobTitle: toMetadataString(jobTitle),
+      industry: toMetadataString(industry),
+      ticketType: toMetadataString(ticketType),
+      reach: toMetadataString(reach),
+      attendeeNames: toMetadataString(attendeeNames),
+      referralCode: toMetadataString(referralCode),
+      assignedReferralCode: toMetadataString(assignedReferralCode),
     },
   });
 

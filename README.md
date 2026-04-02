@@ -23,7 +23,7 @@ The site is built using **Next.js** and **TypeScript**, and uses **Node** as the
 4. Run `npm run dev` to start the development server. The website will now be available at [http://localhost:3000](http://localhost:3000)
 5. To get the environment variables needed for the APIs to run:
   - Log into the DS3 Vercel.
-  - Run `vercel link` in the terminal, and follow directions to link local repo to the respective Vercel project.
+  - Run `npx vercel link` in the terminal, and follow directions to link local repo to the respective Vercel project.
   - Pull environment variables when prompted, or `npx vercel env pull .env.local`.
   - Change `NEXT_PUBLIC_BASE_URL` to `http://localhost:3000` in your .env.local file.
 
@@ -34,18 +34,15 @@ The site is built using **Next.js** and **TypeScript**, and uses **Node** as the
 ```
 
 sen-conference-website/
-├── app/                        # All pages, layouts, and components (Next.js App Router)
-│   ├── layout.tsx              # Root layout
-│   ├── page.tsx                # Homepage
-│   ├── tickets/                # Ticketing/payment pages
-│   └── components/             # Reusable UI components
-│       └── Landing.tsx         # Landing page
+├── node_modules/               # Installed dependencies
 ├── public/                     # Public assets
-│   └── assets/                 # Image and other static assets
-├── globals.css
-├── next.config.ts
-├── tsconfig.json
-├── package.json
-└── bun.lock
+│   └── assets/                 # Images and other static assets
+├── app/                        # All pages, layouts, and components (Next.js App Router)
+│   ├── api/                    # API POST scripts
+│   ├── tickets/                # Ticketing/payment pages
+│   ├── components/             # Home page components
+│   ├── globals.css             # CSS Stylesheet
+│   ├── page.tsx                # Home page
+│   └── layout.tsx              # Root layout
 
 ```
