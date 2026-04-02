@@ -3,9 +3,9 @@ import TicketSelectionCard from "./components/TicketSelectionCard";
 
 export default function ticketSelectionPage() {
   return (
-    <main className="flex justify-center px-4 py-[5vh] bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
-      <div className="w-full max-w-5xl min-h-[90vh] rounded-xl bg-white p-8 shadow-[0px_0px_20px_white] md:p-10">
-        <div className="flex h-full flex-col gap-10">
+    <main className="min-h-screen flex items-center justify-center px-4 py-8 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
+      <div className="w-full max-w-5xl h-auto rounded-xl bg-white p-6 shadow-[0px_0px_20px_white] md:p-8">
+        <div className="flex flex-col gap-10">
           <TicketsHeader />
 
           <section className="mx-auto w-full max-w-4xl">

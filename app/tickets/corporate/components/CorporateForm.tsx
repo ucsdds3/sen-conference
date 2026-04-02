@@ -1,11 +1,10 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import AttendeeFields from "./AttendeeFields";
-import { HEAR_ABOUT_OPTIONS } from "../../constants";
 
 type CorporateFormState = {
-  company: string;
+  companyName: string;
   industry: string;
   firstName: string;
   lastName: string;
@@ -13,17 +12,23 @@ type CorporateFormState = {
   phone: string;
   ticketType: string;
   quantity: string;
-  reach: string;
+  howHeard: string;
 };
 
 type FieldErrors = Partial<
   Record<keyof CorporateFormState | "attendeeNames", string>
 >;
 
-const TICKET_OPTIONS = ["General Admission", "Premium", "VIP"] as const;
+const TICKET_OPTIONS = ["General Admission", "Premium", "VIP"];
+
+const HEAR_ABOUT_OPTIONS = [
+  { value: "social media", label: "Social media" },
+  { value: "website", label: "Website" },
+  { value: "mouth", label: "Word of mouth" },
+];
 
 const emptyState: CorporateFormState = {
-  company: "",
+  companyName: "",
   industry: "",
   firstName: "",
   lastName: "",
@@ -31,7 +36,7 @@ const emptyState: CorporateFormState = {
   phone: "",
   ticketType: "",
   quantity: "1",
-  reach: "",
+  howHeard: "",
 };
 
 export default function CorporateForm() {
@@ -44,6 +49,16 @@ export default function CorporateForm() {
     () => Math.max(1, Number(form.quantity) || 1),
     [form.quantity],
   );
+
+  const trimmedAttendees = useMemo(
+    () => attendeeNames.map((name) => name.trim()).filter(Boolean),
+    [attendeeNames],
+  );
+
+  useEffect(() => {
+    // Clear attendee-name errors as the user types, since attendee input is optional.
+    setErrors((prev) => (prev.attendeeNames ? { ...prev, attendeeNames: undefined } : prev));
+  }, [trimmedAttendees]);
 
   function validateField(
     name: keyof CorporateFormState,
@@ -72,10 +87,12 @@ export default function CorporateForm() {
       if (error) nextErrors[key] = error;
     });
 
-    // If attendee names are used, require exactly one name per ticket.
-    const filledNames = names.filter((name) => name.trim());
-    if (names.length > 0 && filledNames.length !== Number(values.quantity)) {
-      nextErrors.attendeeNames = `Please provide exactly ${values.quantity} attendee name(s), or remove all attendee fields.`;
+    // Attendee names are optional: allow partial input.
+    // Only validate that we don't exceed the purchased quantity.
+    const filledNames = names.map((name) => name.trim()).filter(Boolean);
+    const qty = Math.max(1, Number(values.quantity) || 1);
+    if (filledNames.length > qty) {
+      nextErrors.attendeeNames = `You can enter at most ${qty} attendee name(s).`;
     }
 
     return nextErrors;
@@ -104,6 +121,7 @@ export default function CorporateForm() {
 
     setLoading(true);
     try {
+      const attendeeNamesForCheckout = trimmedAttendees;
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -111,14 +129,14 @@ export default function CorporateForm() {
           purchaseType: "corporate",
           firstName: form.firstName,
           lastName: form.lastName,
-          company: form.company,
+          companyName: form.companyName,
           industry: form.industry,
           email: form.email,
           phone: form.phone,
           ticketType: form.ticketType,
           quantity: Number(form.quantity),
-          reach: form.reach,
-          attendeeNames: attendeeNames.filter((name) => name.trim()),
+          howHeard: form.howHeard,
+          attendeeNames: attendeeNamesForCheckout,
         }),
       });
 
@@ -143,7 +161,8 @@ export default function CorporateForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-6">
+    <form onSubmit={onSubmit} className="flex min-h-0 flex-1 flex-col gap-8">
+      <div className="flex flex-1 flex-col gap-6">
       <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
         <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
           Company Info
@@ -152,13 +171,13 @@ export default function CorporateForm() {
         <div className="flex flex-col gap-1">
           <label className="text-xs font-medium">Company Name *</label>
           <input
-            value={form.company}
-            onChange={(e) => updateField("company", e.target.value)}
+            value={form.companyName}
+            onChange={(e) => updateField("companyName", e.target.value)}
             className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
             type="text"
           />
-          {errors.company ? (
-            <p className="text-xs text-red-500">{errors.company}</p>
+          {errors.companyName ? (
+            <p className="text-xs text-red-500">{errors.companyName}</p>
           ) : null}
         </div>
 
@@ -283,8 +302,8 @@ export default function CorporateForm() {
             How did you hear about the event? *
           </label>
           <select
-            value={form.reach}
-            onChange={(e) => updateField("reach", e.target.value)}
+            value={form.howHeard}
+            onChange={(e) => updateField("howHeard", e.target.value)}
             className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
           >
             <option value="" disabled>
@@ -296,8 +315,8 @@ export default function CorporateForm() {
               </option>
             ))}
           </select>
-          {errors.reach ? (
-            <p className="text-xs text-red-500">{errors.reach}</p>
+          {errors.howHeard ? (
+            <p className="text-xs text-red-500">{errors.howHeard}</p>
           ) : null}
         </div>
 
@@ -325,10 +344,12 @@ export default function CorporateForm() {
         />
       </section>
 
+      </div>
+
       <button
         type="submit"
         disabled={loading}
-        className="mt-2 w-full rounded-lg bg-sen-blue py-3 text-md font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-auto w-full rounded-lg bg-sen-blue py-3 text-md font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {loading ? "Redirecting to Checkout..." : "Proceed to Checkout"}
       </button>

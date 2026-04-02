@@ -52,9 +52,9 @@ export async function POST(req: Request) {
           metadata.status || metadata.purchaseType, // professional, student, professor, investor, corporate
           metadata.ticketType,
           metadata.quantity,
-          metadata.company,
+          metadata.company || metadata.school,
           metadata.jobTitle,
-          metadata.industry,
+          metadata.industry || metadata.major,
           metadata.reach,
           metadata.attendeeNames,
           metadata.referralCode,

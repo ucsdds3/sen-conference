@@ -7,6 +7,8 @@ export default async function handleCheckout(input: FormData) {
   const lastName = input.get("lastName");
   const email = input.get("email");
   const status = input.get("status");
+  const school = input.get("school");
+  const major = input.get("major");
   const reach = input.get("reach");
   const phone = input.get("phone");
   const company = input.get("company")
@@ -19,7 +21,7 @@ export default async function handleCheckout(input: FormData) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       ticket,
-      attendee: { firstName, lastName, email, phone, status, reach, company, jobTitle, referralCode },
+      attendee: { firstName, lastName, email, phone, status, reach, company, jobTitle, school, major, referralCode },
     }),
   });
 
