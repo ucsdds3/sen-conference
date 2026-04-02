@@ -81,3 +81,12 @@ To set up the Stripe webhook:
 - Set destination type to webhook endpoint and continue.
 - Set the endpoint URL to the directory of your webhook API (in the case of this project, the URL is `https://sen-conference.vercel.app/api/webhook`) and continue.
 - Copy the signing secret and set it as the `STRIPE_WEBHOOK_SECRET` environment variable.
+
+Note that Stripe will be sending the event to the deployed route, not your development route. To send the webhook event to development (useful for when you're modifying the webhook and you want to test it out without pushing to prod), install the Stripe CLI <a href="">here</a> and run:
+```
+stripe login                                    # and connect your Stripe account to the CLI
+```
+
+```
+stripe listen --forward-to localhost:3000       # forwards all events to localhost instead of your deployed website
+```

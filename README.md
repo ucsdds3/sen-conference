@@ -23,8 +23,7 @@ The site is built using **Next.js** and **TypeScript**, and uses **Node** as the
 4. Run `npm run dev` to start the development server. The website will now be available at [http://localhost:3000](http://localhost:3000)
 5. To get the environment variables needed for the APIs to run:
   - Log into the DS3 Vercel.
-  - Install the Vercel CLI on your local machine if you haven't already (`npm install vercel`)
-  - Run `vercel link` in the terminal, and follow directions to link local repo to the respective Vercel project.
+  - Run `npx vercel link` in the terminal, and follow directions to link local repo to the respective Vercel project.
   - Pull environment variables when prompted, or `npx vercel env pull .env.local`.
   - Change `NEXT_PUBLIC_BASE_URL` to `http://localhost:3000` in your .env.local file.
 
