@@ -12,7 +12,7 @@ function CorporateSuccessContent() {
 
   return (
     <main className="flex justify-center py-[5vh] px-4 bg-sen-blue md:bg-linear-to-r md:from-sen-blue md:from-50% md:to-[#5F6B80]">
-      <div className="h-[90vh] w-full max-w-3xl bg-white rounded-xl shadow-[0px_0px_20px_white] py-10">
+      <div className="h-[90vh] w-full max-w-2xl bg-white rounded-xl shadow-[0px_0px_20px_white] py-10">
         <div className="mb-8">
           <TicketsHeader />
         </div>

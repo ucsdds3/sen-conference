@@ -27,7 +27,7 @@ export default function TicketsPage() {
 
   return (
     <main className="min-h-screen flex items-start md:items-center justify-center px-4 py-8 bg-sen-blue md:bg-linear-to-r md:from-sen-blue md:from-50% md:to-[#5F6B80]">
-      <div className="w-full max-w-3xl h-auto bg-white rounded-xl shadow-[0px_0px_20px_white] p-6 md:p-8 flex flex-col">
+      <div className="w-full max-w-3xl h-auto bg-white rounded-xl shadow-[0px_0px_20px_white] p-8 flex flex-col">
         <div className="flex flex-col gap-6">
           <TicketsHeader />
 
@@ -49,8 +49,8 @@ export default function TicketsPage() {
             className="flex flex-col gap-6"
           >
             <div className="flex flex-col gap-6">
-              <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-                <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+              <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-lg border border-slate-200 p-4">
+                <h2 className="sm:col-span-2 text-sm font-semibold text-sen-blue">
                   Contact Info
                 </h2>
 
@@ -211,7 +211,7 @@ export default function TicketsPage() {
               </section>
 
               <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-                <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+                <h2 className="text-sm font-semibold text-sen-blue">
                   Ticket Details
                 </h2>
 

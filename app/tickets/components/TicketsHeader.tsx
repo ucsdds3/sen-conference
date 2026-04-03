@@ -14,14 +14,6 @@ export default function TicketsHeader() {
         width={60}
         height={60}
       />
-      <div className="text-left">
-        <h1 className="text-2xl font-bold text-black">
-          Blueprint Summit 2026
-        </h1>
-        <p className="text-sm text-gray-600">
-          SEN’s Startup & Innovation Conference
-        </p>
-      </div>
     </div>
   );
 }

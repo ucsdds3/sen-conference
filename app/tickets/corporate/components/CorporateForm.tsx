@@ -165,8 +165,8 @@ export default function CorporateForm() {
   return (
     <form onSubmit={onSubmit} className="flex min-h-0 flex-1 flex-col gap-8">
       <div className="flex flex-1 flex-col gap-6">
-        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-          <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 sm:grid-cols-2">
+          <h2 className="sm:col-span-2 text-sm font-semibold text-sen-blue">
             Company Info
           </h2>
 
@@ -197,8 +197,8 @@ export default function CorporateForm() {
           </div>
         </section>
 
-        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-          <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 sm:grid-cols-2">
+          <h2 className="sm:col-span-2 text-sm font-semibold text-sen-blue">
             Contact Info
           </h2>
 
@@ -255,8 +255,8 @@ export default function CorporateForm() {
           </div>
         </section>
 
-        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-          <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 sm:grid-cols-2">
+          <h2 className="sm:col-span-2 text-sm font-semibold text-sen-blue">
             Ticket Details
           </h2>
 
@@ -301,7 +301,7 @@ export default function CorporateForm() {
             ) : null}
           </div>
 
-          <div className="col-span-2 flex flex-col gap-1">
+          <div className="sm:col-span-2 flex flex-col gap-1">
             <label className="text-xs font-medium">
               How did you hear about the event? *
             </label>

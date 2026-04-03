@@ -30,7 +30,7 @@ function SuccessContent() {
         </div>
         <div className="flex flex-col min-h-fit justify-between gap-10">
           <div
-            className="relative bg-sen-blue text-white text-center pt-20 pb-20 px-6"
+            className="relative bg-sen-blue text-white text-center pt-20 pb-20 px-10"
             style={{
               clipPath: "polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)",
             }}
@@ -44,9 +44,9 @@ function SuccessContent() {
             </p>
           </div>
 
-          <div className="bg-white text-center px-6">
+          <div className="bg-white text-center px-10">
             <div className="max-w-3xl mx-auto">
-              <h3 className="text-4xl font-bold text-sen-blue mb-6 tracking-wide">
+              <h3 className="text-3xl font-bold text-sen-blue mb-6 tracking-wide">
                 UNLOCK MORE FOR YOUR EXPERIENCE
               </h3>
 

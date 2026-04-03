@@ -10,10 +10,10 @@
 } */
 
 @theme {
-  --color-white: #F0F0F0;
-  --color-black: #1C1C1C;
-  --color-sen-blue: #0D1626;
-  --color-sen-yorange: #F6B654;
+  --color-white: #f0f0f0;
+  --color-black: #1c1c1c;
+  --color-sen-blue: #0d1626;
+  --color-sen-yorange: #f6b654;
 }
 
 :root {
