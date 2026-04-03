@@ -20,7 +20,7 @@ export default function AttendeeFields({
   const canAdd = attendeeNames.length < quantity;
 
   return (
-    <div className="col-span-2 rounded-lg border border-slate-200 p-4">
+    <div className="sm:col-span-2 rounded-lg border border-slate-200 p-4">
       <div className="mb-3 flex items-center justify-between">
         <label className="text-xs font-medium">Attendee Names (Optional)</label>
         <button

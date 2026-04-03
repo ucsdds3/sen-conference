@@ -1,11 +1,11 @@
 import TicketsHeader from "../components/TicketsHeader";
 import TicketSelectionCard from "./components/TicketSelectionCard";
 
-export default function ticketSelectionPage() {
+export default function TicketSelectionPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 py-8 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
-      <div className="w-full max-w-5xl h-auto rounded-xl bg-white p-6 shadow-[0px_0px_20px_white] md:p-8">
-        <div className="flex flex-col gap-10">
+    <main className="min-h-screen flex items-center justify-center px-4 py-8 bg-sen-blue md:bg-linear-to-r md:from-sen-blue md:from-50% md:to-[#5F6B80]">
+      <div className="w-full max-w-4xl h-auto rounded-xl bg-white p-8 shadow-[0px_0px_20px_white]">
+        <div className="flex flex-col gap-8">
           <TicketsHeader />
 
           <section className="mx-auto w-full max-w-4xl">

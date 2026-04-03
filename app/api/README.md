@@ -84,9 +84,9 @@ To set up the Stripe webhook:
 
 Note that Stripe will be sending the event to the deployed route, not your development route. To send the webhook event to development (useful for when you're modifying the webhook and you want to test it out without pushing to prod), install the Stripe CLI <a href="">here</a> and run:
 ```
-stripe login                                                # and connect your Stripe account to the CLI
+stripe login                                                # connect your Stripe account to the CLI
 ```
 
 ```
-stripe listen --forward-to localhost:3000/api/webhook       # forwards all events to localhost instead of your deployed website
+stripe listen --forward-to localhost:3000/api/webhook       # this will give you a new webhook secret, use this in your .env.local
 ```
