@@ -23,7 +23,7 @@ function SuccessContent() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center py-[5vh] px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80] sm:bg-sen-blue">
+    <main className="min-h-screen flex items-center justify-center py-[5vh] px-4 bg-sen-blue md:bg-linear-to-r md:from-sen-blue md:from-50% md:to-[#5F6B80]">
       <div className="h-fit w-full max-w-3xl bg-white rounded-xl shadow-[0px_0px_20px_white] py-10">
         <div className="mb-8">
           <TicketsHeader />
@@ -46,7 +46,7 @@ function SuccessContent() {
 
           <div className="bg-white text-center px-6">
             <div className="max-w-3xl mx-auto">
-              <h3 className="text-4xl font-bold text-[#0D1626] mb-6 tracking-wide">
+              <h3 className="text-4xl font-bold text-sen-blue mb-6 tracking-wide">
                 UNLOCK MORE FOR YOUR EXPERIENCE
               </h3>
 
