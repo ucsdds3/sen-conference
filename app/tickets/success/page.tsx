@@ -23,14 +23,14 @@ function SuccessContent() {
   };
 
   return (
-    <main className="flex justify-center py-[5vh] px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80]">
-      <div className="h-[90vh] w-full max-w-3xl bg-white rounded-xl shadow-[0px_0px_20px_white] py-10">
+    <main className="min-h-screen flex items-center justify-center py-[5vh] px-4 bg-linear-to-r from-sen-blue from-50% to-[#5F6B80] sm:bg-sen-blue">
+      <div className="h-fit w-full max-w-3xl bg-white rounded-xl shadow-[0px_0px_20px_white] py-10">
         <div className="mb-8">
           <TicketsHeader />
         </div>
-        <div className="flex flex-col h-[75vh] justify-between pb-8">
+        <div className="flex flex-col min-h-fit justify-between gap-10">
           <div
-            className="relative bg-sen-blue text-white text-center pt-20 pb-24"
+            className="relative bg-sen-blue text-white text-center pt-20 pb-20 px-6"
             style={{
               clipPath: "polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)",
             }}
