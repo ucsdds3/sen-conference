@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import AttendeeFields from "./AttendeeFields";
 
 type CorporateFormState = {
-  companyName: string;
+  company: string;
   industry: string;
   firstName: string;
   lastName: string;
@@ -12,7 +12,7 @@ type CorporateFormState = {
   phone: string;
   ticketType: string;
   quantity: string;
-  howHeard: string;
+  reach: string;
 };
 
 type FieldErrors = Partial<
@@ -24,11 +24,11 @@ const TICKET_OPTIONS = ["General Admission", "Premium", "VIP"];
 const HEAR_ABOUT_OPTIONS = [
   { value: "social media", label: "Social media" },
   { value: "website", label: "Website" },
-  { value: "mouth", label: "Word of mouth" },
+  { value: "word of mouth", label: "Word of mouth" },
 ];
 
 const emptyState: CorporateFormState = {
-  companyName: "",
+  company: "",
   industry: "",
   firstName: "",
   lastName: "",
@@ -36,7 +36,7 @@ const emptyState: CorporateFormState = {
   phone: "",
   ticketType: "",
   quantity: "1",
-  howHeard: "",
+  reach: "",
 };
 
 export default function CorporateForm() {
@@ -57,7 +57,9 @@ export default function CorporateForm() {
 
   useEffect(() => {
     // Clear attendee-name errors as the user types, since attendee input is optional.
-    setErrors((prev) => (prev.attendeeNames ? { ...prev, attendeeNames: undefined } : prev));
+    setErrors((prev) =>
+      prev.attendeeNames ? { ...prev, attendeeNames: undefined } : prev,
+    );
   }, [trimmedAttendees]);
 
   function validateField(
@@ -129,13 +131,13 @@ export default function CorporateForm() {
           purchaseType: "corporate",
           firstName: form.firstName,
           lastName: form.lastName,
-          companyName: form.companyName,
+          company: form.company,
           industry: form.industry,
           email: form.email,
           phone: form.phone,
           ticketType: form.ticketType,
           quantity: Number(form.quantity),
-          howHeard: form.howHeard,
+          reach: form.reach,
           attendeeNames: attendeeNamesForCheckout,
         }),
       });
@@ -163,187 +165,188 @@ export default function CorporateForm() {
   return (
     <form onSubmit={onSubmit} className="flex min-h-0 flex-1 flex-col gap-8">
       <div className="flex flex-1 flex-col gap-6">
-      <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
-          Company Info
-        </h2>
+        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
+          <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+            Company Info
+          </h2>
 
-        <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium">Company Name *</label>
-          <input
-            value={form.companyName}
-            onChange={(e) => updateField("companyName", e.target.value)}
-            className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
-            type="text"
-          />
-          {errors.companyName ? (
-            <p className="text-xs text-red-500">{errors.companyName}</p>
-          ) : null}
-        </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium">Company Name *</label>
+            <input
+              value={form.company}
+              onChange={(e) => updateField("company", e.target.value)}
+              className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
+              type="text"
+            />
+            {errors.company ? (
+              <p className="text-xs text-red-500">{errors.company}</p>
+            ) : null}
+          </div>
 
-        <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium">Industry *</label>
-          <input
-            value={form.industry}
-            onChange={(e) => updateField("industry", e.target.value)}
-            className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
-            type="text"
-          />
-          {errors.industry ? (
-            <p className="text-xs text-red-500">{errors.industry}</p>
-          ) : null}
-        </div>
-      </section>
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium">Industry *</label>
+            <input
+              value={form.industry}
+              onChange={(e) => updateField("industry", e.target.value)}
+              className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
+              type="text"
+            />
+            {errors.industry ? (
+              <p className="text-xs text-red-500">{errors.industry}</p>
+            ) : null}
+          </div>
+        </section>
 
-      <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
-          Contact Info
-        </h2>
+        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
+          <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+            Contact Info
+          </h2>
 
-        <div className="flex flex-col gap-1 justify-end">
-          <label className="text-xs font-medium">First Name *</label>
-          <input
-            value={form.firstName}
-            onChange={(e) => updateField("firstName", e.target.value)}
-            className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-            type="text"
-          />
-          {errors.firstName ? (
-            <p className="text-xs text-red-500">{errors.firstName}</p>
-          ) : null}
-        </div>
+          <div className="flex flex-col gap-1 justify-end">
+            <label className="text-xs font-medium">First Name *</label>
+            <input
+              value={form.firstName}
+              onChange={(e) => updateField("firstName", e.target.value)}
+              className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
+              type="text"
+            />
+            {errors.firstName ? (
+              <p className="text-xs text-red-500">{errors.firstName}</p>
+            ) : null}
+          </div>
 
-        <div className="flex flex-col gap-1 justify-end">
-          <label className="text-xs font-medium">Last Name *</label>
-          <input
-            value={form.lastName}
-            onChange={(e) => updateField("lastName", e.target.value)}
-            className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-            type="text"
-          />
-          {errors.lastName ? (
-            <p className="text-xs text-red-500">{errors.lastName}</p>
-          ) : null}
-        </div>
+          <div className="flex flex-col gap-1 justify-end">
+            <label className="text-xs font-medium">Last Name *</label>
+            <input
+              value={form.lastName}
+              onChange={(e) => updateField("lastName", e.target.value)}
+              className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
+              type="text"
+            />
+            {errors.lastName ? (
+              <p className="text-xs text-red-500">{errors.lastName}</p>
+            ) : null}
+          </div>
 
-        <div className="flex flex-col gap-1 justify-end">
-          <label className="text-xs font-medium">Email *</label>
-          <input
-            value={form.email}
-            onChange={(e) => updateField("email", e.target.value)}
-            className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-            type="email"
-          />
-          {errors.email ? (
-            <p className="text-xs text-red-500">{errors.email}</p>
-          ) : null}
-        </div>
+          <div className="flex flex-col gap-1 justify-end">
+            <label className="text-xs font-medium">Email *</label>
+            <input
+              value={form.email}
+              onChange={(e) => updateField("email", e.target.value)}
+              className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
+              type="email"
+            />
+            {errors.email ? (
+              <p className="text-xs text-red-500">{errors.email}</p>
+            ) : null}
+          </div>
 
-        <div className="flex flex-col gap-1 justify-end">
-          <label className="text-xs font-medium">Phone Number *</label>
-          <input
-            value={form.phone}
-            onChange={(e) => updateField("phone", e.target.value)}
-            className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-            type="tel"
-          />
-          {errors.phone ? (
-            <p className="text-xs text-red-500">{errors.phone}</p>
-          ) : null}
-        </div>
-      </section>
+          <div className="flex flex-col gap-1 justify-end">
+            <label className="text-xs font-medium">Phone Number *</label>
+            <input
+              value={form.phone}
+              onChange={(e) => updateField("phone", e.target.value)}
+              className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
+              type="tel"
+            />
+            {errors.phone ? (
+              <p className="text-xs text-red-500">{errors.phone}</p>
+            ) : null}
+          </div>
+        </section>
 
-      <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
-        <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
-          Ticket Details
-        </h2>
+        <section className="grid grid-cols-1 gap-4 rounded-lg border border-slate-200 p-4 md:grid-cols-2">
+          <h2 className="col-span-2 text-sm font-semibold text-sen-blue">
+            Ticket Details
+          </h2>
 
-        <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium">Ticket Type *</label>
-          <select
-            value={form.ticketType}
-            onChange={(e) => updateField("ticketType", e.target.value)}
-            className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
-          >
-            <option value="" disabled>
-              Select a ticket type
-            </option>
-            {TICKET_OPTIONS.map((ticket) => (
-              <option key={ticket} value={ticket}>
-                {ticket}
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium">Ticket Type *</label>
+            <select
+              value={form.ticketType}
+              onChange={(e) => updateField("ticketType", e.target.value)}
+              className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
+            >
+              <option value="" disabled>
+                Select a ticket type
               </option>
-            ))}
-          </select>
-          {errors.ticketType ? (
-            <p className="text-xs text-red-500">{errors.ticketType}</p>
-          ) : null}
-        </div>
+              {TICKET_OPTIONS.map((ticket) => (
+                <option key={ticket} value={ticket}>
+                  {ticket}
+                </option>
+              ))}
+            </select>
+            {errors.ticketType ? (
+              <p className="text-xs text-red-500">{errors.ticketType}</p>
+            ) : null}
+          </div>
 
-        <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium">Number of Tickets *</label>
-          <input
-            value={form.quantity}
-            onChange={(e) => {
-              updateField("quantity", e.target.value);
-              syncAttendeesToQuantity(Math.max(1, Number(e.target.value) || 1));
+          <div className="flex flex-col gap-1">
+            <label className="text-xs font-medium">Number of Tickets *</label>
+            <input
+              value={form.quantity}
+              onChange={(e) => {
+                updateField("quantity", e.target.value);
+                syncAttendeesToQuantity(
+                  Math.max(1, Number(e.target.value) || 1),
+                );
+              }}
+              min={1}
+              step={1}
+              className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
+              type="number"
+            />
+            {errors.quantity ? (
+              <p className="text-xs text-red-500">{errors.quantity}</p>
+            ) : null}
+          </div>
+
+          <div className="col-span-2 flex flex-col gap-1">
+            <label className="text-xs font-medium">
+              How did you hear about the event? *
+            </label>
+            <select
+              value={form.reach}
+              onChange={(e) => updateField("reach", e.target.value)}
+              className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
+            >
+              <option value="" disabled>
+                Click for dropdown
+              </option>
+              {HEAR_ABOUT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            {errors.reach ? (
+              <p className="text-xs text-red-500">{errors.reach}</p>
+            ) : null}
+          </div>
+
+          <AttendeeFields
+            attendeeNames={attendeeNames}
+            quantity={quantityNumber}
+            onChange={(index, value) => {
+              setAttendeeNames((prev) => {
+                const next = [...prev];
+                next[index] = value;
+                return next;
+              });
             }}
-            min={1}
-            step={1}
-            className="rounded-md bg-[#D9D9D9] px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-sen-yorange"
-            type="number"
+            onAdd={() =>
+              setAttendeeNames((prev) =>
+                prev.length < quantityNumber ? [...prev, ""] : prev,
+              )
+            }
+            onRemove={(index) =>
+              setAttendeeNames((prev) =>
+                prev.filter((_, currentIndex) => currentIndex !== index),
+              )
+            }
+            error={errors.attendeeNames}
           />
-          {errors.quantity ? (
-            <p className="text-xs text-red-500">{errors.quantity}</p>
-          ) : null}
-        </div>
-
-        <div className="col-span-2 flex flex-col gap-1">
-          <label className="text-xs font-medium">
-            How did you hear about the event? *
-          </label>
-          <select
-            value={form.howHeard}
-            onChange={(e) => updateField("howHeard", e.target.value)}
-            className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-          >
-            <option value="" disabled>
-              Click for dropdown
-            </option>
-            {HEAR_ABOUT_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          {errors.howHeard ? (
-            <p className="text-xs text-red-500">{errors.howHeard}</p>
-          ) : null}
-        </div>
-
-        <AttendeeFields
-          attendeeNames={attendeeNames}
-          quantity={quantityNumber}
-          onChange={(index, value) => {
-            setAttendeeNames((prev) => {
-              const next = [...prev];
-              next[index] = value;
-              return next;
-            });
-          }}
-          onAdd={() =>
-            setAttendeeNames((prev) =>
-              prev.length < quantityNumber ? [...prev, ""] : prev,
-            )
-          }
-          onRemove={(index) =>
-            setAttendeeNames((prev) =>
-              prev.filter((_, currentIndex) => currentIndex !== index),
-            )
-          }
-          error={errors.attendeeNames}
-        />
-      </section>
-
+        </section>
       </div>
 
       <button

@@ -15,8 +15,6 @@ function VerificationContent() {
     const codeInput = document.getElementById("code-input") as HTMLInputElement;
     const code = codeInput.value;
 
-    console.log(code);
-
     const res = await fetch("/api/verify-code", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -24,7 +22,6 @@ function VerificationContent() {
     });
 
     const data = await res.json();
-    console.log("data:", data);
 
     if (!data.valid) {
       setError("Invalid or expired code. Please try again.");
@@ -40,16 +37,18 @@ function VerificationContent() {
       body: JSON.stringify({
         ticket: data.formData.ticket,
         attendee: {
-          firstName: data.formData["firstName"],
-          lastName: data.formData["lastName"],
+          firstName: data.formData.firstName,
+          lastName: data.formData.lastName,
           email: data.formData.email,
           phone: data.formData.phone,
           status: data.formData.status,
+          school: data.formData.school,
+          major: data.formData.major,
           reach: data.formData.reach,
           company: data.formData.company,
-          jobTitle: data.formData["jobTitle"],
+          jobTitle: data.formData.jobTitle,
           ticket: data.formData.ticket,
-          referralCode: data.formData["referralCode"],
+          referralCode: data.formData.referralCode,
         },
       }),
     });
