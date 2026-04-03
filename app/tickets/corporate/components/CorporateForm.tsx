@@ -117,7 +117,6 @@ export default function CorporateForm() {
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(form);
     const validationErrors = validateForm(form, attendeeNames);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;

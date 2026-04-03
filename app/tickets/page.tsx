@@ -104,7 +104,7 @@ export default function TicketsPage() {
                     type="email"
                     placeholder={
                       status === "student"
-                        ? "Please use your school email."
+                        ? "Please use an email that ends with \".edu\"."
                         : ""
                     }
                   />
@@ -219,7 +219,7 @@ export default function TicketsPage() {
                   </label>
                   <input
                     className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                    name="referral-code"
+                    name="referralCode"
                     type="text"
                   />
                 </div>
