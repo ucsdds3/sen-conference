@@ -10,7 +10,7 @@ export default function TicketsPage() {
   const HEAR_ABOUT_OPTIONS = [
     { value: "social media", label: "Social media" },
     { value: "website", label: "Website" },
-    { value: "mouth", label: "Word of mouth" },
+    { value: "word of mouth", label: "Word of mouth" },
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function TicketsPage() {
                   <input
                     required
                     className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                    name="first-name"
+                    name="firstName"
                     type="text"
                   />
                 </div>
@@ -50,7 +50,7 @@ export default function TicketsPage() {
                   <input
                     required
                     className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                    name="last-name"
+                    name="lastName"
                     type="text"
                   />
                 </div>
@@ -61,7 +61,6 @@ export default function TicketsPage() {
                     required
                     defaultValue=""
                     name="status"
-                    id="status-dropdown"
                     onChange={(e) => setStatus(e.target.value)}
                     className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
                   >
@@ -108,7 +107,6 @@ export default function TicketsPage() {
                         ? "Please use your school email."
                         : ""
                     }
-                    id="email-input"
                   />
                 </div>
 
@@ -117,7 +115,7 @@ export default function TicketsPage() {
                   <input
                     required
                     className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                    name="number"
+                    name="phone"
                     type="text"
                   />
                 </div>
@@ -128,7 +126,6 @@ export default function TicketsPage() {
                       ? "flex flex-col gap-1 justify-end"
                       : "hidden"
                   }
-                  id="company-container"
                 >
                   <label className="text-xs font-medium">
                     Company/Organization *
@@ -147,13 +144,12 @@ export default function TicketsPage() {
                       ? "flex flex-col gap-1 justify-end"
                       : "hidden"
                   }
-                  id="job-title-container"
                 >
                   <label className="text-xs font-medium">Job Title *</label>
                   <input
                     required={status === "professional"}
                     className="bg-[#D9D9D9] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sen-yorange text-xs"
-                    name="job-title"
+                    name="jobTitle"
                     type="text"
                   />
                 </div>
@@ -164,7 +160,6 @@ export default function TicketsPage() {
                       ? "flex flex-col gap-1 justify-end"
                       : "hidden"
                   }
-                  id="school-container"
                 >
                   <label className="text-xs font-medium">
                     University/School *
@@ -183,7 +178,6 @@ export default function TicketsPage() {
                       ? "flex flex-col gap-1 justify-end"
                       : "hidden"
                   }
-                  id="major-container"
                 >
                   <label className="text-xs font-medium">Major *</label>
                   <input

@@ -33,6 +33,7 @@ export async function POST(req: Request) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
     const metadata = session.metadata || {};
+    console.log(metadata)
     const now = new Date()
     const date = now.toLocaleDateString()
     const time = now.toLocaleTimeString()
@@ -53,8 +54,8 @@ export async function POST(req: Request) {
           metadata.ticketType,
           metadata.quantity,
           metadata.company || metadata.school,
-          metadata.jobTitle,
           metadata.industry || metadata.major,
+          metadata.jobTitle,
           metadata.reach,
           metadata.attendeeNames,
           metadata.referralCode,
