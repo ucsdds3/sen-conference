@@ -1,7 +1,7 @@
 "use client";
 
 import BenefitsCard from "./BenefitsCard";
-import RegisterButton from "../RegisterButton";
+import RegisterButton from "../../layout/RegisterButton";
 
 export default function BenefitsSection() {
   return (

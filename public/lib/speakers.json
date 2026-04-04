@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Jane Smith",
+    "accomplishments": [
+      "Co-founder & CEO of TechStartup",
+      "Forbes 30 Under 30",
+      "Previously at Google as Product Lead"
+    ],
+    "image": "",
+    "linkedin": "https://linkedin.com",
+    "website": "https://example.com"
+  },
+  {
+    "name": "John Doe",
+    "accomplishments": [
+      "Raised $20M Series A for FinTech startup",
+      "Speaker at Y Combinator Demo Day",
+      "CS grad from Stanford"
+    ],
+    "image": "",
+    "linkedin": "https://linkedin.com",
+    "website": ""
+  },
+  {
+    "name": "Speaker Name",
+    "accomplishments": [
+      "Accomplishment one",
+      "Accomplishment two",
+      "Accomplishment three"
+    ],
+    "image": "",
+    "linkedin": "",
+    "website": ""
+  },
+  {
+    "name": "Speaker Name",
+    "accomplishments": [
+      "Accomplishment one",
+      "Accomplishment two",
+      "Accomplishment three"
+    ],
+    "image": "",
+    "linkedin": "",
+    "website": ""
+  },
+  {
+    "name": "Speaker Name",
+    "accomplishments": [
+      "Accomplishment one",
+      "Accomplishment two",
+      "Accomplishment three"
+    ],
+    "image": "",
+    "linkedin": "",
+    "website": ""
+  },
+  {
+    "name": "Speaker Name",
+    "accomplishments": [
+      "Accomplishment one",
+      "Accomplishment two",
+      "Accomplishment three"
+    ],
+    "image": "",
+    "linkedin": "",
+    "website": ""
+  },
+  {
+    "name": "Speaker Name",
+    "accomplishments": [
+      "Accomplishment one",
+      "Accomplishment two",
+      "Accomplishment three"
+    ],
+    "image": "",
+    "linkedin": "",
+    "website": ""
+  },
+  {
+    "name": "Speaker Name",
+    "accomplishments": [
+      "Accomplishment one",
+      "Accomplishment two",
+      "Accomplishment three"
+    ],
+    "image": "",
+    "linkedin": "",
+    "website": ""
+  }
+]

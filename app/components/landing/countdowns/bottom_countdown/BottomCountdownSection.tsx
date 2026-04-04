@@ -2,7 +2,7 @@
 
 import { useCountdown } from "../hooks/useCountdown";
 import DigitGroup from "./DigitGroup";
-import RegisterButton from "../../RegisterButton";
+import RegisterButton from "../../../layout/RegisterButton";
 
 const TARGET_DATE = new Date("2026-11-17T00:00:00").getTime();
 
