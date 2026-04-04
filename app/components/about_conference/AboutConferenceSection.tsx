@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 export default function AboutConferenceSection() {
   return (
     <section className="min-h-screen w-full flex flex-col overflow-hidden h-fit bg-white">
@@ -22,7 +20,7 @@ export default function AboutConferenceSection() {
             <h3 className="text-xl font-semibold leading-snug text-white text-right text-balance w-full my-2">
               What is Blueprint Summit?
             </h3>
-            <p className="inline-block text-sm md:text-md leading-snug text-white text-right text-balance max-w-[70vw] w-md">
+            <p className="inline-block text-sm md:text-md leading-snug text-white text-right text-balance max-w-[70vw] max-w-md">
               It's a one day, in-person event, consisting of multiple workshops,
               panels, interactive sessions, and structured networking. All with
               people who are actually doing the work.
@@ -43,8 +41,8 @@ export default function AboutConferenceSection() {
             <div className="absolute top-[5%] p-[5%] text-white tracking-tight text-xl lg:text-3xl font-bold w-fit z-20">
               WHERE IT ALL TAKES PLACE
             </div>
-            <div className="absolute top-[35%] p-[5%] md:top-[5%] left-0 md:left-auto right-auto md:right-0 text-white text-md lg:text-lg text-left md:text-right min-w-max z-20">
-              <span className=" text-lg lg:text-xl font-semibold">
+            <div className="absolute top-[35%] p-[5%] md:top-[5%] left-0 md:left-auto right-auto md:right-0 text-white text-md lg:text-lg text-left md:text-right z-20">
+              <span className="text-lg lg:text-xl font-semibold">
                 Rady School of Management
               </span>{" "}
               <br />

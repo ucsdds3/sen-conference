@@ -1,7 +1,7 @@
 "use client";
 
-import Countdown from "./Countdown";
 import RegisterButton from "../RegisterButton";
+
 
 export default function Hero() {
   return (
