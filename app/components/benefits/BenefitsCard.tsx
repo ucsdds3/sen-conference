@@ -3,6 +3,8 @@
 interface BenefitsCardProps {
   title: string;
   benefits: string;
+  imageSrc: string;
+  imageAlt: string;
   minHeight?: string;
   glowColor?: string;
 }
@@ -10,12 +12,14 @@ interface BenefitsCardProps {
 export default function BenefitsCard({
   title,
   benefits,
+  imageSrc,
+  imageAlt,
   minHeight = "md:min-h-[clamp(360px,36vh,420px)]",
   glowColor = "rgba(246, 182, 84, 0.3)",
 }: BenefitsCardProps) {
   return (
     <div
-      className={`${minHeight} w-full h-full bg-white p-6 md:p-8 flex flex-col justify-between rounded-2xl transition-all duration-300 hover:scale-105`}
+      className={`${minHeight} flex h-full w-full flex-col justify-between rounded-2xl bg-white p-6 transition-all duration-200 ease-out hover:scale-105 md:p-8`}
       style={{
         boxShadow: `
           0 0 40px ${glowColor},
@@ -35,18 +39,21 @@ export default function BenefitsCard({
         `;
       }}
     >
-      {/*Title + Image */}
       <div className="flex flex-col items-center">
-        <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-center text-black mb-4">
+        <h3 className="mb-4 text-center text-lg font-semibold text-black md:text-xl lg:text-2xl">
           {title}
         </h3>
 
-        {/* Image Placeholder with fixed height (Will Put Image in Here with SEN Provided Photo*/}
-        <div className="w-full h-36 md:h-44 lg:h-48 bg-black rounded-lg" />
+        <div className="aspect-[4/3] w-full overflow-hidden rounded-lg">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="h-full w-full object-cover"
+          />
+        </div>
       </div>
 
-      {/* Paragraph */}
-      <p className="text-base md:text-lg lg:text-xl text-black/90 text-center leading-relaxed mt-4">
+      <p className="mt-4 text-center text-base leading-relaxed text-black/90 md:text-lg lg:text-xl">
         {benefits}
       </p>
     </div>
