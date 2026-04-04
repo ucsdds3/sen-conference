@@ -4,7 +4,7 @@ import PricingCard from "./PricingCard";
 
 export default function PricingSection() {
   return (
-    <section className="font-editorial relative z-10 w-full bg-transparent py-12 md:py-20 lg:py-24">
+    <section className="font-editorial relative z-10 w-full bg-sen-blue py-12 md:py-20 lg:py-24">
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
         <h2 className="relative my-6 text-center text-[clamp(2.5rem,7vw,5rem)] font-bold tracking-tight text-white md:my-8 md:text-right">
           Ticket Pricing

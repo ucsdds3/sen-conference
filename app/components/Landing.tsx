@@ -11,7 +11,7 @@ import BottomCountdownSection from "./countdowns/bottom_countdown/BottomCountdow
 
 export default function Landing() {
   return (
-    <div className="overflow-x-clip">
+    <div className="relative min-h-screen w-full overflow-x-hidden">
       <Header />
       <Countdown />
       <Hero />
