@@ -33,9 +33,9 @@ export default function PricingSection() {
               "Networking with attendees and speakers",
             ]}
             price="$XX"
-            bgColor="bg-[var(--color-white)]"
+            bgColor="bg-[#C4C4C4]"
             height="md:min-h-[80%]"
-            glowColor="rgba(255,255,255,0.12)"
+            glowColor="rgba(217,217,217,0.6)"
           />
           <PricingCard
             title="Premium"
@@ -57,9 +57,9 @@ export default function PricingSection() {
               "Private, small-group access",
             ]}
             price="$XX"
-            bgColor="bg-[#8FA4C5]"
+            bgColor="bg-[#99B2DD]"
             height="md:h-full"
-            glowColor="rgba(143,164,197,0.6)"
+            glowColor="rgba(153,178,221,0.6)"
           />
         </div>
       </div>

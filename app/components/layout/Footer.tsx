@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="w-full bg-sen-blue text-white mt-auto">
@@ -8,9 +10,9 @@ export default function Footer() {
         {/* Links */}
         <div className="flex flex-col gap-2 min-w-max">
           <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">About</span>
-          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Partners</span>
+          <Link href="/partners" className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors">Partners</Link>
           <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Venue</span>
-          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Speakers</span>
+          <Link href="/speakers" className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors">Speakers</Link>
           <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Workshops</span>
           <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Schedule</span>
           <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Register</span>

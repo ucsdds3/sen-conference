@@ -1,5 +1,5 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 import Countdown from "./countdowns/top_countdown/TopCountdownSection";
 import Hero from "./hero/Hero";
 import AboutConferenceSection from "./about_conference/AboutConferenceSection";
