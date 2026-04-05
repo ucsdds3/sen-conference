@@ -15,7 +15,7 @@ export default function SchedulePage() {
     <main className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4 py-16 gap-8">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-8 gap-8">
         <h1 className="text-sen-blue font-bold text-4xl md:text-5xl">Schedule</h1>
         <p className="text-sen-blue/60 text-lg">Insert date of conference here</p>
 
@@ -47,7 +47,7 @@ export default function SchedulePage() {
           </div>
 
           {/* Desktop carousel — 3 cards */}
-          <div className="flex-1 relative overflow-hidden aspect-9/4 hidden md:block">
+          <div className="flex-1 relative overflow-x-clip overflow-y-visible aspect-9/4 hidden md:block">
             {schedule.map((event, i) => (
               <div
                 key={i}
