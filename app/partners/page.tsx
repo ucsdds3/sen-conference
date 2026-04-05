@@ -1,21 +1,10 @@
 import Header from "../components/layout/Header";
+import partners from "../../public/lib/partners.json";
 
 const tiers = [
-  {
-    label: "Platinum",
-    labelColor: "text-[#99B2DD]",
-    boxHeight: "h-20 w-20",
-  },
-  {
-    label: "Gold",
-    labelColor: "text-sen-yorange",
-    boxHeight: "h-20 w-20",
-  },
-  {
-    label: "Silver",
-    labelColor: "text-[#C4C4C4]",
-    boxHeight: "h-20 w-20",
-  },
+  { label: "Platinum", labelColor: "text-[#99B2DD]" },
+  { label: "Gold",     labelColor: "text-sen-yorange" },
+  { label: "Silver",   labelColor: "text-[#C4C4C4]" },
 ];
 
 export default function PartnersPage() {
@@ -24,24 +13,49 @@ export default function PartnersPage() {
       <Header />
 
       <div className="flex-1 w-full max-w-6xl mx-auto px-6 md:px-10 py-16 flex flex-col gap-16">
-        {/* When given assets for sponsor logos, extract this into a SponsorTier component (label on the left + row of sponsor logo images to the right) */}
-        {tiers.map(({ label, labelColor, boxHeight }) => (
-          <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 md:gap-12">
-            {/* Tier label */}
-            <div className="min-w-30 md:min-w-40">
-              <h2 className={`text-2xl md:text-3xl font-bold leading-tight ${labelColor}`}>
-                {label}<br />Sponsors
-              </h2>
-            </div>
+        {tiers.map(({ label, labelColor }) => {
+          const tierPartners = partners.filter(
+            (p) => p.tier === label.toLowerCase()
+          );
 
-            {/* Placeholder boxes */}
-            <div className="flex flex-1 flex-wrap gap-6 md:gap-8">
-              {[0, 1, 2].map((i) => (
-                <div key={i} className={`${boxHeight} bg-black rounded-lg`} />
-              ))}
+          return (
+            <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 md:gap-12">
+              {/* Tier label */}
+              <div className="min-w-30 md:min-w-40">
+                <h2 className={`text-2xl md:text-3xl font-bold leading-tight ${labelColor}`}>
+                  {label}<br />Sponsors
+                </h2>
+              </div>
+
+              {/* Sponsor logos */}
+              <div className="flex flex-1 flex-wrap gap-6 md:gap-8">
+                {tierPartners.length > 0 ? (
+                  tierPartners.map((partner, i) => (
+                    <a
+                      key={`${partner.tier}-${i}`}
+                      href={partner.website || undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="h-20 w-20 flex items-center justify-center rounded-lg overflow-hidden"
+                    >
+                      {partner.logo ? (
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          className="h-full w-full object-contain"
+                        />
+                      ) : (
+                        <div className="h-20 w-20 bg-black rounded-lg" />
+                      )}
+                    </a>
+                  ))
+                ) : (
+                  <div className="h-20 w-20 bg-black rounded-lg" />
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         {/* Sponsorship contact */}
         <p className="text-center text-sm md:text-base text-black/60 mt-8 pb-4">
