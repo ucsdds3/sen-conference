@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface SpeakerCardProps {
   name: string;
@@ -8,6 +8,8 @@ interface SpeakerCardProps {
   accomplishments: string[];
   linkedin?: string;
   website?: string;
+  flipped: boolean;
+  onFlip: () => void;
 }
 
 export default function SpeakerCard({
@@ -16,9 +18,17 @@ export default function SpeakerCard({
   accomplishments,
   linkedin,
   website,
+  flipped,
+  onFlip,
 }: SpeakerCardProps) {
-  const [flipped, setFlipped] = useState(false);
   const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    if (!flipped) {
+      const rafId = requestAnimationFrame(() => setHovered(false));
+      return () => cancelAnimationFrame(rafId);
+    }
+  }, [flipped]);
 
   const transform = flipped
     ? "rotateY(-180deg)"
@@ -29,7 +39,7 @@ export default function SpeakerCard({
   return (
     <div
       className="relative w-full aspect-3/4 cursor-pointer perspective-[1000px]"
-      onClick={() => setFlipped((f) => !f)}
+      onClick={onFlip}
     >
       <div
         className="relative w-full h-full transition-transform duration-500"

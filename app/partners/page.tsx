@@ -12,14 +12,14 @@ export default function PartnersPage() {
     <main className="min-h-screen bg-white flex flex-col">
       <Header />
 
-      <div className="flex-1 w-full max-w-6xl mx-auto px-6 md:px-10 py-16 flex flex-col gap-16">
+      <div className="flex-1 w-full max-w-6xl mx-auto px-6 md:px-10 py-8 flex flex-col justify-center gap-8">
         {tiers.map(({ label, labelColor }) => {
           const tierPartners = partners.filter(
             (p) => p.tier === label.toLowerCase()
           );
 
           return (
-            <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 md:gap-12">
+            <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 md:gap-12 border border-black/10 rounded-2xl p-6 md:p-8">
               {/* Tier label */}
               <div className="min-w-30 md:min-w-40">
                 <h2 className={`text-2xl md:text-3xl font-bold leading-tight ${labelColor}`}>
