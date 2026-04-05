@@ -45,7 +45,9 @@ export default function PartnersPage() {
                           className="h-full w-full object-contain"
                         />
                       ) : (
-                        <div className="h-20 w-20 bg-black rounded-lg" />
+                        <div className="h-20 w-20 bg-black rounded-lg flex items-center justify-center p-2">
+                          <p className="text-white text-xs text-center leading-tight">{partner.name}</p>
+                        </div>
                       )}
                     </a>
                   ))
