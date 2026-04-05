@@ -22,6 +22,17 @@
     "website": ""
   },
   {
+    "name": "Alex Johnson",
+    "accomplishments": [
+      "Founder of Design Studio",
+      "Built and sold two SaaS products",
+      "Advisor to 10+ early-stage startups"
+    ],
+    "image": "",
+    "linkedin": "",
+    "website": "https://example.com"
+  },
+  {
     "name": "Speaker Name",
     "accomplishments": [
       "Accomplishment one",
