@@ -38,7 +38,7 @@ export default function SpeakerCard({
         onMouseLeave={() => setHovered(false)}
       >
         {/* Front */}
-        <div className="absolute inset-0 rounded-2xl border border-black/10 bg-[#FAF9F6] flex flex-col overflow-hidden backface-hidden">
+        <div className="absolute inset-0 rounded-2xl border border-black/10 bg-sen-card flex flex-col overflow-hidden backface-hidden">
           {image ? (
             <img src={image} alt={name} className="flex-1 object-cover" />
           ) : (
