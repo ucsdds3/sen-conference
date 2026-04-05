@@ -1,5 +1,3 @@
-"use client";
-
 const quotes = [
   {
     text: "SEN completely changed how I approach building. The speakers didn't sugarcoat anything — the most honest, practical advice I've gotten as a student founder.",

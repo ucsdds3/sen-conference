@@ -1,5 +1,3 @@
-"use client";
-
 export default function AboutConferenceSection() {
   return (
     <section className="min-h-screen w-full flex flex-col overflow-hidden h-fit bg-white">
@@ -20,7 +18,7 @@ export default function AboutConferenceSection() {
             <h3 className="text-xl font-semibold leading-snug text-white text-right text-balance w-full my-2">
               What is Blueprint Summit?
             </h3>
-            <p className="inline-block text-sm md:text-md leading-snug text-white text-right text-balance max-w-[70vw] max-w-md">
+            <p className="inline-block text-sm md:text-md leading-snug text-white text-right text-balance max-w-[70vw] md:max-w-md">
               It's a one day, in-person event, consisting of multiple workshops,
               panels, interactive sessions, and structured networking. All with
               people who are actually doing the work.

@@ -1,5 +1,3 @@
-"use client";
-
 import BenefitsCard from "./BenefitsCard";
 import RegisterButton from "../../../components/layout/RegisterButton";
 

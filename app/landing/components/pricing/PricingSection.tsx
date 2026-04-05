@@ -1,5 +1,3 @@
-"use client";
-
 import PricingCard from "./PricingCard";
 
 export default function PricingSection() {
