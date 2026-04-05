@@ -26,10 +26,9 @@ export default function BottomCountdownSection() {
           <DigitGroup value={minutes ?? 0} digits={2} label="MINUTES" />
         </div>
 
-        <div className="flex flex-row items-center gap-4 h-fit w-screen">
-          <div className="flex-1 h-px bg-white" />
-          <RegisterButton classes="text-[clamp(1.1rem,2vw,1.35rem)]" />
-          <div className="flex-1 h-px bg-white" />
+        {/* Registration button */}
+        <div className="mt-[clamp(4rem,8vw,6rem)]">
+          <RegisterButton />
         </div>
       </div>
     </section>

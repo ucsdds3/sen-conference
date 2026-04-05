@@ -35,7 +35,7 @@ export default function Hero() {
         </p>
 
         {/* CTA */}
-        <RegisterButton classes="text-[clamp(1rem,2vw,1.6rem)]" />
+        <RegisterButton />
       </div>
     </section>
   );

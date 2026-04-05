@@ -5,14 +5,10 @@ import { ReactNode, useState } from "react";
 interface FAQItemProps {
   question: string;
   answer?: ReactNode;
-  glowColor?: string;
 }
 
-export default function FAQItem({
-  question,
-  answer,
-  glowColor = "rgba(13, 22, 38, 0.25)",
-}: FAQItemProps) {
+export default function FAQItem({ question, answer }: FAQItemProps) {
+  const glowColor = "rgba(13, 22, 38, 0.25)";
   const [open, setOpen] = useState(false);
 
   return (

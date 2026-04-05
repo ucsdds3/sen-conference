@@ -7,13 +7,13 @@ export default function Footer() {
       <div className="flex flex-wrap justify-between items-start gap-6 px-5 py-6 md:px-10 md:py-8">
         {/* Links */}
         <div className="flex flex-col gap-2 min-w-max">
-          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">About</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg">About</span>
           <Link href="/partners" className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors">Partners</Link>
-          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Venue</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg">Venue</span>
           <Link href="/speakers" className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors">Speakers</Link>
-          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Workshops</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg">Workshops</span>
           <Link href="/schedule" className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors">Schedule</Link>
-          <span className="uppercase text-sm sm:text-base md:text-lg cursor-pointer">Register</span>
+          <span className="uppercase text-sm sm:text-base md:text-lg">Register</span>
         </div>
 
         {/* Logo */}

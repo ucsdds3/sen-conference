@@ -4,7 +4,7 @@ import RegisterButton from "../../../components/layout/RegisterButton";
 export default function BenefitsSection() {
   return (
     <section className="relative z-10 w-full bg-white py-12 md:py-20">
-        <svg
+      <svg
         viewBox="0 0 2400 1000"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -42,10 +42,10 @@ export default function BenefitsSection() {
             />
           </div>
         </div>
+      </div>
 
-        <div className="z-10 mx-auto mt-12 mb-8 md:mt-16 md:mb-12">
-          <RegisterButton classes="text-[clamp(1rem,2vw,1.6rem)]" />
-        </div>
+      <div className="self-center mt-24 mb-16 z-10">
+        <RegisterButton />
       </div>
     </section>
   );
