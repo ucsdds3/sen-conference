@@ -1,6 +1,6 @@
 "use client";
 
-import RegisterButton from "../../layout/RegisterButton";
+import RegisterButton from "../../../components/layout/RegisterButton";
 
 
 export default function Hero() {
