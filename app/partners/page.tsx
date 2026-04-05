@@ -2,9 +2,9 @@ import Header from "../components/layout/Header";
 import partners from "../../public/lib/partners.json";
 
 const tiers = [
-  { label: "Platinum", labelColor: "text-[#99B2DD]" },
+  { label: "Platinum", labelColor: "text-platinum" },
   { label: "Gold",     labelColor: "text-sen-yorange" },
-  { label: "Silver",   labelColor: "text-[#C4C4C4]" },
+  { label: "Silver",   labelColor: "text-silver" },
 ];
 
 export default function PartnersPage() {

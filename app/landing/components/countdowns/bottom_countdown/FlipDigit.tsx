@@ -8,20 +8,22 @@ export default function FlipDigit({ value }: { value: string }) {
 
   useEffect(() => {
     if (value !== current) {
-      // Start flip
-      setRotation(-90);
+      const rafId = requestAnimationFrame(() => setRotation(-90));
 
       const timeout = setTimeout(() => {
         setCurrent(value);
         setRotation(0);
       }, 600);
 
-      return () => clearTimeout(timeout);
+      return () => {
+        cancelAnimationFrame(rafId);
+        clearTimeout(timeout);
+      };
     }
   }, [value, current]);
 
   return (
-    <div className="relative aspect-[3/4] w-[clamp(85px,9vw,140px)] perspective-[1000px]">
+    <div className="relative aspect-3/4 w-[clamp(85px,9vw,140px)] perspective-[1000px]">
       <div
         className="relative w-full h-full"
         style={{

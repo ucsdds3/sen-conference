@@ -77,12 +77,12 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
           overflow-hidden
           transition-all
           duration-300
-          ${open ? "max-h-[1000px]" : "max-h-0"}
+          ${open ? "max-h-250" : "max-h-0"}
         `}
       >
         <div
           className="
-            bg-[#FFFFFF]
+            bg-white
             border-t border-sen-blue/20
             px-[clamp(1.25rem,2.5vw,2rem)]
             py-[clamp(1rem,1.8vw,1.5rem)]

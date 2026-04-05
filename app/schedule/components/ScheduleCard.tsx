@@ -46,7 +46,7 @@ export default function ScheduleCard({
         onMouseLeave={() => setHovered(false)}
       >
         {/* Front */}
-        <div className="absolute inset-0 rounded-2xl border border-black/10 bg-[#FAF9F6] flex flex-col overflow-hidden backface-hidden px-5 pt-10 pb-5">
+        <div className="absolute inset-0 rounded-2xl border border-black/10 bg-sen-card flex flex-col overflow-hidden backface-hidden px-5 pt-10 pb-5">
           {/* Event type */}
           <p className="text-center text-sen-blue font-semibold text-lg mb-3">{type}</p>
 
@@ -83,7 +83,7 @@ export default function ScheduleCard({
 
         {/* Back */}
         <div
-          className="absolute inset-0 rounded-2xl border border-black/10 bg-[#FAF9F6] flex items-center justify-center p-6 backface-hidden"
+          className="absolute inset-0 rounded-2xl border border-black/10 bg-sen-card flex items-center justify-center p-6 backface-hidden"
           style={{ transform: "rotateY(-180deg)" }}
         >
           <p className="text-sen-blue/80 text-sm leading-relaxed text-center">{description}</p>

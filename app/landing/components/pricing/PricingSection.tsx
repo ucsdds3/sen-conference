@@ -12,7 +12,7 @@ export default function PricingSection() {
       >
         <path
           d="M1422.5 77.1817C1152.14 -82.4796 896.335 34.5809 576.183 166.754C256.032 298.927 -137.468 552.927 -314.835 344.994C-492.203 137.061 -406.631 540.146 -342.066 708.914C-277.5 877.681 183.992 898.604 505.746 945.393C827.5 992.181 1163.77 1110.24 1422.5 906.905C1681.23 703.57 1692.86 236.843 1422.5 77.1817Z"
-          fill="#0D1626"
+          className="fill-sen-blue"
         />
       </svg>
 
@@ -31,7 +31,7 @@ export default function PricingSection() {
               "Networking with attendees and speakers",
             ]}
             price="$XX"
-            bgColor="bg-[#C4C4C4]"
+            bgColor="bg-silver"
             height="md:min-h-[80%]"
             glowColor="rgba(217,217,217,0.6)"
           />
@@ -43,7 +43,7 @@ export default function PricingSection() {
               "Enhanced event experience",
             ]}
             price="$XX"
-            bgColor="bg-[var(--color-sen-yorange)]"
+            bgColor="bg-sen-yorange"
             height="md:min-h-[90%]"
             glowColor="rgba(246,182,84,0.5)"
           />
@@ -55,7 +55,7 @@ export default function PricingSection() {
               "Private, small-group access",
             ]}
             price="$XX"
-            bgColor="bg-[#99B2DD]"
+            bgColor="bg-platinum"
             height="md:h-full"
             glowColor="rgba(153,178,221,0.6)"
           />
