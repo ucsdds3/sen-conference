@@ -3,19 +3,14 @@
 interface BenefitsCardProps {
   title: string;
   benefits: string;
-  minHeight?: string;
-  glowColor?: string;
 }
 
-export default function BenefitsCard({
-  title,
-  benefits,
-  minHeight = "md:min-h-[clamp(360px,36vh,420px)]",
-  glowColor = "rgba(246, 182, 84, 0.3)",
-}: BenefitsCardProps) {
+export default function BenefitsCard({ title, benefits }: BenefitsCardProps) {
+  const glowColor = "rgba(246, 182, 84, 0.3)";
+
   return (
     <div
-      className={`${minHeight} w-full h-full bg-white p-6 md:p-8 flex flex-col justify-between rounded-2xl transition-all duration-300 hover:scale-105`}
+      className="md:min-h-[clamp(360px,36vh,420px)] w-full h-full bg-white p-6 md:p-8 flex flex-col justify-between rounded-2xl transition-all duration-300 hover:scale-105"
       style={{
         boxShadow: `
           0 0 40px ${glowColor},

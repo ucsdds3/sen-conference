@@ -41,7 +41,7 @@ export default function BenefitsSection() {
       </div>
 
       <div className="self-center mt-24 mb-16 z-10">
-        <RegisterButton classes="text-[clamp(1rem,2vw,1.6rem)]" />
+        <RegisterButton />
       </div>
     </section>
   );

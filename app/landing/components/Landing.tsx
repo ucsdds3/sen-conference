@@ -1,6 +1,6 @@
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
-import Countdown from "./countdowns/top_countdown/TopCountdownSection";
+import TopCountdownSection from "./countdowns/top_countdown/TopCountdownSection";
 import Hero from "./hero/Hero";
 import AboutConferenceSection from "./about_conference/AboutConferenceSection";
 import BenefitsSection from "./benefits/BenefitsSection";
@@ -13,7 +13,7 @@ export default function Landing() {
   return (
     <div className="overflow-x-clip">
       <Header />
-      <Countdown />
+      <TopCountdownSection />
       <Hero />
       <SocialProof />
       <BenefitsSection />

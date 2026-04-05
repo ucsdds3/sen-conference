@@ -27,7 +27,7 @@ export default function BottomCountdownSection() {
 
         {/* Registration button */}
         <div className="mt-[clamp(4rem,8vw,6rem)]">
-          <RegisterButton classes="text-[clamp(1.1rem,2vw,1.35rem)]" />
+          <RegisterButton />
         </div>
       </div>
     </section>
