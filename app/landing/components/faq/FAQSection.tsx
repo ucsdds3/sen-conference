@@ -1,7 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import FAQItem from "./FAQItem";
 
-export default function FAQSection() {
-  const faqs = [
+const faqs = [
     {
       question: "What actually happens during the conference?",
       answer: (
@@ -102,7 +104,10 @@ export default function FAQSection() {
         </>
       ),
     },
-  ];
+];
+
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="relative w-screen flex flex-col items-center py-[clamp(4rem,8vw,6rem)] px-[clamp(2rem,5vw,4rem)] bg-white">
@@ -116,7 +121,13 @@ export default function FAQSection() {
         {/* FAQ List */}
         <div className="flex flex-col gap-[clamp(0.3rem,0.5vw,0.5rem)] w-full items-center">
           {faqs.map((faq, i) => (
-            <FAQItem key={i} question={faq.question} answer={faq.answer} />
+            <FAQItem
+              key={i}
+              question={faq.question}
+              answer={faq.answer}
+              open={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
           ))}
         </div>
       </div>

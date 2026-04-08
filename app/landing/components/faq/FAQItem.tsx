@@ -1,15 +1,14 @@
-"use client";
-
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 interface FAQItemProps {
   question: string;
-  answer?: ReactNode;
+  answer: ReactNode;
+  open: boolean;
+  onToggle: () => void;
 }
 
-export default function FAQItem({ question, answer }: FAQItemProps) {
+export default function FAQItem({ question, answer, open, onToggle }: FAQItemProps) {
   const glowColor = "rgba(13, 22, 38, 0.25)";
-  const [open, setOpen] = useState(false);
 
   return (
     <div
@@ -19,7 +18,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
         mb-[clamp(0.75rem,1vw,1rem)]
         rounded-2xl
         overflow-hidden
-        transition-all
+        transition-shadow
         duration-300
       "
       style={{
@@ -36,7 +35,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
     >
       {/* Question */}
       <button
-        onClick={() => setOpen(!open)}
+        onClick={onToggle}
         className="
           relative
           w-full
@@ -47,7 +46,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
           text-[clamp(1.3rem,2.2vw,1.8rem)]
           font-medium
           text-center
-          transition-all
+          transition-opacity
           duration-300
           hover:opacity-95
         "
@@ -74,24 +73,27 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
       {/* Answer */}
       <div
         className={`
-          overflow-hidden
-          transition-all
-          duration-300
-          ${open ? "max-h-250" : "max-h-0"}
+          grid
+          transition-[grid-template-rows]
+          duration-500
+          ease-in-out
+          ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}
         `}
       >
-        <div
-          className="
-            bg-white
-            border-t border-sen-blue/20
-            px-[clamp(1.25rem,2.5vw,2rem)]
-            py-[clamp(1rem,1.8vw,1.5rem)]
-            text-left
-            text-[clamp(1rem,1.4vw,1.1rem)]
-            leading-relaxed
-          "
-        >
-          {answer}
+        <div className="overflow-hidden min-h-0">
+          <div
+            className="
+              bg-white
+              border-t border-sen-blue/20
+              px-[clamp(1.25rem,2.5vw,2rem)]
+              py-[clamp(1rem,1.8vw,1.5rem)]
+              text-left
+              text-[clamp(1rem,1.4vw,1.1rem)]
+              leading-relaxed
+            "
+          >
+            {answer}
+          </div>
         </div>
       </div>
     </div>
