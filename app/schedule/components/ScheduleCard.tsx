@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 interface ScheduleCardProps {
   type: string;
-  image: string;
+  image?: string;
   startTime: string;
   endTime: string;
   title: string;
-  speakers: string;
+  speakers?: string;
   location: string;
   description: string;
   active: boolean;
