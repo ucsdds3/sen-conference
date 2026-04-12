@@ -6,9 +6,9 @@ export default function AboutConferenceSection() {
   return (
     <section
       id="about-conference"
-      className="relative z-10 w-full bg-white"
+      className="relative w-full bg-white"
     >
-      <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-12 sm:px-6 sm:pt-16 md:px-8 md:pt-20">
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Left: copy + CTAs */}
           <div className="flex flex-col gap-6 lg:gap-8">

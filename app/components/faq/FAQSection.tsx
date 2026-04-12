@@ -107,7 +107,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="relative z-10 flex w-full max-w-full flex-col items-center bg-[#F0F0F0] px-[clamp(1rem,5vw,4rem)] py-[clamp(3rem,8vw,6rem)]">
+    <section className="relative flex w-full max-w-full flex-col items-center bg-[#F0F0F0] px-[clamp(1rem,5vw,4rem)] py-[clamp(3rem,8vw,6rem)]">
       {/* Container */}
       <div className="flex w-full max-w-[clamp(300px,90%,1100px)] flex-col items-center">
         {/* Heading */}

@@ -54,6 +54,7 @@ export default function FAQItem({
           transition-all
           duration-300
           hover:opacity-95
+          cursor-pointer
         "
       >
         {question}
