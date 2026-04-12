@@ -23,7 +23,7 @@ export default function Header() {
       </div>
 
       {/* Register Button */}
-      <div className="ml-auto shrink-0">
+      <div className="ml-auto hidden sm:block shrink-0">
         <RegisterButton classes="text-sm xs:text-base md:text-lg" />
       </div>
     </header>

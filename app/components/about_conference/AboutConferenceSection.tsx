@@ -11,7 +11,7 @@ export default function AboutConferenceSection() {
       <div className="mx-auto w-full max-w-7xl px-4 pt-12 sm:px-6 sm:pt-16 md:px-8 md:pt-20">
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Left: copy + CTAs */}
-          <div className="flex flex-col gap-6 lg:gap-8">
+          <div className="flex flex-col gap-6 lg:gap-8 place-self-center">
             <div className="flex flex-col gap-2">
               <h2 className="text-4xl font-semibold leading-[1.05] tracking-tight text-black md:text-5xl lg:text-[3.25rem]">
                 Blueprint Summit 2026
@@ -26,7 +26,7 @@ export default function AboutConferenceSection() {
                 What is Blueprint Summit?
               </h3>
               <p className="max-w-prose text-sm leading-relaxed text-white/90 md:text-base">
-                It&apos;s a one day, in-person event, consisting of multiple
+                It's a one day, in-person event, consisting of multiple
                 workshops, panels, interactive sessions, and structured
                 networking. All with people who are actually doing the work.
               </p>
@@ -66,16 +66,16 @@ export default function AboutConferenceSection() {
           {/* Right: venue visual */}
           <div
             id="venue"
-            className="relative scroll-mt-24 lg:sticky lg:top-24"
+            className="relative scroll-mt-24 lg:sticky lg:top-24 place-self-center"
           >
             <div className="relative overflow-hidden rounded-2xl border border-black/10 shadow-sm ring-1 ring-black/5">
               <img
                 src="/assets/about_conference_building.png"
                 alt="Rady School of Management"
-                className="aspect-[4/3] w-full object-cover lg:aspect-[3/4] lg:min-h-[420px]"
+                className="aspect-4/3 w-full object-cover lg:aspect-3/4 lg:min-h-420px"
               />
               <div
-                className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+                className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"
                 aria-hidden
               />
               <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white md:p-6">
