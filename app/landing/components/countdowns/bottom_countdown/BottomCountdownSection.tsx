@@ -27,8 +27,10 @@ export default function BottomCountdownSection() {
         </div>
 
         {/* Registration button */}
-        <div className="mt-[clamp(4rem,8vw,6rem)]">
+        <div className="flex flex-row items-center gap-4 h-fit w-screen">
+          <div className="flex-1 h-px bg-white" />
           <RegisterButton />
+          <div className="flex-1 h-px bg-white" />
         </div>
       </div>
     </section>
