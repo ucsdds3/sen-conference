@@ -21,7 +21,7 @@ export default function FlipDigit({ value }: { value: string }) {
   }, [value, current]);
 
   return (
-    <div className="relative aspect-[3/4] w-[clamp(85px,9vw,140px)] perspective-[1000px]">
+    <div className="relative aspect-3/4 w-[clamp(45px,5vw,100px)] perspective-[1000px]">
       <div
         className="relative w-full h-full"
         style={{
@@ -32,7 +32,7 @@ export default function FlipDigit({ value }: { value: string }) {
       >
         {/* Front face showing current digit */}
         <div className="absolute inset-0 bg-sen-yorange rounded-xl flex items-center justify-center backface-hidden">
-          <span className="text-black font-black text-[clamp(3.25rem,6vw,4.75rem)] leading-none">
+          <span className="text-black font-black text-[clamp(1.25rem,2.5rem,2.75rem)] leading-none">
             {current}
           </span>
         </div>
@@ -42,7 +42,7 @@ export default function FlipDigit({ value }: { value: string }) {
           className="absolute inset-0 bg-sen-yorange rounded-xl flex items-center justify-center backface-hidden"
           style={{ transform: "rotateX(180deg)" }}
         >
-          <span className="text-black font-black text-[clamp(3.25rem,6vw,4.75rem)] leading-none">
+          <span className="text-black font-black text-[clamp(1.25rem,2.5rem,2.75rem)] leading-none">
             {value}
           </span>
         </div>
