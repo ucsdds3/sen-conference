@@ -8,15 +8,17 @@ export default function FlipDigit({ value }: { value: string }) {
 
   useEffect(() => {
     if (value !== current) {
-      // Start flip
-      setRotation(-90);
+      const rafId = requestAnimationFrame(() => setRotation(-90));
 
       const timeout = setTimeout(() => {
         setCurrent(value);
         setRotation(0);
       }, 600);
 
-      return () => clearTimeout(timeout);
+      return () => {
+        cancelAnimationFrame(rafId);
+        clearTimeout(timeout);
+      };
     }
   }, [value, current]);
 

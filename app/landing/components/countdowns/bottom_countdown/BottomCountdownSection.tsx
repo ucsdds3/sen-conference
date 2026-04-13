@@ -2,7 +2,7 @@
 
 import { useCountdown } from "../hooks/useCountdown";
 import DigitGroup from "./DigitGroup";
-import RegisterButton from "../../RegisterButton";
+import RegisterButton from "../../../../components/layout/RegisterButton";
 
 const TARGET_DATE = new Date("2026-11-17T00:00:00").getTime();
 
@@ -26,9 +26,10 @@ export default function BottomCountdownSection() {
           <DigitGroup value={minutes ?? 0} digits={2} label="MINUTES" />
         </div>
 
+        {/* Registration button */}
         <div className="flex flex-row items-center gap-4 h-fit w-screen">
           <div className="flex-1 h-px bg-white" />
-          <RegisterButton classes="text-[clamp(1.1rem,2vw,1.35rem)]" />
+          <RegisterButton />
           <div className="flex-1 h-px bg-white" />
         </div>
       </div>

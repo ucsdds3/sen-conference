@@ -1,6 +1,5 @@
-"use client";
-
 import PricingCard from "./PricingCard";
+import RegisterButton from "../../../components/layout/RegisterButton";
 
 type PricingCardProps = {
   id: string;
@@ -62,24 +61,28 @@ export default function PricingSection() {
       </div>
 
       <section className="font-editorial relative z-10 w-full bg-sen-blue">
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-10">
           <h2 className="relative text-center text-[clamp(2.5rem,7vw,5rem)] font-bold tracking-tight text-white md:text-right">
             Ticket Pricing
           </h2>
 
           {/* Mobile: vertical stack · lg+: three columns, featured center emphasis */}
-          <div className="relative mx-auto mt-8 flex w-full max-w-lg flex-col gap-10 md:max-w-md lg:max-w-6xl lg:flex-row lg:items-stretch lg:justify-center xl:gap-8">
+          <div className="relative mx-auto mt-8 flex w-full max-w-md flex-col gap-10 lg:max-w-6xl lg:flex-row lg:items-stretch lg:justify-center xl:gap-8">
             {ticketTiers.map((ticketTier: PricingCardProps, index: number) => (
-                <PricingCard
-                  key={index}
-                  title={ticketTier.id}
-                  features={ticketTier.features}
-                  price={`$${ticketTier.price}`}
-                  color={ticketTier.color}
-                  featured={ticketTier.featured}
-                />
+              <PricingCard
+                key={index}
+                title={ticketTier.id}
+                features={ticketTier.features}
+                price={`$${ticketTier.price}`}
+                color={ticketTier.color}
+                featured={ticketTier.featured}
+              />
             ))}
           </div>
+        </div>
+
+        <div className="relative z-20 flex flex-col place-items-center mt-10">
+          <RegisterButton />
         </div>
       </section>
 

@@ -44,7 +44,7 @@ export default function BenefitsCard({
           {title}
         </h3>
 
-        <div className="aspect-[4/3] w-full overflow-hidden rounded-lg">
+        <div className="aspect-4/3 w-full overflow-hidden rounded-lg">
           <img
             src={imageSrc}
             alt={imageAlt}

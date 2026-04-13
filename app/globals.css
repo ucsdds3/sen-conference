@@ -5,6 +5,9 @@
   --color-black: #1c1c1c;
   --color-sen-blue: #0d1626;
   --color-sen-yorange: #f6b654;
+  --color-platinum: #99b2dd;
+  --color-silver: #c4c4c4;
+  --color-sen-card: #faf9f6;
 }
 
 :root {
@@ -12,31 +15,6 @@
   background-color: var(--color-sen-blue);
 }
 
-/* Bottom Countdown Flip Animation */
-
-@keyframes flip-top {
-  0% { transform: rotateX(0deg); }
-  100% { transform: rotateX(-90deg); }
-}
-
-@keyframes flip-bottom {
-  0% { transform: rotateX(90deg); }
-  100% { transform: rotateX(0deg); }
-}
-
-.animate-flip-top {
-  animation: flip-top 0.3s cubic-bezier(.4,0,.2,1) forwards;
-}
-
-.animate-flip-bottom {
-  animation: flip-bottom 0.3s cubic-bezier(.4,0,.2,1) forwards;
-  animation-delay: 0.3s;
-}
-
 .backface-hidden {
   backface-visibility: hidden;
-}
-
-.transform-3d {
-  transform-style: preserve-3d;
 }

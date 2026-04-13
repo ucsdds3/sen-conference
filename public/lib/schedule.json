@@ -1,0 +1,82 @@
+[
+  {
+    "type": "Registration",
+    "image": "",
+    "startTime": "8:00am",
+    "endTime": "9:00am",
+    "title": "Check-In & Registration",
+    "speakers": "",
+    "location": "Main Lobby",
+    "description": "Arrive early to pick up your badge and conference materials. Grab some coffee and meet fellow attendees before the day kicks off."
+  },
+  {
+    "type": "Keynote",
+    "image": "",
+    "startTime": "9:00am",
+    "endTime": "10:00am",
+    "title": "Opening Keynote",
+    "speakers": "Speaker Name",
+    "location": "MPR",
+    "description": "Kick off Blueprint Summit 2026 with an inspiring opening keynote from a founder who has built and scaled a company from the ground up."
+  },
+  {
+    "type": "Panel",
+    "image": "",
+    "startTime": "10:15am",
+    "endTime": "11:15am",
+    "title": "Panel Title",
+    "speakers": "Speaker One, Speaker Two, Speaker Three",
+    "location": "MPR",
+    "description": "A candid panel discussion with founders and operators sharing real lessons from building companies — what worked, what didn't, and what they'd do differently."
+  },
+  {
+    "type": "Workshop",
+    "image": "",
+    "startTime": "11:30am",
+    "endTime": "12:30pm",
+    "title": "Workshop Title",
+    "speakers": "Speaker Name",
+    "location": "Room 123",
+    "description": "An interactive workshop walking through practical frameworks you can apply immediately to your startup or next project."
+  },
+  {
+    "type": "Lunch",
+    "image": "",
+    "startTime": "12:30pm",
+    "endTime": "1:30pm",
+    "title": "Lunch & Networking",
+    "speakers": "",
+    "location": "Courtyard",
+    "description": "Take a break, grab some food, and connect with other founders, students, and operators."
+  },
+  {
+    "type": "Talk",
+    "image": "",
+    "startTime": "1:30pm",
+    "endTime": "2:15pm",
+    "title": "Talk Title",
+    "speakers": "Speaker Name",
+    "location": "MPR",
+    "description": "A focused talk on a specific topic relevant to founders and builders at all stages."
+  },
+  {
+    "type": "Panel",
+    "image": "",
+    "startTime": "2:30pm",
+    "endTime": "3:30pm",
+    "title": "Panel Title",
+    "speakers": "Speaker One, Speaker Two",
+    "location": "MPR",
+    "description": "Another panel diving deeper into a specific theme of the conference with expert practitioners."
+  },
+  {
+    "type": "Closing",
+    "image": "",
+    "startTime": "3:45pm",
+    "endTime": "4:30pm",
+    "title": "Closing Remarks",
+    "speakers": "Speaker Name",
+    "location": "MPR",
+    "description": "Wrap up the day with closing remarks, key takeaways, and a look at what's next for the SEN community."
+  }
+]
