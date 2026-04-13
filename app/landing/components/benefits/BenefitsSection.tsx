@@ -44,7 +44,7 @@ export default function BenefitsSection() {
         </div>
       </div>
 
-      <div className="self-center mt-24 mb-16 z-10">
+      <div className="relative z-20 flex flex-col place-items-center mt-6">
         <RegisterButton />
       </div>
     </section>
