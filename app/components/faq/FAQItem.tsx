@@ -18,9 +18,8 @@ export default function FAQItem({
   return (
     <div
       className="
-        w-screen
+        w-full
         max-w-[clamp(300px,90%,900px)]
-        mb-[clamp(0.75rem,1vw,1rem)]
         rounded-2xl
         overflow-hidden
         transition-all
@@ -42,29 +41,28 @@ export default function FAQItem({
       <button
         onClick={() => setOpen(!open)}
         className="
+          flex
           relative
           w-full
           bg-sen-blue
           text-white
           px-[clamp(1.25rem,2.5vw,2rem)]
           py-[clamp(1.1rem,1.6vw,1.6rem)]
-          text-[clamp(1.3rem,2.2vw,1.8rem)]
+          text-[clamp(1rem,1.6vw,1.8rem)]
           font-medium
-          text-center
+          place-items-center
           transition-all
+          gap-2
           duration-300
           hover:opacity-95
+          cursor-pointer
         "
       >
-        {question}
-
+        <span className="w-full">{question}</span>
         {/* Dropdown Arrow */}
         <span
           className={`
-            absolute
-            right-[clamp(1rem,2vw,1.5rem)]
-            top-1/2
-            -translate-y-1/2
+            h-fit
             text-2xl
             transition-transform
             duration-300
@@ -81,12 +79,12 @@ export default function FAQItem({
           overflow-hidden
           transition-all
           duration-300
-          ${open ? "max-h-[1000px]" : "max-h-0"}
+          ${open ? "max-h-250" : "max-h-0"}
         `}
       >
         <div
           className="
-            bg-[#FFFFFF]
+            bg-white
             border-t border-sen-blue/20
             px-[clamp(1.25rem,2.5vw,2rem)]
             py-[clamp(1rem,1.8vw,1.5rem)]

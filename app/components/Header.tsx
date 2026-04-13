@@ -4,7 +4,7 @@ import RegisterButton from "./RegisterButton";
 
 export default function Header() {
   return (
-    <header className="flex items-center w-full h-[10vh] min-h-[70px] px-6 md:px-10 gap-4 bg-sen-blue overflow-x-hidden">
+    <header className="relative z-20 flex h-[10vh] min-h-[70px] w-full items-center gap-4 overflow-x-hidden bg-sen-blue px-6 md:px-10">
       {/* Logo */}
       <img
         src="/assets/SEN_small_logo.png"
@@ -23,7 +23,7 @@ export default function Header() {
       </div>
 
       {/* Register Button */}
-      <div className="ml-auto shrink-0">
+      <div className="ml-auto hidden sm:block shrink-0">
         <RegisterButton classes="text-sm xs:text-base md:text-lg" />
       </div>
     </header>

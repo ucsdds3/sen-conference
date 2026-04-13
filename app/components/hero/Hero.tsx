@@ -5,7 +5,7 @@ import RegisterButton from "../RegisterButton";
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden h-screen flex items-center">
+    <section className="relative z-10 flex min-h-svh w-full items-center overflow-hidden md:min-h-screen">
       {/* Background image */}
       <img
         src="/assets/speaker.png"
@@ -14,7 +14,7 @@ export default function Hero() {
       />
 
       {/* Hero content */}
-      <div className="flex flex-col justify-center px-6 md:px-16 gap-1 max-h-screen h-fit">
+      <div className="flex h-fit max-w-full flex-col justify-center gap-1 px-6 py-16 md:max-h-none md:px-16 md:py-24">
         {/* Title */}
         <h1 className="text-white font-bold leading-tight my-4 text-4xl lg:text-6xl">
           Build What Actually Works.

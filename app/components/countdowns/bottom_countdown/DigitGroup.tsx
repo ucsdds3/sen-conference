@@ -16,7 +16,7 @@ export default function DigitGroup({
   return (
     <div className="flex flex-col items-center">
       {/* Container for digits */}
-      <div className="flex gap-[clamp(0.75rem,1.5vw,1.75rem)]">
+      <div className="flex gap-2">
         {padded.map((digit, i) => (
           <FlipDigit key={i} value={digit} />
         ))}

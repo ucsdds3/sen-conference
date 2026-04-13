@@ -107,11 +107,11 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="relative w-screen flex flex-col items-center py-[clamp(4rem,8vw,6rem)] px-[clamp(2rem,5vw,4rem)] bg-[#F0F0F0]">
+    <section className="relative flex w-full max-w-full flex-col items-center bg-[#F0F0F0] px-[clamp(1rem,5vw,4rem)] pb-8">
       {/* Container */}
-      <div className="w-screen max-w-[clamp(300px,90%,1100px)] flex flex-col items-center">
+      <div className="flex w-full max-w-[clamp(300px,90%,1100px)] gap-[clamp(1rem,3vw,2rem)] flex-col items-center">
         {/* Heading */}
-        <h2 className="relative text-sen-blue text-[clamp(3rem,6vw,5rem)] font-bold tracking-tight text-center my-[clamp(1rem,3vw,2rem)] z-10">
+        <h2 className="relative text-sen-blue text-[clamp(3rem,6vw,5rem)] font-bold tracking-tight text-center z-10">
           FAQs
         </h2>
 
