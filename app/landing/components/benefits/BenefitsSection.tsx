@@ -16,7 +16,7 @@ export default function BenefitsSection() {
         />
       </svg>
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
-        <h2 className="relative my-6 text-center text-[clamp(2.5rem,7vw,5rem)] font-bold tracking-tight text-white md:my-8 md:text-left">
+        <h2 className="relative my-6 text-center text-[clamp(2.5rem,7vw,5rem)] font-semibold tracking-tight text-white md:my-8 md:text-left">
           What You'll Get
         </h2>
 
