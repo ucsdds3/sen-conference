@@ -12,9 +12,11 @@ import BottomCountdownSection from "./countdowns/bottom_countdown/BottomCountdow
 export default function Landing() {
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      <Header />
-      <TopCountdownSection />
-      <Hero />
+      <div className="flex flex-col h-dvh">
+        <Header />
+        <TopCountdownSection />
+        <Hero />
+      </div>
       <SocialProof />
       <BenefitsSection />
       <AboutConferenceSection />
