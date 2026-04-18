@@ -8,8 +8,8 @@ export default function Hero() {
     <section className="relative z-10 flex min-h-svh w-full items-center overflow-hidden md:min-h-screen">
       {/* Background image */}
       <img
-        src="/assets/speaker.png"
-        alt="Speaker Background"
+        src="/assets/rady_hero.jpg"
+        alt="Rady Background"
         className="absolute inset-0 w-full min-h-full object-cover brightness-50 -z-10"
       />
 
