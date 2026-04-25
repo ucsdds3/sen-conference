@@ -62,7 +62,7 @@ export default function PricingSection() {
 
       <section className="font-editorial relative z-10 w-full bg-sen-blue">
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-10">
-          <h2 className="relative text-center text-[clamp(2.5rem,7vw,5rem)] font-bold tracking-tight text-white md:text-right">
+          <h2 className="relative text-center text-[clamp(2.5rem,7vw,5rem)] font-semibold tracking-tight text-white md:text-right">
             Ticket Pricing
           </h2>
 

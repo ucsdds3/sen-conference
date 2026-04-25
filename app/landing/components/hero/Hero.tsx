@@ -5,7 +5,7 @@ import RegisterButton from "../../../components/layout/RegisterButton";
 
 export default function Hero() {
   return (
-    <section className="relative z-10 flex min-h-svh w-full items-center overflow-hidden md:min-h-screen">
+    <section className="relative z-10 flex flex-1 w-full items-center overflow-hidden">
       {/* Background image */}
       <img
         src="/assets/speaker.png"
