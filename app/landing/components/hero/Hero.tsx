@@ -2,7 +2,6 @@
 
 import RegisterButton from "../../../components/layout/RegisterButton";
 
-
 export default function Hero() {
   return (
     <section className="relative z-10 flex flex-1 w-full items-center overflow-hidden">
@@ -10,7 +9,7 @@ export default function Hero() {
       <img
         src="/assets/rady_hero.jpg"
         alt="Rady Background"
-        className="absolute inset-0 w-full min-h-full object-cover brightness-50 -z-10"
+        className="absolute inset-0 w-full h-full object-cover object-center brightness-50 -z-10"
       />
 
       {/* Hero content */}
@@ -19,7 +18,7 @@ export default function Hero() {
         <h1 className="text-white font-bold leading-tight my-4 text-4xl lg:text-6xl">
           Build What Actually Works.
           <br />
-          Learn From People Who’ve Done It.
+          Learn From People Who've Done It.
         </h1>
 
         {/* Subtitle */}

@@ -1,10 +1,11 @@
 import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 import partners from "../../public/lib/partners.json";
 
 const tiers = [
-  { label: "Platinum", labelColor: "text-platinum" },
-  { label: "Gold",     labelColor: "text-sen-yorange" },
-  { label: "Silver",   labelColor: "text-silver" },
+  { label: "Platinum", labelColor: "text-platinum",    logoSize: "h-32 w-32" },
+  { label: "Gold",     labelColor: "text-sen-yorange", logoSize: "h-24 w-24" },
+  { label: "Silver",   labelColor: "text-silver",      logoSize: "h-16 w-16" },
 ];
 
 export default function PartnersPage() {
@@ -13,7 +14,7 @@ export default function PartnersPage() {
       <Header />
 
       <div className="flex-1 w-full max-w-6xl mx-auto px-6 md:px-10 py-8 flex flex-col justify-center gap-8">
-        {tiers.map(({ label, labelColor }) => {
+        {tiers.map(({ label, labelColor, logoSize }) => {
           const tierPartners = partners.filter(
             (p) => p.tier === label.toLowerCase()
           );
@@ -36,7 +37,7 @@ export default function PartnersPage() {
                       href={partner.website || undefined}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="h-20 w-20 flex items-center justify-center rounded-lg overflow-hidden"
+                      className={`${logoSize} flex items-center justify-center rounded-lg overflow-hidden transition-opacity hover:opacity-75`}
                     >
                       {partner.logo ? (
                         <img
@@ -45,14 +46,14 @@ export default function PartnersPage() {
                           className="h-full w-full object-contain"
                         />
                       ) : (
-                        <div className="h-20 w-20 bg-black rounded-lg flex items-center justify-center p-2">
+                        <div className={`${logoSize} bg-black rounded-lg flex items-center justify-center p-2`}>
                           <p className="text-white text-xs text-center leading-tight">{partner.name}</p>
                         </div>
                       )}
                     </a>
                   ))
                 ) : (
-                  <div className="h-20 w-20 bg-black rounded-lg" />
+                  <div className={`${logoSize} bg-black rounded-lg`} />
                 )}
               </div>
             </div>
@@ -70,6 +71,7 @@ export default function PartnersPage() {
           </a>!
         </p>
       </div>
+      <Footer />
     </main>
   );
 }

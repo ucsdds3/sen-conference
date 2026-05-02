@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 import SpeakerCard from "./components/SpeakerCard";
 import speakers from "../../public/lib/speakers.json";
 
@@ -17,7 +18,7 @@ export default function SpeakersPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {speakers.map((speaker, i) => (
             <SpeakerCard
-              key={i}
+              key={`${speaker.name}-${i}`}
               {...speaker}
               flipped={i === flippedIndex}
               onFlip={() => setFlippedIndex(i === flippedIndex ? null : i)}
@@ -25,6 +26,7 @@ export default function SpeakersPage() {
           ))}
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
