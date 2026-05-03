@@ -8,12 +8,6 @@ export default function Footer() {
         {/* Links */}
         <div className="flex w-full h-full justify-evenly items-start md:flex-col md:w-[10vw] md:justify-between">
           <Link
-            href="/partners"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
-          >
-            Partners
-          </Link>
-          <Link
             href="/speakers"
             className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
           >
@@ -24,6 +18,12 @@ export default function Footer() {
             className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
           >
             Schedule
+          </Link>
+          <Link
+            href="/partners"
+            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
+          >
+            Partners
           </Link>
           <Link
             href="/tickets/select"
@@ -45,6 +45,7 @@ export default function Footer() {
           {/* Instagram */}
           <a
             href="https://www.instagram.com/senatucsd/"
+            aria-label="Follow SEN on Instagram"
             className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
           >
             <svg
@@ -67,6 +68,7 @@ export default function Footer() {
           {/* Email */}
           <a
             href="mailto:sen@ucsd.edu"
+            aria-label="Email SEN"
             className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
           >
             <svg
@@ -88,6 +90,7 @@ export default function Footer() {
           {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/company/sen-ucsandiego/"
+            aria-label="SEN on LinkedIn"
             className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
           >
             <svg
@@ -110,6 +113,7 @@ export default function Footer() {
           {/* Website */}
           <a
             href="https://senatucsd.org/"
+            aria-label="SEN website"
             className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
           >
             <svg

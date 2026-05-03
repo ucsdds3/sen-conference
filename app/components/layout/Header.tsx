@@ -1,18 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import RegisterButton from "./RegisterButton";
 
 const navLinks = [
   { label: "Home",     href: "/" },
-  { label: "Schedule", href: "/schedule" },
   { label: "Speakers", href: "/speakers" },
+  { label: "Schedule", href: "/schedule" },
   { label: "Partners", href: "/partners" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
 
   return (
     <header className="relative z-20 w-full bg-sen-blue">
@@ -42,9 +54,11 @@ export default function Header() {
 
         {/* Hamburger */}
         <button
+          ref={buttonRef}
           onClick={() => setOpen((o) => !o)}
           aria-label="Toggle menu"
           aria-expanded={open}
+          aria-controls="nav-dropdown"
           className="shrink-0 flex flex-col justify-center items-center gap-1.5 w-8 h-8 sm:ml-4 cursor-pointer group"
         >
           <span className={`block h-0.5 w-6 bg-white group-hover:bg-sen-yorange transition-all duration-300 origin-center ${open ? "rotate-45 translate-y-2" : ""}`} />
@@ -54,7 +68,7 @@ export default function Header() {
       </div>
 
       {/* Dropdown */}
-      <div className={`absolute top-full right-6 md:right-10 mt-1 w-44 bg-sen-blue rounded-xl shadow-lg flex flex-col overflow-hidden transition-all duration-300 ${open ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}>
+      <div id="nav-dropdown" className={`absolute top-full right-6 md:right-10 mt-1 w-44 bg-sen-blue rounded-xl shadow-lg flex flex-col overflow-hidden transition-all duration-300 ${open ? "max-h-64 opacity-100 visible pointer-events-auto" : "max-h-0 opacity-0 invisible pointer-events-none"}`}>
         {navLinks.map(({ label, href }) => (
           <Link
             key={href}

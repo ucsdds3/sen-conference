@@ -1,7 +1,7 @@
 import PricingCard from "./PricingCard";
 import RegisterButton from "../../../components/layout/RegisterButton";
 
-type PricingCardProps = {
+type TicketTier = {
   id: string;
   features: string[];
   price: number;
@@ -68,7 +68,7 @@ export default function PricingSection() {
 
           {/* Mobile: vertical stack · lg+: three columns, featured center emphasis */}
           <div className="relative mx-auto mt-8 flex w-full max-w-md flex-col gap-10 lg:max-w-6xl lg:flex-row lg:items-stretch lg:justify-center xl:gap-8">
-            {ticketTiers.map((ticketTier: PricingCardProps, index: number) => (
+            {ticketTiers.map((ticketTier: TicketTier, index: number) => (
               <PricingCard
                 key={index}
                 title={ticketTier.id}

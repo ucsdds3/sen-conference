@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 export default function AboutConferenceSection() {
@@ -72,7 +70,7 @@ export default function AboutConferenceSection() {
               <img
                 src="/assets/about_conference_building.png"
                 alt="Rady School of Management"
-                className="aspect-4/3 w-full object-cover lg:aspect-3/4 lg:min-h-420px"
+                className="aspect-4/3 w-full object-cover lg:aspect-3/4 lg:min-h-105"
               />
               <div
                 className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"
