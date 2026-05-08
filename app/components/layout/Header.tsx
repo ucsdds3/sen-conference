@@ -78,7 +78,7 @@ export default function Header() {
       >
         {navLinks.map(({ label, href }) => (
           <Link
-            key={href}
+            key={`${label}-${href}`}
             href={href}
             onClick={() => setOpen(false)}
             className="px-5 py-3 text-white font-medium hover:bg-white/10 transition-colors"
