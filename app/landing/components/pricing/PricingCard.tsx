@@ -1,4 +1,5 @@
-"use client";
+import type { CSSProperties } from "react";
+
 type PricingCardProps = {
   title: string;
   features: string[];
@@ -23,20 +24,11 @@ export default function PricingCard({
     <div
       className={`
         relative flex w-full min-h-full flex-col px-8 py-8 lg:px-10 lg:py-10 shrink-0 lg:flex-1 lg:min-w-0 lg:max-w-sm justify-between rounded-2xl transition-all duration-200 ease-out
+        [box-shadow:var(--card-shadow)] hover:[box-shadow:var(--card-shadow-hover)]
         ${color}
-        ${
-          featured
-            ? "scale-110 hover:scale-[1.15]"
-            : "hover:scale-[1.05]"
-        }
+        ${featured ? "scale-110 hover:scale-[1.15]" : "hover:scale-[1.05]"}
       `}
-      style={{ boxShadow: baseShadow }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = hoverShadow;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = baseShadow;
-      }}
+      style={{ '--card-shadow': baseShadow, '--card-shadow-hover': hoverShadow } as CSSProperties}
     >
       {featured ? (
         <span className="absolute -top-3 left-1/2 z-30 -translate-x-1/2 rounded-full bg-sen-blue px-4 py-1 text-xs font-semibold tracking-wide text-white shadow-md md:text-sm">

@@ -3,8 +3,7 @@
 import { useCountdown } from "../hooks/useCountdown";
 import DigitGroup from "./DigitGroup";
 import RegisterButton from "../../../../components/layout/RegisterButton";
-
-const TARGET_DATE = new Date("2026-11-17T00:00:00-08:00").getTime();
+import { TARGET_DATE } from "../constants";
 
 export default function BottomCountdownSection() {
   const { days, hours, minutes } = useCountdown(TARGET_DATE);

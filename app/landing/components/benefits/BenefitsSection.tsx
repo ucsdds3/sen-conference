@@ -1,25 +1,14 @@
 import BenefitsCard from "./BenefitsCard";
 import RegisterButton from "../../../components/layout/RegisterButton";
+import WaveDivider from "../WaveDivider";
 
 export default function BenefitsSection() {
   return (
     <section className="relative z-10 w-full bg-white py-12 md:py-20">
       {/* top curve */}
-      <div className="block overflow-hidden leading-none bg-white">
-        <svg
-          viewBox="0 0 1200 60"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="block w-full h-32 md:h-40 -mb-px translate-y-px"
-        >
-          <path
-            d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z"
-            fill="#0D1626"
-          />
-        </svg>
-      </div>
+      <WaveDivider />
 
-      <div className="relative z-10 flex w-screen flex-col px-4 sm:px-6 lg:px-8 bg-sen-blue">
+      <div className="relative z-10 flex w-full flex-col px-4 sm:px-6 lg:px-8 bg-sen-blue">
         <h2 className="relative my-6 text-center text-[clamp(2.5rem,7vw,5rem)] font-semibold tracking-tight text-white md:my-8 md:text-left self-center">
           What You'll Get
         </h2>
@@ -53,19 +42,7 @@ export default function BenefitsSection() {
       </div>
 
       {/* bottom curve */}
-      <div className="block overflow-hidden leading-none bg-white">
-        <svg
-          viewBox="0 0 1200 60"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="block w-full h-32 md:h-40 scale-x-[-1] scale-y-[-1] mb-px -translate-y-px"
-        >
-          <path
-            d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z"
-            fill="#0D1626"
-          />
-        </svg>
-      </div>
+      <WaveDivider flipX flipY />
     </section>
   );
 }

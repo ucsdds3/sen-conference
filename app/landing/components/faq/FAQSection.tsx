@@ -122,7 +122,7 @@ export default function FAQSection() {
         <div className="flex flex-col gap-[clamp(0.3rem,0.5vw,0.5rem)] w-full items-center">
           {faqs.map((faq, i) => (
             <FAQItem
-              key={i}
+              key={faq.question}
               question={faq.question}
               answer={faq.answer}
               open={openIndex === i}

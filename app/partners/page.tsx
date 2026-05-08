@@ -31,27 +31,38 @@ export default function PartnersPage() {
               {/* Sponsor logos */}
               <div className="flex flex-1 flex-wrap gap-6 md:gap-8">
                 {tierPartners.length > 0 ? (
-                  tierPartners.map((partner, i) => (
-                    <a
-                      key={`${partner.tier}-${i}`}
-                      href={partner.website || undefined}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${logoSize} flex items-center justify-center rounded-lg overflow-hidden transition-opacity hover:opacity-75`}
-                    >
-                      {partner.logo ? (
-                        <img
-                          src={partner.logo}
-                          alt={partner.name}
-                          className="h-full w-full object-contain"
-                        />
-                      ) : (
-                        <div className={`${logoSize} bg-black rounded-lg flex items-center justify-center p-2`}>
-                          <p className="text-white text-xs text-center leading-tight">{partner.name}</p>
-                        </div>
-                      )}
-                    </a>
-                  ))
+                  tierPartners.map((partner, i) => {
+                    const logo = partner.logo ? (
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
+                        className="h-full w-full object-contain"
+                      />
+                    ) : (
+                      <div className={`${logoSize} bg-black rounded-lg flex items-center justify-center p-2`}>
+                        <p className="text-white text-xs text-center leading-tight">{partner.name}</p>
+                      </div>
+                    );
+
+                    return partner.website ? (
+                      <a
+                        key={`${partner.tier}-${i}`}
+                        href={partner.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${logoSize} flex items-center justify-center rounded-lg overflow-hidden transition-opacity hover:opacity-75`}
+                      >
+                        {logo}
+                      </a>
+                    ) : (
+                      <div
+                        key={`${partner.tier}-${i}`}
+                        className={`${logoSize} flex items-center justify-center rounded-lg overflow-hidden`}
+                      >
+                        {logo}
+                      </div>
+                    );
+                  })
                 ) : (
                   <div className={`${logoSize} bg-black rounded-lg`} />
                 )}

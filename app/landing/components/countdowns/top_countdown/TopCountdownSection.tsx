@@ -1,8 +1,7 @@
 "use client";
 
 import { useCountdown } from "../hooks/useCountdown";
-
-const TARGET_DATE = new Date("2026-11-17T00:00:00-08:00").getTime();
+import { TARGET_DATE } from "../constants";
 
 export default function TopCountdownSection() {
   const { days, hours, minutes, seconds } = useCountdown(TARGET_DATE);

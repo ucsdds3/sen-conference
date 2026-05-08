@@ -1,5 +1,3 @@
-"use client";
-
 import FlipDigit from "./FlipDigit";
 
 export default function DigitGroup({
@@ -18,7 +16,7 @@ export default function DigitGroup({
       {/* Container for digits */}
       <div className="flex gap-2">
         {padded.map((digit, i) => (
-          <FlipDigit key={i} value={digit} />
+          <FlipDigit key={`pos-${i}`} value={digit} />
         ))}
       </div>
 
