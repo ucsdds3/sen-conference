@@ -313,28 +313,38 @@ Sometimes you may want the main site buttons to point to a temporary maintenance
 ### What is currently set up
 - A maintenance page exists at: `app/maintenance/page.tsx`
 - It uses this image path: `/assets/rocket-maintenance.png`
+- It is styled to match the ticket select screen:
+  - Same page background gradient used in `app/tickets/select/page.tsx`
+  - Same white card style (`rounded-xl` + white glow shadow)
 - The original routes still exist and are still accessible by direct URL:
   - `/partners`
   - `/speakers`
   - `/schedule`
 
 ### Where link redirects were changed
+- Header hamburger menu links are currently pointed to `/maintenance` in:
+  - `app/components/layout/Header.tsx`
 - Footer links are currently pointed to `/maintenance` in:
   - `app/components/layout/Footer.tsx`
 - Home-page CTA buttons are currently pointed to `/maintenance` in:
   - `app/landing/components/about_conference/AboutConferenceSection.tsx`
 
 ### How to restore links when pages are ready again
-1. Open `app/components/layout/Footer.tsx`
-2. Change these links back:
+1. Open `app/components/layout/Header.tsx`
+2. In the `navLinks` array, change these back:
+   - `Speakers` -> `href="/speakers"`
+   - `Schedule` -> `href="/schedule"`
+   - `Partners` -> `href="/partners"`
+3. Open `app/components/layout/Footer.tsx`
+4. Change these links back:
    - `Partners` -> `href="/partners"`
    - `Speakers` -> `href="/speakers"`
    - `Schedule` -> `href="/schedule"`
-3. Open `app/landing/components/about_conference/AboutConferenceSection.tsx`
-4. Change these CTA links back:
+5. Open `app/landing/components/about_conference/AboutConferenceSection.tsx`
+6. Change these CTA links back:
    - `View Schedule` -> `href="/schedule"`
    - `View Speakers` -> `href="/speakers"`
-5. Save files and run `npm run dev` to verify buttons work.
+7. Save files and run `npm run dev` to verify buttons work.
 
 ### Optional cleanup later
 - If you no longer need the maintenance page, you can keep it for future use or remove `app/maintenance/page.tsx`.
@@ -392,5 +402,8 @@ Use this process for safer updates:
 - `public/lib/schedule.json` (session data)
 - `public/lib/speakers.json` (speaker data)
 - `app/landing/components/social_proof/SocialProof.tsx` (testimonials section)
+- `app/maintenance/page.tsx` (temporary maintenance page)
+- `app/components/layout/Header.tsx` (hamburger menu links)
+- `app/components/layout/Footer.tsx` (footer links)
 
 If unsure, make a small change first, run locally, and confirm the result before larger edits.

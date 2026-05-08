@@ -26,12 +26,6 @@ export default function Footer() {
             Schedule
           </Link>
           <Link
-            href="/partners"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
-          >
-            Partners
-          </Link>
-          <Link
             href="/tickets/select"
             className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
           >
