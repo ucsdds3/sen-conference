@@ -16,7 +16,7 @@ export default function Hero() {
         <h1 className="text-white font-bold leading-tight my-4 text-4xl lg:text-6xl">
           Build What Actually Works.
           <br />
-          Learn From People Who've Done It.
+          Learn From People Who&apos;ve Done It.
         </h1>
 
         {/* Subtitle */}

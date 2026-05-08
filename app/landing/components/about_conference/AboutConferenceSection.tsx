@@ -24,7 +24,7 @@ export default function AboutConferenceSection() {
                 What is Blueprint Summit?
               </h3>
               <p className="max-w-prose text-sm leading-relaxed text-white/90 md:text-base">
-                It's a one day, in-person event, consisting of multiple
+                It&apos;s a one day, in-person event, consisting of multiple
                 workshops, panels, interactive sessions, and structured
                 networking. All with people who are actually doing the work.
               </p>

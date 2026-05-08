@@ -10,7 +10,7 @@ export default function NotFound() {
         <p className="text-sen-yorange font-semibold text-lg tracking-wide uppercase">404</p>
         <h1 className="text-sen-blue font-bold text-4xl md:text-5xl">Page not found</h1>
         <p className="text-sen-blue/60 max-w-md text-base md:text-lg">
-          This page doesn't exist. Head back to the conference homepage.
+          This page doesn&apos;t exist. Head back to the conference homepage.
         </p>
         <Link
           href="/"

@@ -18,11 +18,11 @@ const faqs = [
           <strong>how real companies are built, scaled, and operated.</strong>
           <br />
           <br />
-          You'll rotate through workshops, panels, and small-group sessions led
+          You&apos;ll rotate through workshops, panels, and small-group sessions led
           by founders, operators, and builders who are actively doing the work.
           <br />
           <br />
-          Instead of passively listening, you'll engage directly, ask questions,
+          Instead of passively listening, you&apos;ll engage directly, ask questions,
           and see how decisions are made in real businesses across different
           stages and industries.
         </>
@@ -48,8 +48,8 @@ const faqs = [
           </ul>
           <br />
           The goal is simple: you should be able to point to specific insights,
-          decisions, or connections and say, "
-          <em>This changed how I think or act.</em>"
+          decisions, or connections and say, &ldquo;
+          <em>This changed how I think or act.</em>&rdquo;
         </>
       ),
     },
@@ -73,7 +73,7 @@ const faqs = [
             </li>
           </ul>
           <br />
-          If you're looking for inspiration without action, this is not a fit.
+          If you&apos;re looking for inspiration without action, this is not a fit.
           <br />
           <br />
           If you want clarity, direction, and exposure to real operators, it is.
@@ -98,8 +98,8 @@ const faqs = [
           deeper interaction.
           <br />
           <br />
-          If you're not willing to invest in learning from people who are
-          actively building, this isn't for you. If you are, chances are you'll
+          If you&apos;re not willing to invest in learning from people who are
+          actively building, this isn&apos;t for you. If you are, chances are you&apos;ll
           get far more out than you put in.
         </>
       ),

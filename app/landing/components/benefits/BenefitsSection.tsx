@@ -10,7 +10,7 @@ export default function BenefitsSection() {
 
       <div className="relative z-10 flex w-full flex-col px-4 sm:px-6 lg:px-8 bg-sen-blue">
         <h2 className="relative my-6 w-full text-center text-[clamp(2.5rem,7vw,5rem)] font-semibold tracking-tight text-white md:my-8 md:text-left">
-          What You'll Get
+          What You&apos;ll Get
         </h2>
 
         <div className="relative w-full py-4">
