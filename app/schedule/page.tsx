@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 import ScheduleCard from "./components/ScheduleCard";
 import schedule from "../../public/lib/schedule.json";
 
@@ -10,6 +11,19 @@ export default function SchedulePage() {
 
   const prev = () => setActiveIndex((i) => Math.max(0, i - 1));
   const next = () => setActiveIndex((i) => Math.min(schedule.length - 1, i + 1));
+
+  const renderCards = (cardWidth: string, getOffset: (i: number) => number, scaled: boolean) =>
+    schedule.map((event, i) => (
+      <div
+        key={i}
+        className={`absolute top-0 h-full ${cardWidth} px-2 transition-all duration-500 ease-in-out`}
+        style={{ left: `${getOffset(i)}%` }}
+      >
+        <div className={`w-full h-full ${scaled ? `transition-all duration-500 ${i === activeIndex ? "scale-105" : "scale-95 opacity-60"}` : ""}`}>
+          <ScheduleCard {...event} active={i === activeIndex} />
+        </div>
+      </div>
+    ));
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
@@ -24,6 +38,7 @@ export default function SchedulePage() {
           <button
             onClick={prev}
             disabled={activeIndex === 0}
+            aria-label="Previous event"
             className="shrink-0 w-11 h-11 rounded-full bg-sen-yorange flex items-center justify-center shadow disabled:opacity-30 transition-opacity z-10"
           >
             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-sen-blue">
@@ -33,38 +48,19 @@ export default function SchedulePage() {
 
           {/* Mobile carousel — 1 card */}
           <div className="flex-1 relative overflow-hidden aspect-3/4 md:hidden">
-            {schedule.map((event, i) => (
-              <div
-                key={i}
-                className="absolute top-0 h-full w-full px-2 transition-all duration-500 ease-in-out"
-                style={{ left: `${(i - activeIndex) * 100}%` }}
-              >
-                <div className="w-full h-full">
-                  <ScheduleCard {...event} active={i === activeIndex} />
-                </div>
-              </div>
-            ))}
+            {renderCards("w-full", (i) => (i - activeIndex) * 100, false)}
           </div>
 
           {/* Desktop carousel — 3 cards */}
           <div className="flex-1 relative overflow-x-clip overflow-y-visible aspect-9/4 hidden md:block">
-            {schedule.map((event, i) => (
-              <div
-                key={i}
-                className="absolute top-0 h-full w-1/3 px-2 transition-all duration-500 ease-in-out"
-                style={{ left: `${(i - activeIndex + 1) * 33.333}%` }}
-              >
-                <div className={`w-full h-full transition-all duration-500 ${i === activeIndex ? "scale-105" : "scale-95 opacity-60"}`}>
-                  <ScheduleCard {...event} active={i === activeIndex} />
-                </div>
-              </div>
-            ))}
+            {renderCards("w-1/3", (i) => (i - activeIndex + 1) * 33.333, true)}
           </div>
 
           {/* Right arrow */}
           <button
             onClick={next}
             disabled={activeIndex === schedule.length - 1}
+            aria-label="Next event"
             className="shrink-0 w-11 h-11 rounded-full bg-sen-yorange flex items-center justify-center shadow disabled:opacity-30 transition-opacity z-10"
           >
             <svg viewBox="0 0 24 24" className="w-5 h-5 fill-sen-blue">
@@ -79,6 +75,7 @@ export default function SchedulePage() {
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
+              aria-label={`Go to event ${i + 1}`}
               className={`h-2 rounded-full transition-all duration-300 ${
                 i === activeIndex ? "bg-sen-blue w-4" : "bg-sen-blue/30 w-2"
               }`}
@@ -86,6 +83,7 @@ export default function SchedulePage() {
           ))}
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

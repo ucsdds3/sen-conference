@@ -110,7 +110,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative w-screen flex flex-col items-center py-[clamp(4rem,8vw,6rem)] px-[clamp(2rem,5vw,4rem)] bg-white">
+    <section className="relative w-full flex flex-col items-center py-[clamp(4rem,8vw,6rem)] px-[clamp(2rem,5vw,4rem)] bg-white">
       {/* Container */}
       <div className="flex w-full max-w-[clamp(300px,90%,1100px)] gap-[clamp(1rem,3vw,2rem)] flex-col items-center">
         {/* Heading */}
