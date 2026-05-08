@@ -40,8 +40,8 @@ export default function PricingCard({
           {title}
         </h3>
         <ul className="space-y-4 text-base text-black/90 md:text-lg">
-          {features.map((feature, index) => (
-            <li key={index} className="relative pl-7">
+          {features.map((feature) => (
+            <li key={feature} className="relative pl-7">
               <span className="absolute left-0 top-0 text-xl">•</span>
               {feature}
             </li>

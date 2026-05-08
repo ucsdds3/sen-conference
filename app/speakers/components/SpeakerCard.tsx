@@ -69,8 +69,8 @@ export default function SpeakerCard({
           <div>
             <p className="font-bold text-white text-lg mb-3">{name}</p>
             <ul className="space-y-2">
-              {accomplishments.map((a, i) => (
-                <li key={i} className="text-white/80 text-sm leading-snug flex gap-2">
+              {accomplishments.map((a) => (
+                <li key={a} className="text-white/80 text-sm leading-snug flex gap-2">
                   <span className="text-sen-yorange mt-0.5">•</span>
                   {a}
                 </li>

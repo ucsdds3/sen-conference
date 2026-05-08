@@ -15,7 +15,7 @@ export default function SchedulePage() {
   const renderCards = (cardWidth: string, getOffset: (i: number) => number, scaled: boolean) =>
     schedule.map((event, i) => (
       <div
-        key={i}
+        key={event.title}
         className={`absolute top-0 h-full ${cardWidth} px-2 transition-all duration-500 ease-in-out`}
         style={{ left: `${getOffset(i)}%` }}
       >
@@ -71,9 +71,9 @@ export default function SchedulePage() {
 
         {/* Dot indicators */}
         <div className="flex gap-2">
-          {schedule.map((_, i) => (
+          {schedule.map((event, i) => (
             <button
-              key={i}
+              key={`dot-${event.title}`}
               onClick={() => setActiveIndex(i)}
               aria-label={`Go to event ${i + 1}`}
               className={`h-2 rounded-full transition-all duration-300 ${

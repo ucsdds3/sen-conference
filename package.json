@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint app"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.7.0",
@@ -16,8 +16,7 @@
     "nodemailer": "^8.0.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "stripe": "^20.3.1",
-    "vercel": "^50.38.2"
+    "stripe": "^20.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -28,7 +27,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vercel": "^50.38.2"
   },
   "ignoreScripts": [
     "sharp",
