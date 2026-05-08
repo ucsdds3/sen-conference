@@ -306,6 +306,42 @@ const ticketTiers = [
 
 ---
 
+## Temporary Maintenance Mode for Sponsors, Speakers, and Schedule
+
+Sometimes you may want the main site buttons to point to a temporary maintenance page while those pages are being updated.
+
+### What is currently set up
+- A maintenance page exists at: `app/maintenance/page.tsx`
+- It uses this image path: `/assets/rocket-maintenance.png`
+- The original routes still exist and are still accessible by direct URL:
+  - `/partners`
+  - `/speakers`
+  - `/schedule`
+
+### Where link redirects were changed
+- Footer links are currently pointed to `/maintenance` in:
+  - `app/components/layout/Footer.tsx`
+- Home-page CTA buttons are currently pointed to `/maintenance` in:
+  - `app/landing/components/about_conference/AboutConferenceSection.tsx`
+
+### How to restore links when pages are ready again
+1. Open `app/components/layout/Footer.tsx`
+2. Change these links back:
+   - `Partners` -> `href="/partners"`
+   - `Speakers` -> `href="/speakers"`
+   - `Schedule` -> `href="/schedule"`
+3. Open `app/landing/components/about_conference/AboutConferenceSection.tsx`
+4. Change these CTA links back:
+   - `View Schedule` -> `href="/schedule"`
+   - `View Speakers` -> `href="/speakers"`
+5. Save files and run `npm run dev` to verify buttons work.
+
+### Optional cleanup later
+- If you no longer need the maintenance page, you can keep it for future use or remove `app/maintenance/page.tsx`.
+- Do not remove `/partners`, `/speakers`, or `/schedule` pages unless you intentionally want those routes deleted.
+
+---
+
 ## 9) Emergency Recovery Tips
 
 ### Revert bad code changes (safe approach)

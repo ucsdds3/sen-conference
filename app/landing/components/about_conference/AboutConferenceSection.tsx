@@ -47,13 +47,13 @@ export default function AboutConferenceSection() {
 
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
               <Link
-                href="/schedule"
+                href="/maintenance"
                 className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
               >
                 View Schedule ↗
               </Link>
               <Link
-                href="/speakers"
+                href="/maintenance"
                 className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
               >
                 View Speakers ↗

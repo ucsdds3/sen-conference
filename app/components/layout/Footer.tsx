@@ -8,13 +8,19 @@ export default function Footer() {
         {/* Links */}
         <div className="flex w-full h-full justify-evenly items-start md:flex-col md:w-[10vw] md:justify-between">
           <Link
-            href="/speakers"
+            href="/maintenance"
+            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
+          >
+            Partners
+          </Link>
+          <Link
+            href="/maintenance"
             className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
           >
             Speakers
           </Link>
           <Link
-            href="/schedule"
+            href="/maintenance"
             className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
           >
             Schedule
