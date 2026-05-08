@@ -1,77 +1,98 @@
+'use client'
+
 const quotes = [
-  {
-    text: "SEN completely changed how I approach building. The speakers didn't sugarcoat anything — the most honest, practical advice I've gotten as a student founder.",
-    col: "col-start-2 col-end-6",
-    row: "row-start-2",
-    style: { alignSelf: "end", paddingBottom: "clamp(0.5rem, 1vw, 1.25rem)" },
-  },
-  {
-    text: "I came in skeptical and walked out with a co-founder I'd been looking for months. The networking alone made the ticket price feel laughably cheap.",
-    col: "col-start-5 col-end-9",
-    row: "row-start-1",
-    style: { alignSelf: "end", paddingBottom: "clamp(0.5rem, 1vw, 1.25rem)" },
-  },
-  {
-    text: "Finally an event with zero fluff. Real founders, real mistakes, real frameworks. I left with pages of notes I actually used the next week.",
-    col: "col-start-8 col-end-12",
-    row: "row-start-2",
-    style: { alignSelf: "end", paddingBottom: "clamp(0.5rem, 1vw, 1.25rem)" },
-  },
-  {
-    text: "The panels were unlike anything I'd seen on campus. Every speaker had been in the trenches — I filled an entire notebook and still felt like I missed things.",
-    col: "col-start-2 col-end-6",
-    row: "row-start-4",
-    style: { alignSelf: "start", paddingTop: "clamp(0.5rem, 1vw, 1.25rem)" },
-  },
-  {
-    text: "If you have even a seed of a startup idea, you need to be in that room. The energy, the people, the conversations — it accelerated my thinking by months.",
-    col: "col-start-5 col-end-9",
-    row: "row-start-5",
-    style: { alignSelf: "start", paddingTop: "clamp(0.5rem, 1vw, 1.25rem)" },
-  },
-  {
-    text: "I wasn't even planning to network but ended up in a 45-minute conversation that turned into my first investor intro. That connection changed the trajectory of my project.",
-    col: "col-start-8 col-end-12",
-    row: "row-start-4",
-    style: { alignSelf: "start", paddingTop: "clamp(1.5rem, 3vw, 4rem)" },
-  },
+  "SEN completely changed how I approach building. The speakers didn't sugarcoat anything - the most honest, practical advice I've gotten as a student founder.",
+  "I came in skeptical and walked out with a co-founder I'd been looking for months. The networking alone made the ticket price feel laughably cheap.",
+  "Finally an event with zero fluff. Real founders, real mistakes, real frameworks. I left with pages of notes I actually used the next week.",
+  "The panels were unlike anything I'd seen on campus. Every speaker had been in the trenches - I filled an entire notebook and still felt like I missed things.",
+  "If you have even a seed of a startup idea, you need to be in that room. The energy, the people, the conversations - it accelerated my thinking by months.",
+  "I wasn't even planning to network but ended up in a 45-minute conversation that turned into my first investor intro. That connection changed the trajectory of my project.",
 ];
+
+const topCarouselQuotes = [...quotes, ...quotes];
+const bottomCarouselQuotes = [...quotes.slice(2), ...quotes.slice(0, 2), ...quotes.slice(2), ...quotes.slice(0, 2)];
+const reviewers = [
+  { name: "Maya Chen", initial: "M", avatarColor: "bg-blue-500" },
+  { name: "Jordan Patel", initial: "J", avatarColor: "bg-emerald-500" },
+  { name: "Ethan Kim", initial: "E", avatarColor: "bg-purple-500" },
+  { name: "Sofia Nguyen", initial: "S", avatarColor: "bg-rose-500" },
+  { name: "Noah Rivera", initial: "N", avatarColor: "bg-amber-500" },
+  { name: "Ava Thompson", initial: "A", avatarColor: "bg-cyan-500" },
+];
+
+type CarouselRowProps = {
+  items: string[];
+  reverse?: boolean;
+  durationSeconds?: number;
+};
+
+function CarouselRow({
+  items,
+  reverse = false,
+  durationSeconds = 36,
+}: CarouselRowProps) {
+  return (
+    <div className="group relative w-full overflow-hidden">
+      <div
+        className={`flex w-max gap-4 md:gap-6 will-change-transform ${reverse ? "animate-social-proof-marquee-reverse" : "animate-social-proof-marquee"}`}
+        style={{ animationDuration: `${durationSeconds}s` }}
+      >
+        {items.map((quote, index) => (
+          (() => {
+            const reviewer = reviewers[index % reviewers.length];
+
+            return (
+              <article
+                key={`${quote.slice(0, 16)}-${index}`}
+                className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-[#dadce0] bg-slate-50 px-4 py-4 md:px-6 md:py-5"
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`flex h-10 w-10 md:h-11 md:w-11 shrink-0 items-center justify-center rounded-full text-white font-semibold text-sm md:text-base ${reviewer.avatarColor}`}
+                  >
+                    {reviewer.initial}
+                  </div>
+                </div>
+
+                <div className="mt-3 flex items-center gap-0.5 text-[#fbbc04]">
+                  <span aria-hidden>★</span>
+                  <span aria-hidden>★</span>
+                  <span aria-hidden>★</span>
+                  <span aria-hidden>★</span>
+                  <span aria-hidden>★</span>
+                </div>
+
+                <p className="mt-3 text-sm md:text-base leading-relaxed text-[#3c4043]">
+                  &ldquo;{quote}&rdquo;
+                </p>
+              </article>
+            );
+          })()
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function SocialProof() {
   return (
-    <section className="bg-white px-6 md:px-16" style={{ height: "100svh" }}>
-      {/* Mobile layout */}
-      <div className="flex flex-col justify-center items-center gap-6 h-full md:hidden py-12 px-6">
-        <h2 className="font-black tracking-tighter text-sen-blue text-center text-5xl leading-none">
-          500+ students engaged
-        </h2>
-        {quotes.map((q, i) => (
-          <p key={i} className="text-center text-sm font-light text-sen-blue/70 leading-snug max-w-sm">
-            &ldquo;{q.text}&rdquo;
-          </p>
-        ))}
-      </div>
+    <section className="relative min-h-[100svh] bg-white overflow-hidden px-3 sm:px-4 md:px-8 lg:px-12 py-10 md:py-16">
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-20" />
 
-      {/* Desktop word-cloud grid */}
-      <div
-        className="hidden md:grid w-full h-full grid-cols-12 gap-x-8"
-        style={{ gridTemplateRows: "1fr 1fr auto 1fr 1fr" }}
-      >
-        {quotes.map((q, i) => (
-          <p
-            key={i}
-            className={`${q.col} ${q.row} text-center font-light leading-snug text-sen-blue/70 tracking-tight`}
-            style={{ fontSize: "clamp(0.75rem, 1.3vw, 1.5rem)", ...q.style }}
-          >
-            &ldquo;{q.text}&rdquo;
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-[120rem] flex-col items-center justify-center gap-8 md:gap-12">
+        <CarouselRow items={topCarouselQuotes} durationSeconds={40} />
+
+        <div className="mx-auto max-w-4xl text-center px-4">
+          <h2 className="mt-3 font-black tracking-tighter text-sen-blue leading-[0.95] text-[clamp(2.35rem,10vw,7rem)]">
+            500+ Students
+          </h2>
+          <p className="mt-3 md:mt-4 text-sm md:text-lg text-sen-blue/65 leading-relaxed max-w-2xl mx-auto">
+            Builders, founders, and operators who left with practical insights and meaningful connections.
           </p>
-        ))}
-        <h2
-          className="col-start-1 col-end-13 row-start-3 font-black tracking-tighter text-sen-blue leading-none text-center"
-          style={{ fontSize: "clamp(2.5rem, 7vw, 9rem)" }}
-        >
-          500+ students engaged
-        </h2>
+        </div>
+
+        <CarouselRow items={bottomCarouselQuotes} reverse durationSeconds={44} />
       </div>
     </section>
   );

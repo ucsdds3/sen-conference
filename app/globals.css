@@ -1,3 +1,4 @@
+@config "../tailwind.config.js";
 @import "tailwindcss";
 
 @theme {
@@ -17,4 +18,9 @@
 
 .backface-hidden {
   backface-visibility: hidden;
+}
+
+.group:hover .animate-social-proof-marquee,
+.group:hover .animate-social-proof-marquee-reverse {
+  animation-play-state: paused;
 }
