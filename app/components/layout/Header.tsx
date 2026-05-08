@@ -6,9 +6,9 @@ import RegisterButton from "./RegisterButton";
 
 const navLinks = [
   { label: "Home",     href: "/" },
-  { label: "Speakers", href: "/speakers" },
-  { label: "Schedule", href: "/schedule" },
-  { label: "Partners", href: "/partners" },
+  { label: "Speakers", href: "/maintenance" },
+  { label: "Schedule", href: "/maintenance" },
+  { label: "Partners", href: "/maintenance" },
 ];
 
 export default function Header() {
@@ -68,10 +68,17 @@ export default function Header() {
       </div>
 
       {/* Dropdown */}
-      <div id="nav-dropdown" className={`absolute top-full right-6 md:right-10 mt-1 w-44 bg-sen-blue rounded-xl shadow-lg flex flex-col overflow-hidden transition-all duration-300 ${open ? "max-h-64 opacity-100 visible pointer-events-auto" : "max-h-0 opacity-0 invisible pointer-events-none"}`}>
+      <div
+        id="nav-dropdown"
+        className={`absolute top-full right-4 md:right-10 mt-2 w-[min(22rem,calc(100vw-2rem))] bg-sen-blue rounded-xl shadow-lg flex flex-col overflow-hidden transition-all duration-300 ${
+          open
+            ? "max-h-80 opacity-100 visible pointer-events-auto"
+            : "max-h-0 opacity-0 invisible pointer-events-none"
+        }`}
+      >
         {navLinks.map(({ label, href }) => (
           <Link
-            key={href}
+            key={`${label}-${href}`}
             href={href}
             onClick={() => setOpen(false)}
             className="px-5 py-3 text-white font-medium hover:bg-white/10 transition-colors"
@@ -79,7 +86,7 @@ export default function Header() {
             {label}
           </Link>
         ))}
-        <div className="px-5 py-3 sm:hidden">
+        <div className="px-5 py-3 sm:hidden flex justify-center">
           <RegisterButton />
         </div>
       </div>
