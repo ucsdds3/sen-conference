@@ -53,11 +53,11 @@ function CarouselRow({
               </div>
 
               <div className="mt-3 flex items-center gap-0.5 text-[#fbbc04]" aria-label="5 out of 5 stars">
-                <span aria-hidden>★</span>
-                <span aria-hidden>★</span>
-                <span aria-hidden>★</span>
-                <span aria-hidden>★</span>
-                <span aria-hidden>★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
               </div>
 
               <p className="mt-3 text-sm md:text-base leading-relaxed text-[#3c4043]">
