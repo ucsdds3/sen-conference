@@ -37,38 +37,35 @@ function CarouselRow({
         className={`flex w-max gap-4 md:gap-6 will-change-transform ${reverse ? "animate-social-proof-marquee-reverse" : "animate-social-proof-marquee"}`}
         style={{ animationDuration: `${durationSeconds}s` }}
       >
-        {items.map((quote, index) => (
-          (() => {
-            const reviewer = reviewers[index % reviewers.length];
-
-            return (
-              <article
-                key={`${quote.slice(0, 16)}-${index}`}
-                className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-[#dadce0] bg-slate-50 px-4 py-4 md:px-6 md:py-5"
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`flex h-10 w-10 md:h-11 md:w-11 shrink-0 items-center justify-center rounded-full text-white font-semibold text-sm md:text-base ${reviewer.avatarColor}`}
-                  >
-                    {reviewer.initial}
-                  </div>
+        {items.map((quote, index) => {
+          const reviewer = reviewers[index % reviewers.length];
+          return (
+            <article
+              key={`${quote.slice(0, 16)}-${index}`}
+              className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-[#dadce0] bg-slate-50 px-4 py-4 md:px-6 md:py-5"
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`flex h-10 w-10 md:h-11 md:w-11 shrink-0 items-center justify-center rounded-full text-white font-semibold text-sm md:text-base ${reviewer.avatarColor}`}
+                >
+                  {reviewer.initial}
                 </div>
+              </div>
 
-                <div className="mt-3 flex items-center gap-0.5 text-[#fbbc04]">
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                </div>
+              <div className="mt-3 flex items-center gap-0.5 text-[#fbbc04]" aria-label="5 out of 5 stars">
+                <span aria-hidden>★</span>
+                <span aria-hidden>★</span>
+                <span aria-hidden>★</span>
+                <span aria-hidden>★</span>
+                <span aria-hidden>★</span>
+              </div>
 
-                <p className="mt-3 text-sm md:text-base leading-relaxed text-[#3c4043]">
-                  &ldquo;{quote}&rdquo;
-                </p>
-              </article>
-            );
-          })()
-        ))}
+              <p className="mt-3 text-sm md:text-base leading-relaxed text-[#3c4043]">
+                &ldquo;{quote}&rdquo;
+              </p>
+            </article>
+          );
+        })}
       </div>
     </div>
   );

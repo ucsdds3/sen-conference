@@ -45,6 +45,7 @@ export default function Footer() {
           {/* Instagram */}
           <a
             href="https://www.instagram.com/senatucsd/"
+            rel="noopener noreferrer"
             aria-label="Follow SEN on Instagram"
             className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
           >
@@ -90,6 +91,7 @@ export default function Footer() {
           {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/company/sen-ucsandiego/"
+            rel="noopener noreferrer"
             aria-label="SEN on LinkedIn"
             className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
           >
@@ -113,6 +115,7 @@ export default function Footer() {
           {/* Website */}
           <a
             href="https://senatucsd.org/"
+            rel="noopener noreferrer"
             aria-label="SEN website"
             className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
           >

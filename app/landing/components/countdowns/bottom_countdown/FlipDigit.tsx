@@ -34,7 +34,7 @@ export default function FlipDigit({ value }: { value: string }) {
       >
         {/* Front face showing current digit */}
         <div className="absolute inset-0 bg-sen-yorange rounded-xl flex items-center justify-center backface-hidden">
-          <span className="text-black font-black text-[clamp(1.5rem,3vw,2.75rem)] leading-none">
+          <span suppressHydrationWarning className="text-black font-black text-[clamp(1.5rem,3vw,2.75rem)] leading-none">
             {current}
           </span>
         </div>
@@ -44,7 +44,7 @@ export default function FlipDigit({ value }: { value: string }) {
           className="absolute inset-0 bg-sen-yorange rounded-xl flex items-center justify-center backface-hidden"
           style={{ transform: "rotateX(180deg)" }}
         >
-          <span className="text-black font-black text-[clamp(1.5rem,3vw,2.75rem)] leading-none">
+          <span suppressHydrationWarning className="text-black font-black text-[clamp(1.5rem,3vw,2.75rem)] leading-none">
             {value}
           </span>
         </div>

@@ -35,6 +35,7 @@ export default function FAQItem({ question, answer, open, onToggle }: FAQItemPro
       {/* Question */}
       <button
         onClick={onToggle}
+        aria-expanded={open}
         className="
           flex
           relative
@@ -56,6 +57,7 @@ export default function FAQItem({ question, answer, open, onToggle }: FAQItemPro
         <span className="w-full">{question}</span>
         {/* Dropdown Arrow */}
         <span
+          aria-hidden="true"
           className={`
             h-fit
             text-2xl
