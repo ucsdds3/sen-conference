@@ -18,7 +18,7 @@ const ticketTiers = [
       "Networking with attendees and speakers",
     ],
     price: 50,
-    color: "bg-pricing-general",
+    color: "bg-[#D0D0D0]",
   },
   {
     id: "Premium",
@@ -39,7 +39,7 @@ const ticketTiers = [
       "Private, small-group access",
     ],
     price: 100,
-    color: "bg-pricing-vip",
+    color: "bg-[#8FA4C5]",
   },
 ];
 
