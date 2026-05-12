@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Background image */}
       <Image
         src="/assets/rady_hero.jpg"
-        alt="Rady Background"
+        alt=""
         fill
         priority
         className="object-cover object-center brightness-50 -z-10"

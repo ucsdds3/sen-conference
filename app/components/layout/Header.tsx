@@ -37,6 +37,7 @@ export default function Header() {
           alt="SEN Badge"
           width={48}
           height={48}
+          priority
           className="h-10 md:h-12 w-auto shrink-0"
         />
 

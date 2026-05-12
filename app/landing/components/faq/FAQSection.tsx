@@ -123,6 +123,7 @@ export default function FAQSection() {
           {faqs.map((faq, i) => (
             <FAQItem
               key={faq.question}
+              id={i}
               question={faq.question}
               answer={faq.answer}
               open={openIndex === i}

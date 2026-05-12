@@ -1,13 +1,14 @@
 import { ReactNode } from "react";
 
 interface FAQItemProps {
+  id: number;
   question: string;
   answer: ReactNode;
   open: boolean;
   onToggle: () => void;
 }
 
-export default function FAQItem({ question, answer, open, onToggle }: FAQItemProps) {
+export default function FAQItem({ id, question, answer, open, onToggle }: FAQItemProps) {
   const glowColor = "rgba(13, 22, 38, 0.25)";
 
   return (
@@ -37,6 +38,7 @@ export default function FAQItem({ question, answer, open, onToggle }: FAQItemPro
         type="button"
         onClick={onToggle}
         aria-expanded={open}
+        aria-controls={`faq-answer-${id}`}
         className="
           flex
           relative
@@ -73,6 +75,7 @@ export default function FAQItem({ question, answer, open, onToggle }: FAQItemPro
 
       {/* Answer */}
       <div
+        id={`faq-answer-${id}`}
         className={`
           grid
           transition-[grid-template-rows]

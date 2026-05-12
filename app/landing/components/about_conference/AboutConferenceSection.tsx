@@ -50,13 +50,13 @@ export default function AboutConferenceSection() {
                 href="/maintenance"
                 className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
               >
-                View Schedule ↗
+                View Schedule <span aria-hidden="true">↗</span>
               </Link>
               <Link
                 href="/maintenance"
                 className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
               >
-                View Speakers ↗
+                View Speakers <span aria-hidden="true">↗</span>
               </Link>
             </div>
           </div>

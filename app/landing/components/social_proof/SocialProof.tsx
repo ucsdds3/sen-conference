@@ -50,6 +50,7 @@ function CarouselRow({
                 >
                   {reviewer.initial}
                 </div>
+                <p className="font-semibold text-sm md:text-base text-black/80">{reviewer.name}</p>
               </div>
 
               <div className="mt-3 flex items-center gap-0.5 text-sen-yorange" aria-label="5 out of 5 stars">
