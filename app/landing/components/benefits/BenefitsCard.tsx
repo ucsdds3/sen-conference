@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 
 interface BenefitsCardProps {
@@ -30,11 +31,12 @@ export default function BenefitsCard({
           {title}
         </h3>
 
-        <div className="aspect-4/3 w-full overflow-hidden rounded-lg">
-          <img
+        <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg">
+          <Image
             src={imageSrc}
             alt={imageAlt}
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
           />
         </div>
       </div>

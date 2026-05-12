@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import RegisterButton from "./RegisterButton";
 
@@ -31,9 +32,11 @@ export default function Header() {
       {/* Nav row */}
       <div className="flex h-[10vh] min-h-17.5 w-full items-center gap-4 overflow-x-hidden px-6 md:px-10">
         {/* Logo */}
-        <img
+        <Image
           src="/assets/SEN_small_logo.png"
           alt="SEN Badge"
+          width={48}
+          height={48}
           className="h-10 md:h-12 w-auto shrink-0"
         />
 
@@ -59,7 +62,7 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={open}
           aria-controls="nav-dropdown"
-          className="shrink-0 flex flex-col justify-center items-center gap-1.5 w-8 h-8 sm:ml-4 cursor-pointer group"
+          className="shrink-0 flex flex-col justify-center items-center gap-1.5 w-8 h-8 sm:ml-4 cursor-pointer group rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
         >
           <span className={`block h-0.5 w-6 bg-white group-hover:bg-sen-yorange transition-all duration-300 origin-center ${open ? "rotate-45 translate-y-2" : ""}`} />
           <span className={`block h-0.5 w-6 bg-white group-hover:bg-sen-yorange transition-all duration-300 ${open ? "opacity-0" : ""}`} />
@@ -68,7 +71,7 @@ export default function Header() {
       </div>
 
       {/* Dropdown */}
-      <div
+      <nav
         id="nav-dropdown"
         className={`absolute top-full right-4 md:right-10 mt-2 w-[min(22rem,calc(100vw-2rem))] bg-sen-blue rounded-xl shadow-lg flex flex-col overflow-hidden transition-all duration-300 ${
           open
@@ -89,7 +92,7 @@ export default function Header() {
         <div className="px-5 py-3 sm:hidden flex justify-center">
           <RegisterButton />
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

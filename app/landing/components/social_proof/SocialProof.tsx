@@ -42,7 +42,7 @@ function CarouselRow({
           return (
             <article
               key={`${quote.slice(0, 16)}-${index}`}
-              className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-[#dadce0] bg-slate-50 px-4 py-4 md:px-6 md:py-5"
+              className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-black/10 bg-sen-card px-4 py-4 md:px-6 md:py-5"
             >
               <div className="flex items-center gap-3">
                 <div
@@ -52,7 +52,7 @@ function CarouselRow({
                 </div>
               </div>
 
-              <div className="mt-3 flex items-center gap-0.5 text-[#fbbc04]" aria-label="5 out of 5 stars">
+              <div className="mt-3 flex items-center gap-0.5 text-sen-yorange" aria-label="5 out of 5 stars">
                 <span aria-hidden="true">★</span>
                 <span aria-hidden="true">★</span>
                 <span aria-hidden="true">★</span>
@@ -60,7 +60,7 @@ function CarouselRow({
                 <span aria-hidden="true">★</span>
               </div>
 
-              <p className="mt-3 text-sm md:text-base leading-relaxed text-[#3c4043]">
+              <p className="mt-3 text-sm md:text-base leading-relaxed text-black/80">
                 &ldquo;{quote}&rdquo;
               </p>
             </article>

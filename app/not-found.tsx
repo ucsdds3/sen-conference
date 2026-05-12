@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | Blueprint Summit 2026",
+};
 
 export default function NotFound() {
   return (
@@ -14,7 +19,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="rounded-full bg-sen-blue px-8 py-3 text-white font-semibold text-base transition-all duration-200 hover:scale-105 hover:opacity-90"
+          className="rounded-full bg-sen-blue px-8 py-3 text-white font-semibold text-base transition-all duration-200 hover:scale-105 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2"
         >
           Back to home
         </Link>

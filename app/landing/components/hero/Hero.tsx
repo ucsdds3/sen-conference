@@ -1,13 +1,16 @@
+import Image from "next/image";
 import RegisterButton from "../../../components/layout/RegisterButton";
 
 export default function Hero() {
   return (
     <section className="relative z-10 flex flex-1 w-full items-center overflow-hidden">
       {/* Background image */}
-      <img
+      <Image
         src="/assets/rady_hero.jpg"
         alt="Rady Background"
-        className="absolute inset-0 w-full h-full object-cover object-center brightness-50 -z-10"
+        fill
+        priority
+        className="object-cover object-center brightness-50 -z-10"
       />
 
       {/* Hero content */}

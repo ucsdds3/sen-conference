@@ -37,7 +37,7 @@ export default function AboutConferenceSection() {
               <ul className="mb-3 space-y-2 pl-1 text-sm leading-relaxed text-black/80 md:text-base">
                 <li>Student building or planning their first startup</li>
                 <li>Early-stage founder and/or operator</li>
-                <li>Aspiring entrepreneur who want real exposure</li>
+                <li>Aspiring entrepreneur who wants real exposure</li>
                 <li>Person serious about learning from builders</li>
               </ul>
               <p className="text-base font-semibold text-black md:text-lg">

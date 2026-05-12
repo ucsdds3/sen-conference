@@ -34,6 +34,7 @@ export default function FAQItem({ question, answer, open, onToggle }: FAQItemPro
     >
       {/* Question */}
       <button
+        type="button"
         onClick={onToggle}
         aria-expanded={open}
         className="

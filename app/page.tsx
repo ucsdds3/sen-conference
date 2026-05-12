@@ -11,7 +11,7 @@ import BottomCountdownSection from "./landing/components/countdowns/bottom_count
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden">
+    <main className="relative min-h-screen w-full overflow-x-hidden">
       <div className="flex flex-col h-dvh">
         <Header />
         <TopCountdownSection />
@@ -24,6 +24,6 @@ export default function Home() {
       <FAQSection />
       <BottomCountdownSection />
       <Footer />
-    </div>
+    </main>
   );
 }

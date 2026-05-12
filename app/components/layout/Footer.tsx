@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -34,10 +35,12 @@ export default function Footer() {
         </div>
 
         {/* logo */}
-        <img
+        <Image
           src="/assets/SEN_full_logo_light_text.png"
           alt="SEN Logo"
-          className="w-full max-w-xs sm:max-w-sm md:max-w-md justify-center object-contain"
+          width={448}
+          height={127}
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md object-contain"
         />
 
         {/* Social / Stay Connected */}
@@ -45,9 +48,10 @@ export default function Footer() {
           {/* Instagram */}
           <a
             href="https://www.instagram.com/senatucsd/"
+            target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow SEN on Instagram"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +74,7 @@ export default function Footer() {
           <a
             href="mailto:sen@ucsd.edu"
             aria-label="Email SEN"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,9 +95,10 @@ export default function Footer() {
           {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/company/sen-ucsandiego/"
+            target="_blank"
             rel="noopener noreferrer"
             aria-label="SEN on LinkedIn"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -115,9 +120,10 @@ export default function Footer() {
           {/* Website */}
           <a
             href="https://senatucsd.org/"
+            target="_blank"
             rel="noopener noreferrer"
             aria-label="SEN website"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
