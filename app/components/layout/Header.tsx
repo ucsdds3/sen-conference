@@ -15,6 +15,7 @@ const navLinks = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -23,12 +24,21 @@ export default function Header() {
         buttonRef.current?.focus();
       }
     };
+    const handleMouseDown = (e: MouseEvent) => {
+      if (open && headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleMouseDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleMouseDown);
+    };
   }, [open]);
 
   return (
-    <header className="relative z-20 w-full bg-sen-blue">
+    <header ref={headerRef} className="relative z-20 w-full bg-sen-blue">
       {/* Nav row */}
       <div className="flex h-[10vh] min-h-17.5 w-full items-center gap-4 overflow-x-hidden px-6 md:px-10">
         {/* Logo */}

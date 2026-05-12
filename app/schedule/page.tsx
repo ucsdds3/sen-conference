@@ -67,7 +67,7 @@ export default function SchedulePage() {
           {/* Right arrow */}
           <button
             onClick={next}
-            disabled={activeIndex === schedule.length - 1}
+            disabled={schedule.length === 0 || activeIndex === schedule.length - 1}
             aria-label="Next event"
             className="shrink-0 w-11 h-11 rounded-full bg-sen-yorange flex items-center justify-center shadow disabled:opacity-30 transition-opacity z-10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue"
           >

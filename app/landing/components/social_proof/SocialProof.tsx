@@ -34,7 +34,7 @@ function CarouselRow({
   return (
     <div className="group relative w-full overflow-hidden">
       <div
-        className={`flex w-max gap-4 md:gap-6 will-change-transform ${reverse ? "animate-social-proof-marquee-reverse" : "animate-social-proof-marquee"}`}
+        className={`flex w-max gap-4 md:gap-6 will-change-transform group-hover:[animation-play-state:paused] ${reverse ? "animate-social-proof-marquee-reverse" : "animate-social-proof-marquee"}`}
         style={{ animationDuration: `${durationSeconds}s` }}
       >
         {items.map((quote, index) => {
