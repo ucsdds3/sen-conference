@@ -16,7 +16,7 @@ export default function SchedulePage() {
   const renderCards = (cardWidth: string, getOffset: (i: number) => number, scaled: boolean) =>
     schedule.map((event, i) => (
       <div
-        key={i}
+        key={event.startTime}
         className={`absolute top-0 h-full ${cardWidth} px-2 transition-all duration-500 ease-in-out`}
         style={{ left: `${getOffset(i)}%` }}
       >
@@ -45,7 +45,7 @@ export default function SchedulePage() {
           {/* Left arrow */}
           <button
             onClick={prev}
-            disabled={activeIndex === 0}
+            disabled={schedule.length === 0 || activeIndex === 0}
             aria-label="Previous event"
             className="shrink-0 w-11 h-11 rounded-full bg-sen-yorange flex items-center justify-center shadow disabled:opacity-30 transition-opacity z-10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue"
           >

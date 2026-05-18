@@ -75,8 +75,8 @@ function CarouselRow({
 export default function SocialProof() {
   return (
     <section className="relative min-h-[100svh] bg-white overflow-hidden px-3 sm:px-4 md:px-8 lg:px-12 py-10 md:py-16">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-20" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-linear-to-r from-white to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-linear-to-l from-white to-transparent z-20" />
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-[120rem] flex-col items-center justify-center gap-8 md:gap-12">
         <CarouselRow items={topCarouselQuotes} durationSeconds={40} />

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Blueprint Summit 2026",
     description: "SEN’s Startup & Innovation Conference",
     type: "website",
-    images: [{ url: "/assets/SEN_full_logo_light_text.png", width: 448, height: 127 }],
+    images: [{ url: "/assets/SEN_full_logo_light_text.png", width: 914, height: 258 }],
   },
   twitter: {
     card: "summary_large_image",

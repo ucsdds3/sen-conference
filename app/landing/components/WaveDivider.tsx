@@ -17,7 +17,7 @@ export default function WaveDivider({ flipX = false, flipY = false }: { flipX?: 
       >
         <path
           d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z"
-          fill="var(--color-sen-blue)"
+          fill="var(--color-sen-blue, #0d1626)"
         />
       </svg>
     </div>
