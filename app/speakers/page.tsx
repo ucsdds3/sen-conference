@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import SpeakerGrid from "./components/SpeakerGrid";
+
+export const metadata: Metadata = {
+  title: "Speakers | Blueprint Summit 2026",
+  description: "Meet the founders, operators, and builders speaking at Blueprint Summit 2026.",
+};
 
 export default function SpeakersPage() {
   return (

@@ -55,7 +55,7 @@ export default function Header() {
         <div className="flex flex-col text-white gap-1 items-start md:items-end">
           <Link
             href="/"
-            className="font-medium text-xl sm:text-2xl md:text-3xl truncate"
+            className="font-medium text-xl sm:text-2xl md:text-3xl truncate focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Blueprint Summit 2026
           </Link>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export default function Error({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function Error({ reset }: { reset: () => void }) {
   return (
     <main className="min-h-screen bg-white flex flex-col items-center justify-center gap-6 px-6 py-20 text-center">
       <p className="text-sen-yorange font-semibold text-lg tracking-wide uppercase">Error</p>

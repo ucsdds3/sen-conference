@@ -13,6 +13,7 @@ export default function WaveDivider({ flipX = false, flipY = false }: { flipX?: 
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
         className={svgClass}
+        aria-hidden="true"
       >
         <path
           d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z"

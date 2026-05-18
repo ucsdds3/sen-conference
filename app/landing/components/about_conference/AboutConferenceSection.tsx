@@ -48,13 +48,13 @@ export default function AboutConferenceSection() {
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
               <Link
                 href="/maintenance"
-                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
+                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue md:text-lg"
               >
                 View Schedule <span aria-hidden="true">↗</span>
               </Link>
               <Link
                 href="/maintenance"
-                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
+                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue md:text-lg"
               >
                 View Speakers <span aria-hidden="true">↗</span>
               </Link>
@@ -71,6 +71,8 @@ export default function AboutConferenceSection() {
                 src="/assets/about_conference_building.png"
                 alt="Rady School of Management"
                 className="aspect-4/3 w-full object-cover lg:aspect-3/4 lg:min-h-105"
+                loading="lazy"
+                decoding="async"
               />
               <div
                 className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"

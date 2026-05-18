@@ -55,6 +55,10 @@ export default function FAQItem({ id, question, answer, open, onToggle }: FAQIte
           duration-300
           hover:opacity-95
           cursor-pointer
+          focus:outline-none
+          focus-visible:ring-2
+          focus-visible:ring-inset
+          focus-visible:ring-sen-yorange
         "
       >
         <span className="w-full">{question}</span>
