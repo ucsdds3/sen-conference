@@ -52,7 +52,7 @@ export default function Header() {
         />
 
         {/* Title */}
-        <div className="flex flex-col text-white gap-1 items-start md:items-end">
+        <div className="flex flex-col text-white gap-1 items-start md:items-end min-w-0">
           <Link
             href="/"
             className="font-medium text-xl sm:text-2xl md:text-3xl truncate focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
@@ -73,7 +73,7 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={open}
           aria-controls="nav-dropdown"
-          className="shrink-0 flex flex-col justify-center items-center gap-1.5 w-8 h-8 sm:ml-4 cursor-pointer group rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
+          className="shrink-0 flex flex-col justify-center items-center gap-1.5 w-8 h-8 sm:ml-4 cursor-pointer group rounded focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
         >
           <span className={`block h-0.5 w-6 bg-white group-hover:bg-sen-yorange transition-all duration-300 origin-center ${open ? "rotate-45 translate-y-2" : ""}`} />
           <span className={`block h-0.5 w-6 bg-white group-hover:bg-sen-yorange transition-all duration-300 ${open ? "opacity-0" : ""}`} />
@@ -95,7 +95,7 @@ export default function Header() {
             key={`${label}-${href}`}
             href={href}
             onClick={() => setOpen(false)}
-            className="px-5 py-3 text-white font-medium hover:bg-white/10 transition-colors"
+            className="px-5 py-3 text-white font-medium hover:bg-white/10 transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-sen-yorange"
           >
             {label}
           </Link>

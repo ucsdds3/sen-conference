@@ -41,7 +41,7 @@ function CarouselRow({
           const reviewer = reviewers[index % reviewers.length];
           return (
             <article
-              key={`${quote.slice(0, 16)}-${index}`}
+              key={index}
               className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-black/10 bg-sen-card px-4 py-4 md:px-6 md:py-5"
             >
               <div className="flex items-center gap-3">

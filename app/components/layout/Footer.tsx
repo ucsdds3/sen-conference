@@ -10,25 +10,25 @@ export default function Footer() {
         <div className="flex w-full h-full justify-evenly items-start md:flex-col md:w-[10vw] md:justify-between">
           <Link
             href="/maintenance"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
+            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Partners
           </Link>
           <Link
             href="/maintenance"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
+            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Speakers
           </Link>
           <Link
             href="/maintenance"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
+            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Schedule
           </Link>
           <Link
             href="/tickets/select"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors"
+            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Register
           </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow SEN on Instagram"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,6 +63,7 @@ export default function Footer() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <rect x="2" y="2" width="20" height="20" rx="5" />
               <circle cx="12" cy="12" r="4" />
@@ -74,7 +75,7 @@ export default function Footer() {
           <a
             href="mailto:sen@ucsd.edu"
             aria-label="Email SEN"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +87,7 @@ export default function Footer() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="M2 7l10 7 10-7" />
@@ -98,7 +100,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="SEN on LinkedIn"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -110,6 +112,7 @@ export default function Footer() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
               <rect x="2" y="9" width="4" height="12" />
@@ -123,7 +126,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="SEN website"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-sen-yorange focus:ring-offset-2 focus:ring-offset-sen-blue"
+            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -135,6 +138,7 @@ export default function Footer() {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <circle cx="12" cy="12" r="10" />
               <path d="M2 12h20" />

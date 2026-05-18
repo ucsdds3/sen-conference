@@ -77,6 +77,10 @@ export default function SchedulePage() {
           </button>
         </div>
 
+        <div aria-live="polite" aria-atomic="true" className="sr-only">
+          {schedule[activeIndex]?.title ?? ""}
+        </div>
+
         {/* Dot indicators */}
         <div className="flex gap-2">
           {schedule.map((_, i) => (
@@ -84,7 +88,7 @@ export default function SchedulePage() {
               key={`dot-${i}`}
               onClick={() => setActiveIndex(i)}
               aria-label={`Go to event ${i + 1}`}
-              aria-current={i === activeIndex}
+              aria-pressed={i === activeIndex}
               className={`h-2 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue ${
                 i === activeIndex ? "bg-sen-blue w-4" : "bg-sen-blue/30 w-2"
               }`}
