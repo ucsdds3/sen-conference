@@ -16,7 +16,7 @@ export default function SchedulePage() {
   const renderCards = (cardWidth: string, getOffset: (i: number) => number, scaled: boolean) =>
     schedule.map((event, i) => (
       <div
-        key={event.startTime}
+        key={`${event.startTime}-${i}`}
         className={`absolute top-0 h-full ${cardWidth} px-2 transition-all duration-500 ease-in-out`}
         style={{ left: `${getOffset(i)}%` }}
       >

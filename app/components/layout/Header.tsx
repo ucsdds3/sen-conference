@@ -18,16 +18,12 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (!open) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && open) {
-        setOpen(false);
-        buttonRef.current?.focus();
-      }
+      if (e.key === "Escape") { setOpen(false); buttonRef.current?.focus(); }
     };
     const handleMouseDown = (e: MouseEvent) => {
-      if (open && headerRef.current && !headerRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setOpen(false);
     };
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("mousedown", handleMouseDown);

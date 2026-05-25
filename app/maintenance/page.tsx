@@ -23,7 +23,7 @@ export default function MaintenancePage() {
 
         <Link
           href="/"
-          className="mt-4 md:mt-8 inline-flex rounded-full bg-sen-yorange px-8 py-3 text-base font-semibold text-black transition-transform duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sen-blue focus:ring-offset-2"
+          className="mt-4 md:mt-8 inline-flex rounded-full bg-sen-yorange px-8 py-3 text-base font-semibold text-black transition-transform duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-blue focus-visible:ring-offset-2"
         >
           Back to Home
         </Link>

@@ -10,25 +10,25 @@ export default function Footer() {
         <div className="flex w-full h-full justify-evenly items-start md:flex-col md:w-[10vw] md:justify-between">
           <Link
             href="/maintenance"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
+            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Partners
           </Link>
           <Link
             href="/maintenance"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
+            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Speakers
           </Link>
           <Link
             href="/maintenance"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
+            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Schedule
           </Link>
           <Link
             href="/tickets/select"
-            className="uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
+            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
           >
             Register
           </Link>
