@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { ROUTES } from "../../../constants/navigation";
+
+const ctaLinks = [
+  { label: "View Schedule", href: ROUTES.schedule },
+  { label: "View Speakers", href: ROUTES.speakers },
+];
 
 export default function AboutConferenceSection() {
   return (
@@ -46,18 +52,15 @@ export default function AboutConferenceSection() {
             </div>
 
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
-                href="/maintenance"
-                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue md:text-lg"
-              >
-                View Schedule <span aria-hidden="true">↗</span>
-              </Link>
-              <Link
-                href="/maintenance"
-                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue md:text-lg"
-              >
-                View Speakers <span aria-hidden="true">↗</span>
-              </Link>
+              {ctaLinks.map(({ label, href }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue md:text-lg"
+                >
+                  {label} <span aria-hidden="true">↗</span>
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -85,11 +88,11 @@ export default function AboutConferenceSection() {
                 <p className="mt-2 text-lg font-semibold md:text-xl">
                   Rady School of Management
                 </p>
-                <p className="mt-1 text-sm leading-relaxed text-white/85">
+                <address className="mt-1 text-sm leading-relaxed text-white/85 not-italic">
                   10057 Scholars Dr N
                   <br />
                   La Jolla, CA 92093
-                </p>
+                </address>
               </div>
             </div>
           </div>

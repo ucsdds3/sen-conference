@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useFlipCardHover } from "../../hooks/useFlipCardHover";
 
 interface ScheduleCardProps {
   type: string;
@@ -26,23 +27,11 @@ export default function ScheduleCard({
   active,
 }: ScheduleCardProps) {
   const [flipped, setFlipped] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const { transform, mouseHandlers } = useFlipCardHover(flipped, active);
 
   useEffect(() => {
-    if (!active) {
-      const rafId = requestAnimationFrame(() => {
-        setFlipped(false);
-        setHovered(false);
-      });
-      return () => cancelAnimationFrame(rafId);
-    }
+    if (!active) setFlipped(false);
   }, [active]);
-
-  const transform = flipped
-    ? "rotateY(-180deg)"
-    : hovered && active
-    ? "rotateY(-15deg)"
-    : "rotateY(0deg)";
 
   return (
     <div
@@ -51,9 +40,8 @@ export default function ScheduleCard({
     >
       <div
         className="relative w-full h-full transition-transform duration-500"
-        style={{ transformStyle: "preserve-3d", transform }}
-        onMouseEnter={() => { if (!flipped && active) setHovered(true); }}
-        onMouseLeave={() => setHovered(false)}
+        style={{ transformStyle: "preserve-3d", WebkitTransformStyle: "preserve-3d", transform }}
+        {...mouseHandlers}
       >
         {/* Front */}
         <div className="absolute inset-0 rounded-2xl border border-black/10 bg-sen-card flex flex-col justify-between overflow-hidden backface-hidden px-5 py-6">

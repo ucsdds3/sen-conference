@@ -1,5 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ROUTES } from "../../constants/navigation";
+
+const footerNavLinks = [
+  { label: "Partners",  href: ROUTES.partners },
+  { label: "Speakers",  href: ROUTES.speakers },
+  { label: "Schedule",  href: ROUTES.schedule },
+  { label: "Register",  href: ROUTES.tickets },
+];
+
+const navLinkClass = "whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange";
+const socialIconClass = "w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue";
 
 export default function Footer() {
   return (
@@ -7,32 +18,13 @@ export default function Footer() {
       {/* Top Section */}
       <div className="flex flex-col min-h-fit items-center gap-6 px-5 py-6 md:flex-row md:justify-between md:px-10 md:py-8">
         {/* Links */}
-        <div className="flex w-full h-full justify-evenly items-start md:flex-col md:w-[10vw] md:justify-between">
-          <Link
-            href="/maintenance"
-            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
-          >
-            Partners
-          </Link>
-          <Link
-            href="/maintenance"
-            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
-          >
-            Speakers
-          </Link>
-          <Link
-            href="/maintenance"
-            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
-          >
-            Schedule
-          </Link>
-          <Link
-            href="/tickets/select"
-            className="whitespace-nowrap uppercase text-sm sm:text-base md:text-lg hover:text-sen-yorange transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-yorange"
-          >
-            Register
-          </Link>
-        </div>
+        <nav aria-label="Footer navigation" className="flex w-full h-full justify-evenly items-start md:flex-col md:w-[10vw] md:justify-between">
+          {footerNavLinks.map(({ label, href }) => (
+            <Link key={label} href={href} className={navLinkClass}>
+              {label}
+            </Link>
+          ))}
+        </nav>
 
         {/* logo */}
         <Image
@@ -51,7 +43,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow SEN on Instagram"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
+            className={socialIconClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +67,7 @@ export default function Footer() {
           <a
             href="mailto:sen@ucsd.edu"
             aria-label="Email SEN"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
+            className={socialIconClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +92,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="SEN on LinkedIn"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
+            className={socialIconClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +118,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="SEN website"
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
+            className={socialIconClass}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

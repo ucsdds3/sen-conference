@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useFlipCardHover } from "../../hooks/useFlipCardHover";
 
 interface SpeakerCardProps {
   name: string;
@@ -21,20 +21,7 @@ export default function SpeakerCard({
   flipped,
   onFlip,
 }: SpeakerCardProps) {
-  const [hovered, setHovered] = useState(false);
-
-  useEffect(() => {
-    if (!flipped) {
-      const rafId = requestAnimationFrame(() => setHovered(false));
-      return () => cancelAnimationFrame(rafId);
-    }
-  }, [flipped]);
-
-  const transform = flipped
-    ? "rotateY(-180deg)"
-    : hovered
-    ? "rotateY(-15deg)"
-    : "rotateY(0deg)";
+  const { transform, mouseHandlers } = useFlipCardHover(flipped);
 
   return (
     <div
@@ -43,9 +30,8 @@ export default function SpeakerCard({
     >
       <div
         className="relative w-full h-full transition-transform duration-500"
-        style={{ transformStyle: "preserve-3d", transform }}
-        onMouseEnter={() => { if (!flipped) setHovered(true); }}
-        onMouseLeave={() => setHovered(false)}
+        style={{ transformStyle: "preserve-3d", WebkitTransformStyle: "preserve-3d", transform }}
+        {...mouseHandlers}
       >
         {/* Front */}
         <div className="absolute inset-0 rounded-2xl border border-black/10 bg-sen-card flex flex-col overflow-hidden backface-hidden">
@@ -85,7 +71,7 @@ export default function SpeakerCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center shrink-0"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-sen-blue"
                 aria-label={`${name} on LinkedIn`}
               >
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="w-5 h-5 fill-white">
@@ -99,7 +85,7 @@ export default function SpeakerCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center shrink-0"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-sen-blue"
                 aria-label={`Visit ${name}'s website`}
               >
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="w-5 h-5 fill-white">

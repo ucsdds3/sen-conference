@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
+import { getBaseUrl } from "./lib/utils";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -8,11 +9,11 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
-  ),
-  title: "Blueprint Summit 2026",
+  metadataBase: new URL(getBaseUrl("http://localhost:3000")),
+  title: {
+    default: "Blueprint Summit 2026",
+    template: "%s | Blueprint Summit 2026",
+  },
   description: "SEN’s Startup & Innovation Conference",
   icons: {
     icon: "/assets/SEN_small_logo.png"
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
     title: "Blueprint Summit 2026",
     description: "SEN’s Startup & Innovation Conference",
     type: "website",
+    url: getBaseUrl("/"),
     images: [{ url: "/assets/SEN_full_logo_light_text.png", width: 914, height: 258 }],
   },
   twitter: {

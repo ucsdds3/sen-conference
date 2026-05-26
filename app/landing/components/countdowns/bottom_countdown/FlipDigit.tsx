@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
-export default function FlipDigit({ value }: { value: string }) {
+function FlipDigit({ value }: { value: string }) {
   const [current, setCurrent] = useState(value);
   const [rotation, setRotation] = useState(0);
 
@@ -20,7 +20,7 @@ export default function FlipDigit({ value }: { value: string }) {
         clearTimeout(timeout);
       };
     }
-  }, [value, current]);
+  }, [value]);
 
   return (
     <div className="relative aspect-3/4 w-[clamp(45px,5vw,100px)] perspective-[1000px]">
@@ -52,3 +52,5 @@ export default function FlipDigit({ value }: { value: string }) {
     </div>
   );
 }
+
+export default memo(FlipDigit);

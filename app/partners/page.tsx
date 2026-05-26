@@ -1,6 +1,11 @@
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
+import type { Metadata } from "next";
+import PageLayout from "../components/layout/PageLayout";
 import partners from "../../public/lib/partners.json";
+
+export const metadata: Metadata = {
+  title: "Partners",
+  description: "Meet the sponsors and partners supporting Blueprint Summit 2026.",
+};
 
 const tiers = [
   { label: "Platinum", labelColor: "text-platinum",    logoSize: "h-32 w-32" },
@@ -10,8 +15,7 @@ const tiers = [
 
 export default function PartnersPage() {
   return (
-    <main className="min-h-screen bg-white flex flex-col">
-      <Header />
+    <PageLayout>
 
       <div className="flex-1 w-full max-w-6xl mx-auto px-6 md:px-10 py-8 flex flex-col justify-center gap-8">
         {tiers.map(({ label, labelColor, logoSize }) => {
@@ -39,24 +43,24 @@ export default function PartnersPage() {
                         className="h-full w-full object-contain"
                       />
                     ) : (
-                      <div className={`${logoSize} bg-black rounded-lg flex items-center justify-center p-2`}>
-                        <p className="text-white text-xs text-center leading-tight">{partner.name}</p>
+                      <div role="img" aria-label={partner.name} className={`${logoSize} bg-black rounded-lg flex items-center justify-center p-2`}>
+                        <p className="text-white text-xs text-center leading-tight" aria-hidden="true">{partner.name}</p>
                       </div>
                     );
 
                     return partner.website ? (
                       <a
-                        key={`${partner.tier}-${i}`}
+                        key={partner.name}
                         href={partner.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${logoSize} flex items-center justify-center rounded-lg overflow-hidden transition-opacity hover:opacity-75`}
+                        className={`${logoSize} flex items-center justify-center rounded-lg overflow-hidden transition-opacity hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-blue focus-visible:ring-offset-2`}
                       >
                         {logo}
                       </a>
                     ) : (
                       <div
-                        key={`${partner.tier}-${i}`}
+                        key={partner.name}
                         className={`${logoSize} flex items-center justify-center rounded-lg overflow-hidden`}
                       >
                         {logo}
@@ -64,7 +68,9 @@ export default function PartnersPage() {
                     );
                   })
                 ) : (
-                  <div className={`${logoSize} bg-black rounded-lg`} />
+                  <div className={`${logoSize} bg-black rounded-lg flex items-center justify-center p-2`}>
+                    <p className="text-white/40 text-xs text-center leading-tight">Coming soon</p>
+                  </div>
                 )}
               </div>
             </div>
@@ -76,13 +82,12 @@ export default function PartnersPage() {
           If you are interested in sponsoring us, email us at{" "}
           <a
             href="mailto:sen@ucsd.edu"
-            className="underline text-black/80 hover:text-sen-blue transition-colors"
+            className="underline text-black/80 hover:text-sen-blue transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-blue focus-visible:ring-offset-2"
           >
             sen@ucsd.edu
           </a>!
         </p>
       </div>
-      <Footer />
-    </main>
+    </PageLayout>
   );
 }

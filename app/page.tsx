@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import TopCountdownSection from "./landing/components/countdowns/top_countdown/TopCountdownSection";
@@ -8,6 +9,12 @@ import PricingSection from "./landing/components/pricing/PricingSection";
 import SocialProof from "./landing/components/social_proof/SocialProof";
 import FAQSection from "./landing/components/faq/FAQSection";
 import BottomCountdownSection from "./landing/components/countdowns/bottom_countdown/BottomCountdownSection";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

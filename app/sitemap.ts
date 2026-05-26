@@ -1,9 +1,8 @@
 import type { MetadataRoute } from "next";
+import { getBaseUrl } from "./lib/utils";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+  const baseUrl = getBaseUrl();
 
   if (!baseUrl && process.env.NODE_ENV === "development") {
     console.warn("NEXT_PUBLIC_BASE_URL is not set — sitemap URLs will be invalid");

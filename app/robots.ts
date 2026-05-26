@@ -1,9 +1,8 @@
 import type { MetadataRoute } from "next";
+import { getBaseUrl } from "./lib/utils";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+  const baseUrl = getBaseUrl();
 
   return {
     rules: {
