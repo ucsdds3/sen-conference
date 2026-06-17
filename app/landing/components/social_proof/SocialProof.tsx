@@ -34,41 +34,39 @@ function CarouselRow({
   return (
     <div className="group relative w-full overflow-hidden">
       <div
-        className={`flex w-max gap-4 md:gap-6 will-change-transform ${reverse ? "animate-social-proof-marquee-reverse" : "animate-social-proof-marquee"}`}
+        className={`flex w-max gap-4 md:gap-6 will-change-transform group-hover:[animation-play-state:paused] motion-reduce:[animation-play-state:paused] ${reverse ? "animate-social-proof-marquee-reverse" : "animate-social-proof-marquee"}`}
         style={{ animationDuration: `${durationSeconds}s` }}
       >
-        {items.map((quote, index) => (
-          (() => {
-            const reviewer = reviewers[index % reviewers.length];
-
-            return (
-              <article
-                key={`${quote.slice(0, 16)}-${index}`}
-                className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-[#dadce0] bg-slate-50 px-4 py-4 md:px-6 md:py-5"
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`flex h-10 w-10 md:h-11 md:w-11 shrink-0 items-center justify-center rounded-full text-white font-semibold text-sm md:text-base ${reviewer.avatarColor}`}
-                  >
-                    {reviewer.initial}
-                  </div>
+        {items.map((quote, index) => {
+          const reviewer = reviewers[index % reviewers.length];
+          return (
+            <article
+              key={index}
+              className="relative w-[18rem] sm:w-[22rem] md:w-[30rem] shrink-0 rounded-2xl border border-black/10 bg-sen-card px-4 py-4 md:px-6 md:py-5"
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`flex h-10 w-10 md:h-11 md:w-11 shrink-0 items-center justify-center rounded-full text-white font-semibold text-sm md:text-base ${reviewer.avatarColor}`}
+                >
+                  {reviewer.initial}
                 </div>
+                <p className="font-semibold text-sm md:text-base text-black/80">{reviewer.name}</p>
+              </div>
 
-                <div className="mt-3 flex items-center gap-0.5 text-[#fbbc04]">
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                  <span aria-hidden>★</span>
-                </div>
+              <div className="mt-3 flex items-center gap-0.5 text-sen-yorange" role="img" aria-label="5 out of 5 stars">
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+                <span aria-hidden="true">★</span>
+              </div>
 
-                <p className="mt-3 text-sm md:text-base leading-relaxed text-[#3c4043]">
-                  &ldquo;{quote}&rdquo;
-                </p>
-              </article>
-            );
-          })()
-        ))}
+              <p className="mt-3 text-sm md:text-base leading-relaxed text-black/80">
+                &ldquo;{quote}&rdquo;
+              </p>
+            </article>
+          );
+        })}
       </div>
     </div>
   );
@@ -77,8 +75,8 @@ function CarouselRow({
 export default function SocialProof() {
   return (
     <section className="relative min-h-[100svh] bg-white overflow-hidden px-3 sm:px-4 md:px-8 lg:px-12 py-10 md:py-16">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-20" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-24 bg-linear-to-r from-white to-transparent z-20" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-24 bg-linear-to-l from-white to-transparent z-20" />
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-[120rem] flex-col items-center justify-center gap-8 md:gap-12">
         <CarouselRow items={topCarouselQuotes} durationSeconds={40} />

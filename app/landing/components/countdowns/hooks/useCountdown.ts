@@ -1,28 +1,14 @@
 import { useEffect, useState } from "react";
 
 export function useCountdown(targetDate: number) {
-  const [timeLeft, setTimeLeft] = useState<number | null>(null);
+  const [timeLeft, setTimeLeft] = useState(() => targetDate - Date.now());
 
   useEffect(() => {
-    const update = () => {
+    const timer = setInterval(() => {
       setTimeLeft(targetDate - Date.now());
-    };
-
-    update();
-
-    const timer = setInterval(update, 1000);
-
+    }, 1000);
     return () => clearInterval(timer);
   }, [targetDate]);
-
-  if (timeLeft === null) {
-    return {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-    };
-  }
 
   const ms = Math.max(timeLeft, 0);
 

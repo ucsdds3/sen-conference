@@ -1,47 +1,58 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import RegisterButton from "./RegisterButton";
+import { ROUTES } from "../../constants/navigation";
 
 const navLinks = [
-  { label: "Home",     href: "/" },
-  { label: "Speakers", href: "/maintenance" },
-  { label: "Schedule", href: "/maintenance" },
-  { label: "Partners", href: "/maintenance" },
+  { label: "Home",     href: ROUTES.home },
+  { label: "Speakers", href: ROUTES.speakers },
+  { label: "Schedule", href: ROUTES.schedule },
+  { label: "Partners", href: ROUTES.partners },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (!open) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && open) {
-        setOpen(false);
-        buttonRef.current?.focus();
-      }
+      if (e.key === "Escape") { setOpen(false); buttonRef.current?.focus(); }
+    };
+    const handleMouseDown = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setOpen(false);
     };
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleMouseDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleMouseDown);
+    };
   }, [open]);
 
   return (
-    <header className="relative z-20 w-full bg-sen-blue">
+    <header ref={headerRef} className="relative z-20 w-full bg-sen-blue">
       {/* Nav row */}
       <div className="flex h-[10vh] min-h-17.5 w-full items-center gap-4 overflow-x-hidden px-6 md:px-10">
         {/* Logo */}
-        <img
+        <Image
           src="/assets/SEN_small_logo.png"
           alt="SEN Badge"
+          width={48}
+          height={48}
+          priority
           className="h-10 md:h-12 w-auto shrink-0"
         />
 
         {/* Title */}
-        <div className="flex flex-col text-white gap-1 items-start md:items-end">
+        <div className="flex flex-col text-white gap-1 items-start md:items-end min-w-0">
           <Link
             href="/"
-            className="font-medium text-xl sm:text-2xl md:text-3xl truncate"
+            className="font-medium text-xl sm:text-2xl md:text-3xl truncate focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue rounded-sm"
           >
             Blueprint Summit 2026
           </Link>
@@ -59,7 +70,7 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={open}
           aria-controls="nav-dropdown"
-          className="shrink-0 flex flex-col justify-center items-center gap-1.5 w-8 h-8 sm:ml-4 cursor-pointer group"
+          className="shrink-0 flex flex-col justify-center items-center gap-1.5 w-8 h-8 sm:ml-4 cursor-pointer group rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-sen-yorange focus-visible:ring-offset-2 focus-visible:ring-offset-sen-blue"
         >
           <span className={`block h-0.5 w-6 bg-white group-hover:bg-sen-yorange transition-all duration-300 origin-center ${open ? "rotate-45 translate-y-2" : ""}`} />
           <span className={`block h-0.5 w-6 bg-white group-hover:bg-sen-yorange transition-all duration-300 ${open ? "opacity-0" : ""}`} />
@@ -68,7 +79,7 @@ export default function Header() {
       </div>
 
       {/* Dropdown */}
-      <div
+      <nav
         id="nav-dropdown"
         className={`absolute top-full right-4 md:right-10 mt-2 w-[min(22rem,calc(100vw-2rem))] bg-sen-blue rounded-xl shadow-lg flex flex-col overflow-hidden transition-all duration-300 ${
           open
@@ -81,7 +92,7 @@ export default function Header() {
             key={`${label}-${href}`}
             href={href}
             onClick={() => setOpen(false)}
-            className="px-5 py-3 text-white font-medium hover:bg-white/10 transition-colors"
+            className="px-5 py-3 text-white font-medium hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sen-yorange"
           >
             {label}
           </Link>
@@ -89,7 +100,7 @@ export default function Header() {
         <div className="px-5 py-3 sm:hidden flex justify-center">
           <RegisterButton />
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

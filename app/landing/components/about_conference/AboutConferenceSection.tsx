@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { ROUTES } from "../../../constants/navigation";
+
+const ctaLinks = [
+  { label: "View Schedule", href: ROUTES.schedule },
+  { label: "View Speakers", href: ROUTES.speakers },
+];
 
 export default function AboutConferenceSection() {
   return (
@@ -24,7 +30,7 @@ export default function AboutConferenceSection() {
                 What is Blueprint Summit?
               </h3>
               <p className="max-w-prose text-sm leading-relaxed text-white/90 md:text-base">
-                It's a one day, in-person event, consisting of multiple
+                It&apos;s a one day, in-person event, consisting of multiple
                 workshops, panels, interactive sessions, and structured
                 networking. All with people who are actually doing the work.
               </p>
@@ -37,7 +43,7 @@ export default function AboutConferenceSection() {
               <ul className="mb-3 space-y-2 pl-1 text-sm leading-relaxed text-black/80 md:text-base">
                 <li>Student building or planning their first startup</li>
                 <li>Early-stage founder and/or operator</li>
-                <li>Aspiring entrepreneur who want real exposure</li>
+                <li>Aspiring entrepreneur who wants real exposure</li>
                 <li>Person serious about learning from builders</li>
               </ul>
               <p className="text-base font-semibold text-black md:text-lg">
@@ -46,18 +52,15 @@ export default function AboutConferenceSection() {
             </div>
 
             <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
-                href="/maintenance"
-                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
-              >
-                View Schedule ↗
-              </Link>
-              <Link
-                href="/maintenance"
-                className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 md:text-lg"
-              >
-                View Speakers ↗
-              </Link>
+              {ctaLinks.map(({ label, href }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="inline-flex max-w-min cursor-pointer rounded-full bg-sen-yorange px-10 py-3 text-center text-base font-semibold whitespace-nowrap text-black transition-all duration-200 ease-out hover:scale-105 hover:opacity-95 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sen-blue md:text-lg"
+                >
+                  {label} <span aria-hidden="true">↗</span>
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -71,6 +74,8 @@ export default function AboutConferenceSection() {
                 src="/assets/about_conference_building.png"
                 alt="Rady School of Management"
                 className="aspect-4/3 w-full object-cover lg:aspect-3/4 lg:min-h-105"
+                loading="lazy"
+                decoding="async"
               />
               <div
                 className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"
@@ -83,11 +88,11 @@ export default function AboutConferenceSection() {
                 <p className="mt-2 text-lg font-semibold md:text-xl">
                   Rady School of Management
                 </p>
-                <p className="mt-1 text-sm leading-relaxed text-white/85">
+                <address className="mt-1 text-sm leading-relaxed text-white/85 not-italic">
                   10057 Scholars Dr N
                   <br />
                   La Jolla, CA 92093
-                </p>
+                </address>
               </div>
             </div>
           </div>

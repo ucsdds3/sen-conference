@@ -1,5 +1,6 @@
 import PricingCard from "./PricingCard";
 import RegisterButton from "../../../components/layout/RegisterButton";
+import WaveDivider from "../WaveDivider";
 
 type TicketTier = {
   id: string;
@@ -46,31 +47,19 @@ export default function PricingSection() {
   return (
     <>
       {/* top curve */}
-      <div className="block overflow-hidden leading-none bg-white">
-        <svg
-          viewBox="0 0 1200 60"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="block w-full h-32 md:h-40 scale-x-[-1] -mb-px translate-y-px"
-        >
-          <path
-            d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z"
-            fill="#0D1626"
-          />
-        </svg>
-      </div>
+      <WaveDivider flipX />
 
-      <section className="font-editorial relative z-10 w-full bg-sen-blue">
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-10">
+      <section className="relative z-10 w-full bg-sen-blue">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-10">
           <h2 className="relative text-center text-[clamp(2.5rem,7vw,5rem)] font-semibold tracking-tight text-white md:text-right">
             Ticket Pricing
           </h2>
 
           {/* Mobile: vertical stack · lg+: three columns, featured center emphasis */}
           <div className="relative mx-auto mt-8 flex w-full max-w-md flex-col gap-10 lg:max-w-6xl lg:flex-row lg:items-stretch lg:justify-center xl:gap-8">
-            {ticketTiers.map((ticketTier: TicketTier, index: number) => (
+            {ticketTiers.map((ticketTier: TicketTier) => (
               <PricingCard
-                key={index}
+                key={ticketTier.id}
                 title={ticketTier.id}
                 features={ticketTier.features}
                 price={`$${ticketTier.price}`}
@@ -87,19 +76,7 @@ export default function PricingSection() {
       </section>
 
       {/* bottom curve */}
-      <div className="block overflow-hidden leading-none bg-white">
-        <svg
-          viewBox="0 0 1200 60"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="block w-full h-32 md:h-40 scale-y-[-1] mb-px -translate-y-px"
-        >
-          <path
-            d="M0,0 C300,60 900,0 1200,40 L1200,60 L0,60 Z"
-            fill="#0D1626"
-          />
-        </svg>
-      </div>
+      <WaveDivider flipY />
     </>
   );
 }

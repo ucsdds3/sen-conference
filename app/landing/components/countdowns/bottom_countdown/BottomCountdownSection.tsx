@@ -3,8 +3,7 @@
 import { useCountdown } from "../hooks/useCountdown";
 import DigitGroup from "./DigitGroup";
 import RegisterButton from "../../../../components/layout/RegisterButton";
-
-const TARGET_DATE = new Date("2026-11-17T00:00:00-08:00").getTime();
+import { TARGET_DATE } from "../constants";
 
 export default function BottomCountdownSection() {
   const { days, hours, minutes } = useCountdown(TARGET_DATE);
@@ -21,9 +20,9 @@ export default function BottomCountdownSection() {
         </div>
 
         <div className="flex w-full flex-col items-center gap-6 md:flex-row md:items-start md:justify-center">
-          <DigitGroup value={days ?? 0} digits={3} label="DAYS" />
-          <DigitGroup value={hours ?? 0} digits={2} label="HOURS" />
-          <DigitGroup value={minutes ?? 0} digits={2} label="MINUTES" />
+          <DigitGroup value={days} digits={3} label="DAYS" />
+          <DigitGroup value={hours} digits={2} label="HOURS" />
+          <DigitGroup value={minutes} digits={2} label="MINUTES" />
         </div>
 
         {/* Registration button */}
